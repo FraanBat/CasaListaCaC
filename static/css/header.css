@@ -58,10 +58,6 @@ header {
     cursor: pointer;
 }
 
-.menu p::after{
-    content:"Ingresar/Registrarse";
-}
-
 .menu:hover .menu-dropdown{
     display: block;
     position: absolute;
@@ -111,10 +107,6 @@ header {
 
     .menu p{
         font-size: 0.8em;
-    }
-
-    .menu p::after{
-        content:"Ingresar";
     }
 }
 
