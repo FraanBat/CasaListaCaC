@@ -1,0 +1,119 @@
+header {
+    background-color: var(--color-primario-verde);
+    color: var(--color-primario-azul);
+    top: 0;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.encabezado-en-linea{
+    display: inline;
+    vertical-align: middle;
+}
+
+.logo-completo{
+    text-align: center;
+    padding-left: 15px;
+}
+
+.logo-imagen{
+    width: 50px;
+}
+
+.logo-letras{
+    width: 150px;
+}
+
+.buscador{
+    width: 30%;
+    text-align: center;
+}
+
+.buscador input[type=text]{
+    width: 80%;
+}
+
+.menu p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.menu p::after{
+    content:"Ingresar/Registrarse";
+}
+
+@media screen and (max-width: 426px){
+
+    header{
+        height: 80px;
+    }
+
+    .logo-imagen{
+        width: 60px;
+        padding-right: 20px;
+    }
+
+    .logo-letras {
+        display: none;
+    }
+
+    .menu p{
+        font-size: 0.8em;
+    }
+
+    .buscador{
+        width: 50%;
+        text-align: center;
+    }
+
+    .buscador input[type=text]{
+        width: 70%;
+    }
+
+    .buscador-boton {
+        font-size: 0.7em;
+    }
+
+    .menu{
+        padding-right: 20px;
+    }
+
+    .menu .icono{
+        width: 13px;
+    }
+
+    .menu p{
+        font-size: 0.8em;
+    }
+
+    .menu p::after{
+        content:"Ingresar";
+    }
+}
+
+@media screen and (max-width: 320px){
+    .logo-imagen{
+        width: 40px;
+    }
+
+    .buscador input[type=text]{
+        width: 70%;
+        font-size: 0.7em;
+    }
+
+    .buscador-boton {
+        font-size: 0.6em;
+    }
+
+    .menu .icono{
+        width: 10px;
+    }
+
+    .menu p{
+        font-size: 0.7em;
+    }
+}
