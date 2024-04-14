@@ -6,10 +6,6 @@ function validateEmail(email) {
     return reg.test(email)
 }
 
-const loginConfirmado = () => {
-  
-}
-
 login.onclick = () => {
   Swal.fire({
       title: "Loguearse",
@@ -31,8 +27,8 @@ login.onclick = () => {
       .then((result) => {
           if (result.isConfirmed) {
               if (validateEmail(result.value[0])) {
-                loginConfirmado();
-                }
+                Swal.fire(`Listo`);
+              }
               else{
                   Swal.fire(`Datos no válidos`);
               }
