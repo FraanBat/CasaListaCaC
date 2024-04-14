@@ -37,6 +37,22 @@ header {
     width: 80%;
 }
 
+.menu{
+    font-weight: bold;
+    padding-right: 40px;
+}
+
+.menu-dropdown{
+    display: none;
+}
+
+.menu-dropdown a, .menu-dropdown a:visited{
+    text-decoration: none;
+    display: block;
+    background-color: var(--color-primario-verde-opacidad);
+    color: var(--color-primario-azul);
+}
+
 .menu p:hover{
     text-decoration: underline;
     cursor: pointer;
@@ -44,6 +60,13 @@ header {
 
 .menu p::after{
     content:"Ingresar/Registrarse";
+}
+
+.menu:hover .menu-dropdown{
+    display: block;
+    position: absolute;
+    min-width: 165px;
+    text-align: left;
 }
 
 @media screen and (max-width: 426px){
