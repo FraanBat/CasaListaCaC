@@ -36,7 +36,7 @@ main{
     cursor: pointer;
 }
 
-@media screen and (max-width: 425px){
+@media screen and (max-width: 427px){
     #titulo {
         height: 10vh;
     }
@@ -50,7 +50,7 @@ main{
     }
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 321px){
     #titulo h1  {
         font-size: 1em;
     }

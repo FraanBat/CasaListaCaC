@@ -25,14 +25,18 @@ footer > div{
     text-align: center;
 }
 
-@media screen and (max-width: 425px){
+pre {
+    text-align: left;
+}
+
+@media screen and (max-width: 427px){
     footer {
         font-size: 0.8em;
         height: 45px;
     }
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 321px){
     footer {
         font-size: 0.7em;
         height: 35px;
