@@ -4,22 +4,42 @@ const loginTexto = document.getElementById("login-texto")
 const terminosYCondiciones = document.getElementById("TerminosYCondiciones")
 const quienesSomos = document.getElementById("QuienesSomos")
 
-let iniciado = false
 
-const validateEmail = email => {
-    let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
-    return reg.test(email)
+const login_confirmado = iniciado => {
+  if(iniciado){
+    login.innerHTML = ``
+    login.innerHTML = `
+      <p class="encabezado-en-linea" id="login-texto">Bienvenido</p>
+      <div class="menu-dropdown" id="login-opciones">
+          <a href="templates/perfil.html">Perfil</a>
+          <a href="templates/historial.html">Historial</a>
+      </div>`
+  }
+  else{
+    login.innerHTML = ``
+    login.innerHTML = `
+      <img class="encabezado-en-linea icono" src="static/img/header/key.png" alt="llave">
+      <p class="encabezado-en-linea" id="login-texto">Ingresar</p>`
+      localStorage.removeItem("usuarioLogueado")
+  }
 }
 
-const login_confirmado = () => {
-  iniciado = true
-  login.innerHTML = ``
-  login.innerHTML = `
-    <p class="encabezado-en-linea" id="login-texto">Bienvenido</p>
-    <div class="menu-dropdown" id="login-opciones">
-        <a href="templates/perfil.html">Perfil</a>
-        <a href="templates/historial.html">Historial</a>
-    </div>`
+const guardadoLogin = () => {
+  let iniciado
+  if(localStorage.getItem("usuarioLogueado") === null){
+    iniciado = false
+  }
+  else{
+    iniciado = true
+    usuario = localStorage.getItem("usuarioLogueado")
+  }
+  login_confirmado(iniciado)
+  return iniciado
+}
+
+const validateEmail = email => {
+  let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+  return reg.test(email)
 }
 
 login.onclick = () => {
@@ -43,7 +63,9 @@ login.onclick = () => {
         footer: '<a href="templates/registro.html">¿No tienes cuenta? Registrate</a>'
         })
         if (validateEmail(datos_login[0])) {
-          login_confirmado()
+          iniciado = true
+          localStorage.setItem("usuarioLogueado", datos_login[0])
+          login_confirmado(iniciado)
           }
         else{
             Swal.fire(`Datos no válidos`)
@@ -52,9 +74,7 @@ login.onclick = () => {
   }
   else{
     iniciado = false
-    login.innerHTML = `
-      <img class="encabezado-en-linea icono" src="static/img/header/key.png" alt="llave">
-      <p class="encabezado-en-linea" id="login-texto">Ingresar</p>`
+    login_confirmado(iniciado)
   }
 }
 
@@ -76,3 +96,5 @@ quienesSomos.onclick = () => {
     confirmButtonText: "Confirmar"
   });
 }
+
+let iniciado = guardadoLogin()
