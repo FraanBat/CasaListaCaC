@@ -1,4 +1,4 @@
-:root{
+:root {
     --color-primario-verde: #B6DAB8;
     --color-primario-verde-opacidad: rgba(180, 217, 182, 0.5);
     --color-primario-azul: #356194;
@@ -11,11 +11,11 @@
     src: url(../../assets/fonts/Roboto/Roboto-Regular.ttf);
 }
 
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-body{
+body {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
