@@ -1,4 +1,4 @@
-footer {
+footer{
     background-color: var(--color-primario-verde);
     height: 70px;
     position: fixed;
@@ -6,22 +6,22 @@ footer {
     width: 100%;
 }
 
-footer>div {
+footer > div{
     display: flex;
     justify-content: space-between;
     text-align: center;
 }
 
-.footer-en-linea {
+.footer-en-linea{
     margin: 1vw;
 }
 
-.footer-en-linea:hover {
+.footer-en-linea:hover{
     text-decoration: underline;
     cursor: pointer;
 }
 
-.copyright {
+.copyright{
     text-align: center;
 }
 
@@ -29,14 +29,14 @@ pre {
     text-align: left;
 }
 
-@media screen and (max-width: 427px) {
+@media screen and (max-width: 427px){
     footer {
         font-size: 0.8em;
         height: 45px;
     }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 321px){
     footer {
         font-size: 0.7em;
         height: 35px;

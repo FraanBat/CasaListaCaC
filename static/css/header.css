@@ -10,69 +10,68 @@ header {
     align-items: center;
 }
 
-.encabezado-en-linea {
+.encabezado-en-linea{
     display: inline;
     vertical-align: middle;
 }
 
-.logo-completo {
+.logo-completo{
     text-align: center;
     padding-left: 15px;
 }
 
-.logo-imagen {
+.logo-imagen{
     width: 50px;
 }
 
-.logo-letras {
+.logo-letras{
     width: 150px;
 }
 
-.buscador {
+.buscador{
     width: 30%;
     text-align: center;
 }
 
-.buscador input[type=text] {
+.buscador input[type=text]{
     width: 80%;
 }
 
-.menu {
+.menu{
     font-weight: bold;
     padding-right: 40px;
 }
 
-.menu-dropdown {
+.menu-dropdown{
     display: none;
 }
 
-.menu-dropdown a,
-.menu-dropdown a:visited {
+.menu-dropdown a, .menu-dropdown a:visited{
     text-decoration: none;
     display: block;
     background-color: var(--color-primario-verde-opacidad);
     color: var(--color-primario-azul);
 }
 
-.menu p:hover {
+.menu p:hover{
     text-decoration: underline;
     cursor: pointer;
 }
 
-.menu:hover .menu-dropdown {
+.menu:hover .menu-dropdown{
     display: block;
     position: absolute;
     min-width: 165px;
     text-align: left;
 }
 
-@media screen and (max-width: 427px) {
+@media screen and (max-width: 427px){
 
-    header {
+    header{
         height: 80px;
     }
 
-    .logo-imagen {
+    .logo-imagen{
         width: 60px;
         padding-right: 20px;
     }
@@ -81,16 +80,16 @@ header {
         display: none;
     }
 
-    .menu p {
+    .menu p{
         font-size: 0.8em;
     }
 
-    .buscador {
+    .buscador{
         width: 50%;
         text-align: center;
     }
 
-    .buscador input[type=text] {
+    .buscador input[type=text]{
         width: 70%;
     }
 
@@ -98,25 +97,25 @@ header {
         font-size: 0.7em;
     }
 
-    .menu {
+    .menu{
         padding-right: 20px;
     }
 
-    .menu .icono {
+    .menu .icono{
         width: 13px;
     }
 
-    .menu p {
+    .menu p{
         font-size: 0.8em;
     }
 }
 
-@media screen and (max-width: 321px) {
-    .logo-imagen {
+@media screen and (max-width: 321px){
+    .logo-imagen{
         width: 40px;
     }
 
-    .buscador input[type=text] {
+    .buscador input[type=text]{
         width: 70%;
         font-size: 0.7em;
     }
@@ -125,11 +124,11 @@ header {
         font-size: 0.6em;
     }
 
-    .menu .icono {
+    .menu .icono{
         width: 10px;
     }
 
-    .menu p {
+    .menu p{
         font-size: 0.7em;
     }
 }

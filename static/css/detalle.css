@@ -1,13 +1,3 @@
-:root {
-    --color-fondo-header-footer: #B6DAB8;
-    --colo-naranja: #EB7C00;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
 main {
     margin-top: 10vh;
     margin-bottom: 15vh;
@@ -60,11 +50,11 @@ main {
     border-radius: 1.5%;
 }
 
-h4 {
+main h4 {
     margin-left: 2%;
 }
 
-p {
+main p {
     margin: 2%;
 }
 
