@@ -1,6 +1,4 @@
 const login = document.getElementById("login")
-const terminosYCondiciones = document.getElementById("TerminosYCondiciones")
-const quienesSomos = document.getElementById("QuienesSomos")
 
 
 const login_confirmado = iniciado => {
@@ -17,7 +15,7 @@ const login_confirmado = iniciado => {
   else{
     login.innerHTML = ``
     login.innerHTML = `
-      <img class="encabezado-en-linea icono" src="static/img/header/key.png" alt="llave">
+      <img class="encabezado-en-linea icono" src="../static/img/header/key.png" alt="llave">
       <p class="encabezado-en-linea">Ingresar</p>`
       localStorage.removeItem("usuarioLogueado")
   }
@@ -76,25 +74,6 @@ login.onclick = () => {
 const cerrarSesion = () => {
   iniciado = false
   login_confirmado(iniciado)
-}
-
-terminosYCondiciones.onclick = () => {
-  Swal.fire({
-    title: "Términos y condiciones",
-    text: "Casa Lista nunca compartirá sus datos personales, más allá de su nombre, apellido, zona en donde vive y número de teléfono",
-    icon: "info",
-    confirmButtonText: "Confirmar"
-  });
-}
-
-quienesSomos.onclick = () => {
-  const equipo = "Desarrolladores:\n- Eduardo Ojeda\n- Franco Andres Riggio\n- Silvia Gomez\nUI/UX:\n- Noelia Sciorra"
-  Swal.fire({
-    title: "¿Quiénes somos?",
-    icon: "info",
-    html: '<pre>' + equipo + '</pre>',
-    confirmButtonText: "Confirmar"
-  });
 }
 
 let iniciado = guardadoLogin()
