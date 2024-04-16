@@ -1,6 +1,4 @@
 const login = document.getElementById("login")
-const loginOpciones = document.getElementById("login-opciones")
-const loginTexto = document.getElementById("login-texto")
 const terminosYCondiciones = document.getElementById("TerminosYCondiciones")
 const quienesSomos = document.getElementById("QuienesSomos")
 
@@ -9,17 +7,18 @@ const login_confirmado = iniciado => {
   if(iniciado){
     login.innerHTML = ``
     login.innerHTML = `
-      <p class="encabezado-en-linea" id="login-texto">Bienvenido</p>
+      <p class="encabezado-en-linea">Bienvenido</p>
       <div class="menu-dropdown" id="login-opciones">
           <a href="templates/perfil.html">Perfil</a>
           <a href="templates/historial.html">Historial</a>
+          <a href="../index.html" id="cerrar_sesion" onclick="cerrarSesion()">Cerrar Sesión</a>
       </div>`
   }
   else{
     login.innerHTML = ``
     login.innerHTML = `
       <img class="encabezado-en-linea icono" src="static/img/header/key.png" alt="llave">
-      <p class="encabezado-en-linea" id="login-texto">Ingresar</p>`
+      <p class="encabezado-en-linea">Ingresar</p>`
       localStorage.removeItem("usuarioLogueado")
   }
 }
@@ -72,10 +71,11 @@ login.onclick = () => {
         }
     })()
   }
-  else{
-    iniciado = false
-    login_confirmado(iniciado)
-  }
+}
+
+const cerrarSesion = () => {
+  iniciado = false
+  login_confirmado(iniciado)
 }
 
 terminosYCondiciones.onclick = () => {
