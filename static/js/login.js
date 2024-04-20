@@ -1,6 +1,10 @@
 const login = document.getElementById("login")
+const especialidades = document.getElementsByClassName("especialidad-opcion")
+
+//-------------------------------------------------
 
 
+//En función de si el usuario está o no logueado, refleja el contenido del header
 const login_confirmado = iniciado => {
   if(iniciado){
     login.innerHTML = ``
@@ -21,59 +25,89 @@ const login_confirmado = iniciado => {
   }
 }
 
+
+//Valida si el usuario está logueado y esto se guardó localmente. En base a ello, cambia el contenido del header
 const guardadoLogin = () => {
-  let iniciado
   if(localStorage.getItem("usuarioLogueado") === null){
-    iniciado = false
+    return false
   }
   else{
-    iniciado = true
-    usuario = localStorage.getItem("usuarioLogueado")
+    return true
   }
-  login_confirmado(iniciado)
-  return iniciado
 }
 
-const validateEmail = email => {
+//Valida que el campo ingresado sea un mail
+const validarEmail = email => {
   let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
   return reg.test(email)
 }
 
-login.onclick = () => {
-  if(!iniciado)
-  {
-    (async () => {
-        const { value: datos_login } = await Swal.fire({
-          title: "Loguearse",
-          html:
-          'Email: <input type="email" id="swal-input1" class="swal2-input">' +
-          'Clave: <input type="password" id="swal-input2" class="swal2-input">',
-        focusConfirm: false,
-        preConfirm: () => {
-          return [
-            document.getElementById('swal-input1').value,
-            document.getElementById('swal-input2').value
-          ]
-        },
-        confirmButtonColor: "#356194",
-        confirmButtonText: "Ingresar",
-        footer: '<a href="templates/registro.html">¿No tienes cuenta? Registrate</a>'
-        })
-        if (validateEmail(datos_login[0])) {
-          iniciado = true
-          localStorage.setItem("usuarioLogueado", datos_login[0])
-          login_confirmado(iniciado)
-          }
-        else{
-            Swal.fire(`Datos no válidos`)
-        }
-    })()
+//Al seleccionar una especialidad, valida que el usuario haya iniciado sesión. Si no lo hizo, le pide que se loguee
+const validarLogin = iniciado => {
+  if(guardadoLogin(iniciado)){
+    window.location.replace("templates/servicios.html")
+  }
+  else{
+    loginUsuario()
   }
 }
 
+//Muestra el popup para que el usuario incie sesión
+const loginUsuario = () => {
+  (async () => {
+    const { value: datos_login } = await Swal.fire({
+      title: "Loguearse",
+      html:
+      'Email: <input type="email" id="swal-input1" class="swal2-input">' +
+      'Clave: <input type="password" id="swal-input2" class="swal2-input">',
+    focusConfirm: false,
+    preConfirm: () => {
+      return [
+        document.getElementById('swal-input1').value,
+        document.getElementById('swal-input2').value
+      ]
+    },
+    confirmButtonColor: "#356194",
+    confirmButtonText: "Ingresar",
+    footer: '<a href="templates/registro.html">¿No tienes cuenta? Registrate</a>'
+    })
+    if (validarEmail(datos_login[0])) {
+      localStorage.setItem("usuarioLogueado", datos_login[0])
+      login_confirmado(true)
+      }
+    else{
+        Swal.fire(`Datos no válidos`)
+    }
+})()
+}
+
+
+//Si se hace click en el texto para ingresar, y el usuario no está logueado, solicita que lo haga
+login.onclick = () => {
+  if(!guardadoLogin())
+  {
+    loginUsuario()
+  }
+}
+
+//Cierra sesión del usuario
 const cerrarSesion = () => {
   iniciado = false
   login_confirmado(iniciado)
 }
 
+//Permite que el usuario pueda elegir distintas especialidades al cargar la página
+const inicailizacionEspecialidades = () => {
+  for(let i =0; i < especialidades.length; i++) {
+    especialidades[i].addEventListener('click', function(){
+      validarLogin(iniciado)
+    });
+  }
+}
+
+// --------------------------------------
+
+inicailizacionEspecialidades()
+
 let iniciado = guardadoLogin()
+login_confirmado(iniciado)
