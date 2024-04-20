@@ -8,7 +8,11 @@ main {
 
 }
 
-
+a {
+    margin: 5%;
+    width: 30%;
+    font-size: 5vh;
+}
 
 .fila1 {
     margin-left: 6%;
@@ -28,7 +32,7 @@ main {
     border-radius: 30%;
     width: 80%;
     height: 100%;
-    border: double var(--color-fondo-header-footer);
+
 }
 
 .medio {
@@ -47,7 +51,7 @@ main {
     margin-left: 4%;
     margin-right: 4%;
     background-color: rgb(218, 210, 210);
-    border-radius: 1.5%;
+    border-radius: 50px;
 }
 
 main h4 {
@@ -62,6 +66,25 @@ main p {
     margin-top: 2%;
     margin-right: 3%;
     text-align: right;
+}
+
+.boton {
+    width: 30%;
+    background-color: #308df8;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    letter-spacing: 4px;
+    transition-property: background-color, border, color;
+    border-radius: 10px;
+    border: solid #B6DAB8;
+
+}
+
+.boton:hover {
+    background-color: white;
+    border: double #308df8;
+    color: #308df8;
 }
 
 @media screen and (max-width:768px) {
@@ -81,6 +104,10 @@ main p {
 }
 
 @media screen and (max-width:425px) {
+    main {
+        margin-top: 15vh;
+    }
+
     .fila1 {
         margin-left: 6%;
         display: grid;
@@ -109,5 +136,14 @@ main p {
 
     .derecha {
         text-align: center;
+    }
+
+    .fila3 {
+        margin-top: 2%;
+        text-align: center;
+    }
+
+    .boton {
+        width: 50%;
     }
 }

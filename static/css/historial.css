@@ -11,8 +11,12 @@ main section {
     margin-top: 1.5%;
     margin-bottom: 1.5%;
     width: 70%;
+    border-radius: 20px;
 
+}
 
+main section:hover {
+    border: outset #B6DAB8;
 }
 
 .en-linea {
@@ -35,7 +39,11 @@ main div {
     width: 20vw;
     height: 34vh;
     border-radius: 30%;
-    border: double #356194;
+    border: outset #356194;
+}
+
+.foto:hover {
+    border: outset #B6DAB8;
 }
 
 .derecha {
@@ -50,6 +58,27 @@ main h2 {
 
 main p {
     margin-top: 10%;
+}
+
+
+
+.boton {
+    width: 100%;
+    background-color: white;
+    color: #356194;
+    text-decoration: none;
+    font-size: 1.5em;
+    letter-spacing: 4px;
+    transition-property: background-color, border, color;
+    border-radius: 10px;
+    border: double white;
+
+}
+
+.boton:hover {
+    background-color: white;
+    border: ridge #308df8;
+    color: #308df8;
 }
 
 
