@@ -15,27 +15,27 @@ const mostrarEspecialistas = listadoEspecialistas => {
         nuevoEspecialista.className = "especialista"
         nuevoEspecialista.innerHTML = 
         `
-        <div>
-            <a href="detalle.html">
+        <a href="detalle.html?id_especialista=${especialista.id}">
+            <div>
                 <img class="foto" src="${especialista.foto_perfil}" alt="">
-            </a>
-        </div>
-        <div>
-            <br> <br><br>
-            <a href="detalle.html">
-                <h4>${especialista.profesion}<br>
-                    ${especialista.apellido} ${especialista.nombre}
-                </h4>
-            </a>
-        </div>
-        <div class="descripcion">
-            <br>
-            <h4>Descripción:</h4><br>
-            <p>
-                ${especialista.descripcion}
-            </p>
-            <br>
-        </div>
+            </div>
+            <div>
+                <br> <br><br>
+                <a href="detalle.html?id_especialista=${especialista.id}">
+                    <h4>${especialista.profesion}<br>
+                        ${especialista.apellido} ${especialista.nombre}
+                    </h4>
+                </a>
+            </div>
+            <div class="descripcion">
+                <br>
+                <h4>Descripción:</h4><br>
+                <p>
+                    ${especialista.descripcion}
+                </p>
+                <br>
+            </div>
+        </a>
         `
         especialistaDisponible.push(nuevoEspecialista)
     })
