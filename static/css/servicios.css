@@ -3,9 +3,11 @@ main {
     margin-bottom: 15vh;
 }
 
+main h2{
+    text-align: center;
+}
 
-
-main section {
+main .especialista {
     margin-left: 5%;
     margin-top: 2.5%;
     margin-bottom: 1.5%;
@@ -17,9 +19,7 @@ main section {
 
 }
 
-
-
-main div {
+main section {
     margin-left: 4%;
 
 }
@@ -49,7 +49,7 @@ main p {
 
 @media screen and (max-width:425px) {
 
-    main section {
+    main .especialista {
         margin-left: 5%;
         margin-top: 2.5%;
         margin-bottom: 1.5%;
@@ -60,7 +60,7 @@ main p {
 
     }
 
-    main div {
+    main section {
         margin-left: 3%;
 
     }

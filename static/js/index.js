@@ -1,5 +1,4 @@
 const login = document.getElementById("login")
-const especialidades = document.getElementsByClassName("especialidad-opcion")
 
 //-------------------------------------------------
 
@@ -43,9 +42,10 @@ const validarEmail = email => {
 }
 
 //Al seleccionar una especialidad, valida que el usuario haya iniciado sesión. Si no lo hizo, le pide que se loguee
-const validarLogin = iniciado => {
+const validarLogin = (iniciado, especialidad) => {
+  console.log(especialidad)
   if(guardadoLogin(iniciado)){
-    window.location.replace("templates/servicios.html")
+    window.location.replace("templates/servicios.html?especialidad=" + especialidad)
   }
   else{
     loginUsuario()
@@ -96,18 +96,7 @@ const cerrarSesion = () => {
   login_confirmado(iniciado)
 }
 
-//Permite que el usuario pueda elegir distintas especialidades al cargar la página
-const inicailizacionEspecialidades = () => {
-  for(let i =0; i < especialidades.length; i++) {
-    especialidades[i].addEventListener('click', function(){
-      validarLogin(iniciado)
-    });
-  }
-}
-
 // --------------------------------------
-
-inicailizacionEspecialidades()
 
 let iniciado = guardadoLogin()
 login_confirmado(iniciado)
