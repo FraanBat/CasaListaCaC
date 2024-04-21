@@ -15,11 +15,15 @@ main .especialista {
     display: grid;
     grid-template-columns: 25% 25% 50%;
     grid-template-rows: 100%;
+    color: black;
 }
 
+.especialista:hover {
+    border: double #356194;
+    color: #356194;
+}
 main section {
     margin-left: 4%;
-
 }
 
 .foto {

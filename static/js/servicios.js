@@ -54,25 +54,27 @@ const mostrarEspecialistas = listadoEspecialistas => {
         nuevoEspecialista.className = "especialista"
         nuevoEspecialista.innerHTML = 
         `
-        <a href="detalle.html?id_especialista=${especialista.id}">
+        <a class="linea" href="detalle.html?id_especialista=${especialista.id}">
             <div>
-                <img class="foto" src="${especialista.foto_perfil}" alt="">
-            </div>
-            <div>
-                <br> <br><br>
-                <a href="detalle.html?id_especialista=${especialista.id}">
-                    <h4>${especialista.profesion}<br>
-                        ${especialista.apellido} ${especialista.nombre}
-                    </h4>
-                </a>
-            </div>
-            <div class="descripcion">
-                <br>
-                <h4>Descripción:</h4><br>
-                <p>
-                    ${especialista.descripcion}
-                </p>
-                <br>
+                <div>
+                    <img class="foto" src="${especialista.foto_perfil}" alt="">
+                </div>
+                <div>
+                    <br> <br><br>
+                    <a href="detalle.html?id_especialista=${especialista.id}">
+                        <h4>${especialista.profesion}<br>
+                            ${especialista.apellido} ${especialista.nombre}
+                        </h4>
+                    </a>
+                </div>
+                <div class="descripcion">
+                    <br>
+                    <h4>Descripción:</h4><br>
+                    <p>
+                        ${especialista.descripcion}
+                    </p>
+                    <br>
+                </div>
             </div>
         </a>
         `
