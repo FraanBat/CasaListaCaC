@@ -12,25 +12,25 @@
 </head>
 
 <body>
-    <!-- header -->
+    <!-- header main footer-->
     <header>
         <div class="logo-completo">
             <img class="encabezado-en-linea logo-imagen" src="../static/img/header/logo/logo.png" alt="logo">
             <img class="encabezado-en-linea logo-letras" src="../static/img/header/logo/letras.png" alt="casalista">
         </div>
-        
-            <form class="buscador" action="" method="get">
-                <input type="text" name="especialidad" id="especialidad" placeholder="Especialidad...">
-                <input class="buscador-boton" type="submit" value="🔍">
-            </form>
-            <div class="menu" id="login">
-            </div>
+
+        <form class="buscador" action="" method="get">
+            <input type="text" name="especialidad" id="especialidad" placeholder="Especialidad...">
+            <input class="buscador-boton" type="submit" value="🔍">
+        </form>
+        <div class="menu" id="login">
+        </div>
     </header>
     <main>
         <section>
             <div class="en-linea">
                 <div class="imagenes">
-                    <button type="button">Volver >></button>
+                    <a class="volver" href="historial.html">⏪ </a>
                     <img class="foto" src="../static/img/fotos/images (1).jpg" alt="imagen">
                 </div>
                 <div class="derecha">
@@ -99,7 +99,7 @@
                         <textarea name="comentario" id="comentario" cols="40" rows="5" maxlength="200"></textarea>
                         <br><br><br>
                         <div class="booton">
-                            <strong><input class="form-control btn btn-primary" type="submit" value="Enviar "></strong>
+                            <strong><button class="boton">Enviar</button></strong>
                         </div>
                     </form>
 
@@ -116,7 +116,7 @@
             <p class="footer-en-linea">FAQ</p>
             <p class="footer-en-linea" id="QuienesSomos">¿Quíenes somos?</p>
         </div>
-            <p class="copyright">&copy; Copyright 2024</p>
+        <p class="copyright">&copy; Copyright 2024</p>
     </footer>
     <script src="../static/js/login.js"></script>
     <script src="../static/js/footer.js"></script>

@@ -5,7 +5,7 @@ main {
 
 
 
-main section {
+.caja {
     margin-left: 5%;
     margin-top: 2.5%;
     margin-bottom: 1.5%;
@@ -13,10 +13,18 @@ main section {
     display: grid;
     grid-template-columns: 25% 25% 50%;
     grid-template-rows: 100%;
-
+    color: black;
 
 }
 
+.caja:hover {
+    border: double #356194;
+    color: #356194;
+}
+
+.linea {
+    text-decoration: none;
+}
 
 
 main div {
@@ -29,13 +37,14 @@ main div {
     width: 20vw;
     height: 34vh;
     border-radius: 30%;
-    border: double #356194;
+    border: outset #356194;
 }
+
 
 
 .descripcion {
     background-color: rgb(221, 212, 212);
-    border-radius: 1%
+    border-radius: 50px;
 }
 
 main h4 {
@@ -49,7 +58,7 @@ main p {
 
 @media screen and (max-width:425px) {
 
-    main section {
+    .caja {
         margin-left: 5%;
         margin-top: 2.5%;
         margin-bottom: 1.5%;
@@ -67,9 +76,41 @@ main p {
 
     .foto {
         margin: 5%;
-        width: 70%;
+        width: 60%;
         height: 100%;
         border-radius: 30%;
-        border: double #356194;
+        border: outset #356194;
     }
+}
+
+@media screen and (min-width:1024px) {
+    .foto {
+        height: 80%;
+    }
+
+    h4 {
+        font-size: 3vh;
+    }
+}
+
+@media screen and (width:768px) {
+    .caja {
+        grid-template-columns: 40% 20% 40%;
+    }
+
+    .foto {
+        width: 30vh;
+    }
+
+}
+
+@media screen and (width:768px) {
+    .caja {
+        grid-template-columns: 40% 20% 40%;
+    }
+
+    .foto {
+        width: 30vh;
+    }
+
 }
