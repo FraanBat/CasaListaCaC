@@ -5,7 +5,7 @@ main {
 
 
 
-.caja {
+.especialista {
     margin-left: 5%;
     margin-top: 2.5%;
     margin-bottom: 1.5%;
@@ -17,19 +17,22 @@ main {
 
 }
 
-.caja:hover {
-    border: double #356194;
-    color: #356194;
+.especialista:hover {
+    border: double var(--color-primario-azul);
+    color: var(--color-primario-azul);
 }
 
-.linea {
+.especialista {
     text-decoration: none;
 }
 
 
 main div {
     margin-left: 4%;
+}
 
+main h2 {
+    text-align: center;
 }
 
 .foto {
@@ -37,10 +40,8 @@ main div {
     width: 20vw;
     height: 34vh;
     border-radius: 30%;
-    border: outset #356194;
+    border: outset var(--color-primario-azul);
 }
-
-
 
 .descripcion {
     background-color: rgb(221, 212, 212);
@@ -56,9 +57,30 @@ main p {
     margin: 2%;
 }
 
-@media screen and (max-width:425px) {
+@media screen and (min-width:1025px) {
+    .foto {
+        height: 80%;
+    }
 
-    .caja {
+    main h4 {
+        font-size: 3vh;
+    }
+}
+
+@media screen and (width:769px) {
+    .especialista {
+        grid-template-columns: 40% 20% 40%;
+    }
+
+    .foto {
+        width: 10vh;
+    }
+
+}
+
+@media screen and (max-width:426px) {
+
+    .especialista {
         margin-left: 5%;
         margin-top: 2.5%;
         margin-bottom: 1.5%;
@@ -66,51 +88,33 @@ main p {
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: 25% 25% 50%;
-
     }
 
     main div {
         margin-left: 3%;
-
     }
 
     .foto {
         margin: 5%;
-        width: 60%;
-        height: 100%;
-        border-radius: 30%;
-        border: outset #356194;
-    }
-}
-
-@media screen and (min-width:1024px) {
-    .foto {
+        width: 40%;
         height: 80%;
+        border-radius: 30%;
+        border: outset var(--color-primario-azul);
     }
 
-    h4 {
+    main h4 {
         font-size: 3vh;
+        margin-top: 3%;
+    }
+
+    .descripcion{
+        margin-top: 3vh;
     }
 }
 
-@media screen and (width:768px) {
-    .caja {
-        grid-template-columns: 40% 20% 40%;
+@media screen and (max-width:321px) {
+    main h4 {
+        margin-top: 0%;
+        padding-left: 5%;
     }
-
-    .foto {
-        width: 30vh;
-    }
-
-}
-
-@media screen and (width:768px) {
-    .caja {
-        grid-template-columns: 40% 20% 40%;
-    }
-
-    .foto {
-        width: 30vh;
-    }
-
 }
