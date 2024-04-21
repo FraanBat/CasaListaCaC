@@ -56,7 +56,7 @@ main p {
     margin: 2%;
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:427px) {
 
     .caja {
         margin-left: 5%;
@@ -83,7 +83,7 @@ main p {
     }
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:1023px) {
     .foto {
         height: 80%;
     }
@@ -91,17 +91,6 @@ main p {
     h4 {
         font-size: 3vh;
     }
-}
-
-@media screen and (width:768px) {
-    .caja {
-        grid-template-columns: 40% 20% 40%;
-    }
-
-    .foto {
-        width: 30vh;
-    }
-
 }
 
 @media screen and (width:768px) {

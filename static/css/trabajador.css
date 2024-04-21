@@ -78,7 +78,7 @@ main {
     color: #B6DAB8;
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:427px) {
     main {
         margin-top: 15vh;
         margin-bottom: 10vh;
@@ -124,7 +124,9 @@ main {
         margin-bottom: 3%;
     }
 
-
+    .boton {
+        width: 100%;
+    }
 }
 
 
