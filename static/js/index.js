@@ -74,6 +74,7 @@ const loginUsuario = () => {
     if (validarEmail(datos_login[0])) {
       localStorage.setItem("usuarioLogueado", datos_login[0])
       login_confirmado(true)
+      window.location.replace("../")
       }
     else{
         Swal.fire(`Datos no válidos`)

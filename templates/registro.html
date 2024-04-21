@@ -3,9 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/general.css"> 
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/registro.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    
+    <title>Registro de usuario</title>
 </head>
 <body>
-    <h1>Registro</h1>
+     <header>
+            <div class="logo-completo">
+                <img class="encabezado-en-linea logo-imagen" src="../static/img/header/logo/logo.png" alt="logo">
+                <img class="encabezado-en-linea logo-letras" src="../static/img/header/logo/letras.png" alt="casalista">
+            </div>
+            <form class="buscador" action="" method="get">
+                <input type="text" name="especialidad" id="especialidad" placeholder="Especialidad...">
+                <input class="buscador-boton" type="submit" value="🔍">
+            </form>
+            
+                <div class="menu" id="login">
+                </div>
+        </header>
+        <main>
+    <h1>Registro de Usuario</h1>
+    <section class="container">
+        <form action="https://formspree.io/f/xoqgpjan" method="POST">
+
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input size="30" type="text" id="nombre" name="nombre" placeholder="Ej: Juan" required>
+            </div>
+            <div>
+                <label for="apellido">Apellido:</label>
+                <input size="30" type="text" id="apellido" name="apellido"placeholder="Ej: Pérez" required>
+            </div>
+            <div>
+                <label for="mail">Correo Electrónico:</label>
+                <input type="email" id="mail" name="mail" required>
+            </div>
+            <div>
+                <label for="zona">Seleccione provincia:</label>
+                <input list="provincia" id="zona" name="zona">
+                <datalist id="provincia">
+                    <option value="CABA"></option>
+                    <option value="Pcia de Bs As"></option>
+                    <option value="Catamarca"></option>
+                    <option value="Chaco"></option>
+                    <option value="Córdoba"></option>
+                    <option value="Corrientes"></option>
+                    <option value="Entre Ríos"></option>
+                    <option value="Formos"></option>
+                    <option value="Jujuy"></option>
+                    <option value="La Pampa"></option>
+                    <option value="La Rioja"></option>
+                    <option value="Mendoza"></option>
+                    <option value="Misiones"></option>
+                    <option value="Neuquén"></option>
+                    <option value="Río Negro"></option>
+                    <option value="Salta"></option>
+                    <option value="San Juan"></option>
+                    <option value="San Luis"></option>
+                    <option value="Santa Cruz"></option>
+                    <option value="Santa Fe"></option>
+                    <option value="Santiago del Estero"></option>
+                    <option value="Tierra del Fuego"></option>
+                    <option value="Tucumán"></option>
+                   
+                </datalist>
+                                
+            </div>
+            <div>
+                <label for="localidad">Localidad:</label>
+                <input type="text" id="localidad" name="localidad" required>
+            </div>
+            <div>
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+    
+            
+            <div>
+                <label for="genero">Seleccine género</label>
+                <select name="genero" id="genero">
+                    <option value=""></option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+                
+            <div>
+                <label for="imagen">Imagen de perfil:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*">
+            </div>
+            <div>
+                <div>
+                    <input type="checkbox" name="terminos" id="terms" value="terms" required>
+                    <label for="terms">Acepto términos y condiciones</label>
+                </div>
+            <div>
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" required minlength="8">
+            </div>
+            <div>
+                <label for="repetir_contrasena">Repetir Contraseña:</label>
+                <input type="password" id="repetir_contrasena" name="repetir_contrasena" required minlength="8">
+            </div>
+            <div>
+                
+                <button type="submit">Crear Usuario</button>
+                <button type="reset">Borrar</button>
+            </div>
+        </form>
+    </section>
+    </main>
+    <footer>
+        <div>
+            <p class="footer-en-linea" id="TerminosYCondiciones">Términos y condiciones</p>
+            <p class="footer-en-linea">FAQ</p>
+            <p class="footer-en-linea" id="QuienesSomos">¿Quíenes somos?</p>
+        </div>
+            <p class="copyright">&copy; Copyright 2024</p>
+    </footer>
+    
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../static/js/index.js"></script>
+<script src="../static/js/footer.js"></script>
 </body>
 </html>
