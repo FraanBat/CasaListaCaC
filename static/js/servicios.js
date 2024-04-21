@@ -29,7 +29,7 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
     }
     else{
         Swal.fire({
-            title: "Sin stock",
+            title: "Sin disponibilidad",
             text: "Lo siento, pero no se encontraron especialistas con las especificaciones realizadas",
             icon: "warning",
             confirmButtonColor: "#356194",
