@@ -6,16 +6,14 @@ main {
 
 
 main section {
-    border: double #356194;
     margin-left: 15%;
     margin-top: 1.5%;
     margin-bottom: 1.5%;
     width: 70%;
     border-radius: 20px;
-
 }
 
-main section:hover {
+main .en-linea:hover {
     border: outset #B6DAB8;
 }
 
@@ -26,12 +24,11 @@ main section:hover {
     height: 80%;
     display: grid;
     grid-template-columns: 40% 50%;
+    border: double #356194;
 }
 
 main div {
     margin-left: 4%;
-
-
 }
 
 .foto {
@@ -52,7 +49,12 @@ main div {
     height: 80%;
 }
 
-main h2 {
+main h2{
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+main h3 {
     margin-top: 10%;
 }
 
@@ -96,7 +98,6 @@ main p {
 
     main div {
         margin-left: 5%;
-
     }
 
     .foto {
