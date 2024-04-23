@@ -7,6 +7,16 @@ document.getElementById("TerminosYCondiciones").addEventListener('click', functi
     });
 })
 
+document.getElementById("FAQ").addEventListener('click', function(){
+    const FAQ = "¿Qué es Casa Lista?\nEs una app que te ayudará a encontrar más fácil al profesional que necesitas para tu hogar?\n\n¿Cómo encuentro al especialista que necesito?\nRegistrate y elige lo que necesitas para tu hogar\n\n¿Cómo contacto al profesional y le pago?\nLa coordinación se realiza en forma personal mediante su contacto telefónico"
+    Swal.fire({
+        title: "Preguntas frecuentes",
+        icon: "info",
+        html: '<pre>' + FAQ + '</pre>',
+        confirmButtonText: "Confirmar"
+    });
+})
+
 document.getElementById("QuienesSomos").addEventListener('click', function(){
     const equipo = "Desarrolladores:\n- Eduardo Ojeda\n- Franco Andres Riggio\n- Silvia Gomez\nUI/UX:\n- Noelia Sciorra"
     Swal.fire({

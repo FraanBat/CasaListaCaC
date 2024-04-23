@@ -49,7 +49,7 @@ const validarLogin = function(iniciado, especialidad) {
 
 //Valida que el mail y contraseña ingresados sean válidos
 const validarUsuario = function(mail, contrasena){
-  if(JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.mail === mail && usuario.contrasena === contrasena)){
+  if(localStorage.getItem("listaUsuarios") !== null && JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.mail === mail && usuario.contrasena === contrasena)){
     return true
   }
   else{
