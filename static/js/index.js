@@ -1,10 +1,5 @@
-const login = document.getElementById("login")
-
-//-------------------------------------------------
-
-
 //En función de si el usuario está o no logueado, refleja el contenido del header
-const login_confirmado = iniciado => {
+const login_confirmado = function(iniciado) {
   if(iniciado){
     login.innerHTML = ``
     login.innerHTML = `
@@ -26,7 +21,7 @@ const login_confirmado = iniciado => {
 
 
 //Valida si el usuario está logueado y esto se guardó localmente. En base a ello, cambia el contenido del header
-const guardadoLogin = () => {
+const guardadoLogin = function() {
   if(localStorage.getItem("usuarioLogueado") === null){
     return false
   }
@@ -42,7 +37,7 @@ const validarEmail = email => {
 }
 
 //Al seleccionar una especialidad, valida que el usuario haya iniciado sesión. Si no lo hizo, le pide que se loguee
-const validarLogin = (iniciado, especialidad) => {
+const validarLogin = function(iniciado, especialidad) {
   console.log(especialidad)
   if(guardadoLogin(iniciado)){
     window.location.replace("templates/servicios.html?especialidad=" + especialidad)
@@ -52,8 +47,18 @@ const validarLogin = (iniciado, especialidad) => {
   }
 }
 
+//Valida que el mail y contraseña ingresados sean válidos
+const validarUsuario = function(mail, contrasena){
+  if(JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.mail === mail && usuario.contrasena === contrasena)){
+    return true
+  }
+  else{
+    return false
+  }
+}
+
 //Muestra el popup para que el usuario incie sesión
-const loginUsuario = () => {
+const loginUsuario = function() {
   (async () => {
     const { value: datos_login } = await Swal.fire({
       title: "Loguearse",
@@ -71,28 +76,32 @@ const loginUsuario = () => {
     confirmButtonText: "Ingresar",
     footer: '<a href="templates/registro.html">¿No tienes cuenta? Registrate</a>'
     })
-    if (validarEmail(datos_login[0])) {
+    if (validarUsuario(datos_login[0], datos_login[1])) {
       localStorage.setItem("usuarioLogueado", datos_login[0])
       login_confirmado(true)
       window.location.replace("../")
       }
     else{
-        Swal.fire(`Datos no válidos`)
+        Swal.fire({
+          title: "Usuario incorrecto",
+          text: "Usuario y/o contraseña no válidos",
+          icon: "warning"
+      })
     }
 })()
 }
 
 
 //Si se hace click en el texto para ingresar, y el usuario no está logueado, solicita que lo haga
-login.onclick = () => {
+document.getElementById("login").addEventListener('click', function(){
   if(!guardadoLogin())
   {
     loginUsuario()
   }
-}
+})
 
 //Cierra sesión del usuario
-const cerrarSesion = () => {
+const cerrarSesion = function() {
   iniciado = false
   login_confirmado(iniciado)
 }
