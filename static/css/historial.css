@@ -5,7 +5,7 @@ main {
 
 
 
-main section {
+.container {
     border: double #356194;
     margin-left: 15%;
     margin-top: 1.5%;
@@ -15,7 +15,7 @@ main section {
 
 }
 
-main section:hover {
+.container:hover {
     border: outset #B6DAB8;
 }
 
@@ -42,7 +42,7 @@ main div {
     border: outset #356194;
 }
 
-.foto:hover {
+.container:hover .foto {
     border: outset #B6DAB8;
 }
 

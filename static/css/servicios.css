@@ -5,7 +5,10 @@ main {
 
 
 
-.especialista {
+.especialista {}
+
+
+.linea {
     margin-left: 5%;
     margin-top: 2.5%;
     margin-bottom: 1.5%;
@@ -14,18 +17,18 @@ main {
     grid-template-columns: 25% 25% 50%;
     grid-template-rows: 100%;
     color: black;
-
+    text-decoration: none;
 }
 
-.especialista:hover {
+.linea:hover {
+    border-radius: 20px;
     border: double var(--color-primario-azul);
     color: var(--color-primario-azul);
 }
 
-.especialista {
-    text-decoration: none;
+.linea:hover .foto {
+    border: outset var(--color-primario-azul);
 }
-
 
 main div {
     margin-left: 4%;
@@ -37,10 +40,9 @@ main h2 {
 
 .foto {
     margin: 2%;
-    width: 20vw;
-    height: 34vh;
+    max-width: 100%;
+    height: auto;
     border-radius: 30%;
-    border: outset var(--color-primario-azul);
 }
 
 .descripcion {
@@ -58,9 +60,6 @@ main p {
 }
 
 @media screen and (min-width:1025px) {
-    .foto {
-        height: 80%;
-    }
 
     main h4 {
         font-size: 3vh;
@@ -68,26 +67,25 @@ main p {
 }
 
 @media screen and (width:769px) {
-    .especialista {
+    .linea {
         grid-template-columns: 40% 20% 40%;
     }
 
-    .foto {
-        width: 10vh;
-    }
+
 
 }
 
 @media screen and (max-width:426px) {
 
-    .especialista {
-        margin-left: 5%;
-        margin-top: 2.5%;
-        margin-bottom: 1.5%;
-        width: 90%;
-        display: grid;
+    .linea {
+        margin: 0;
+        margin-top: 1.2%;
+        padding: 20%;
+        padding-left: 0;
+        padding-right: 0;
+        height: auto;
         grid-template-columns: 100%;
-        grid-template-rows: 25% 25% 50%;
+        grid-template-rows: 40% 25% 50%;
     }
 
     main div {
@@ -95,11 +93,7 @@ main p {
     }
 
     .foto {
-        margin: 5%;
-        width: 40%;
-        height: 80%;
-        border-radius: 30%;
-        border: outset var(--color-primario-azul);
+        max-width: 100%;
     }
 
     main h4 {
@@ -107,12 +101,25 @@ main p {
         margin-top: 3%;
     }
 
-    .descripcion{
+    .descripcion {
         margin-top: 3vh;
     }
 }
 
 @media screen and (max-width:321px) {
+    .linea {
+        margin: 0;
+        margin-top: 1.2%;
+        padding: 20%;
+        padding-left: 0;
+        padding-right: 0;
+        height: auto;
+    }
+
+    .descripcion {
+        padding-bottom: 0.5%;
+    }
+
     main h4 {
         margin-top: 0%;
         padding-left: 5%;
