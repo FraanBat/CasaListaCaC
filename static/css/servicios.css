@@ -3,8 +3,6 @@ main {
     margin-bottom: 15vh;
 }
 
-
-
 .especialista {
     margin-left: 5%;
     margin-top: 2.5%;
@@ -46,6 +44,10 @@ main h2 {
 .descripcion {
     background-color: rgb(221, 212, 212);
     border-radius: 50px;
+}
+
+.nombreEspecialista{
+    margin-top: 30%;
 }
 
 main h4 {
