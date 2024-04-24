@@ -1,6 +1,5 @@
 let listaEspecialistas = []
 
-
 //Solicita a la API el listado con todos los especialistas y lo guarda
 const solicitarEspecialistas = function() {
     fetch(`https://api.mockaroo.com/api/9d323580?count=80&key=b59cfd90`)
@@ -12,9 +11,15 @@ const solicitarEspecialistas = function() {
     }))
 }
 
-const filtroEspecialistas = function(listaEspecialistas, filtroEspecialista) {
+const filtroEspecialistas = function(listaEspecialistas, filtroEspecialista, filtroZona, filtroValoracion) {
     if(filtroEspecialista !== ""){
         listaEspecialistas = listaEspecialistas.filter(especialista => especialista.profesion === filtroEspecialista)
+    }
+    if(filtroZona !== ""){
+        listaEspecialistas = listaEspecialistas.filter(especialista => especialista.zona === filtroZona)
+    }
+    if(filtroValoracion >= 1){
+        listaEspecialistas = listaEspecialistas.filter(especialista => especialista.valoracion >= filtroValoracion)
     }
     return listaEspecialistas
 }
@@ -23,9 +28,30 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
     event.preventDefault()
 
     let especialidad = document.getElementById("especialidad").value
-    let listaEspecialistasFiltrada = filtroEspecialistas(listaEspecialistas, especialidad)
-    if(listaEspecialistasFiltrada.length > 0){
-        mostrarEspecialistas(listaEspecialistasFiltrada)
+    listaEspecialistas = filtroEspecialistas(JSON.parse(sessionStorage.getItem("listadoEspecialistas")), especialidad, "", NaN)
+    if(listaEspecialistas.length > 0){
+        mostrarEspecialistas(listaEspecialistas)
+    }
+    else{
+        listaEspecialistas = JSON.parse(sessionStorage.getItem("listadoEspecialistas"))
+        Swal.fire({
+            title: "Sin disponibilidad",
+            text: "Lo siento, pero no se encontraron especialistas con las especificaciones realizadas",
+            icon: "warning",
+            confirmButtonColor: "#356194",
+            confirmButtonText: "Aceptar"
+          });
+    }
+})
+
+document.getElementById("filtrarBusqueda").addEventListener('submit', function(event){
+    event.preventDefault()
+
+    let zona = document.getElementById("zona").value
+    let valoracion = parseFloat(document.getElementById("valoracion").value)
+    let especialistasFiltrados = filtroEspecialistas(listaEspecialistas, "", zona, valoracion)
+    if(especialistasFiltrados.length > 0){
+        mostrarEspecialistas(especialistasFiltrados)
     }
     else{
         Swal.fire({

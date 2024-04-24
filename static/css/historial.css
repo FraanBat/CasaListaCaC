@@ -79,8 +79,8 @@ main p {
 
 .boton:hover {
     background-color: white;
-    border: ridge #308df8;
-    color: #308df8;
+    border: ridge var(--color-primario-azul);
+    color: var(--color-primario-azul);
 }
 
 
@@ -105,6 +105,6 @@ main p {
         width: 80%;
         height: 34vh;
         border-radius: 30%;
-        border: double #356194;
+        border: double var(--color-primario-azul);
     }
 }
