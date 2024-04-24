@@ -204,4 +204,8 @@ main p {
         margin-top: 0%;
         padding-left: 5%;
     }
+
+    #filtrarBusqueda input[type=number], #filtrarBusqueda input[type=text]{
+        width: 80%;
+    }
 }
