@@ -3,6 +3,32 @@ main {
     margin-bottom: 15vh;
 }
 
+#filtroTitulo{
+    font-size: 3vh;
+    text-decoration: underline;
+    margin-bottom: 1vh;
+}
+
+#filtrarBusqueda{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 0;
+}
+
+#filtrarBusqueda input[type=number]{
+    width: 30%;
+}
+
+#filtrarBusqueda button{
+    width: 60%;
+}
+
+#filtrarBusqueda div{
+    text-align: center;
+    width: 75%;
+}
+
 .especialista {
     margin-left: 5%;
     margin-top: 2.5%;
@@ -11,8 +37,6 @@ main {
     display: grid;
     grid-template-columns: 25% 25% 50%;
     grid-template-rows: 100%;
-    color: black;
-
 }
 
 .especialista:hover {
@@ -20,10 +44,14 @@ main {
     color: var(--color-primario-azul);
 }
 
-.especialista {
+.especialista a{
+    color: black;
     text-decoration: none;
 }
 
+.especialista a:visited {
+    color: black;
+}
 
 main div {
     margin-left: 4%;
@@ -59,7 +87,24 @@ main p {
     margin: 2%;
 }
 
-@media screen and (min-width:1025px) {
+@media screen and (max-width:1025px) {
+    
+    #filtrarBusqueda div{
+        width: 80%;
+    }
+
+    #filtrarBusqueda div{
+        width: 80%;
+    }
+    
+    #filtrarBusqueda .filtroOpcion{
+        font-size: 2vh;
+    }
+    
+    #filtrarBusqueda input[type=text]{
+        width: 50%;
+    }
+    
     .foto {
         height: 80%;
     }
@@ -69,19 +114,55 @@ main p {
     }
 }
 
-@media screen and (width:769px) {
+@media screen and (max-width:769px) {
+    
+    #filtrarBusqueda div{
+        width: 95%;
+    }
+    
+    #filtrarBusqueda input[type=text]{
+        font-size: 2vh;
+        width: 55%;
+    }
+
     .especialista {
         grid-template-columns: 40% 20% 40%;
     }
 
     .foto {
-        width: 10vh;
+        margin: 5%;
+        width: 40%;
+        height: 80%;
+        border-radius: 30%;
+        border: outset var(--color-primario-azul);
+    }
+
+    main h4 {
+        font-size: 3vh;
     }
 
 }
 
 @media screen and (max-width:426px) {
 
+    #filtrarBusqueda{
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr;
+        width: 100%;
+        vertical-align: middle;
+    }
+    
+    #filtrarBusqueda .filtroOpcion{
+        font-size: 2vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #filtrarBusqueda input[type=number], #filtrarBusqueda input[type=text]{
+        width: 70%;
+    }
+    
     .especialista {
         margin-left: 5%;
         margin-top: 2.5%;
@@ -107,6 +188,10 @@ main p {
     main h4 {
         font-size: 3vh;
         margin-top: 3%;
+    }
+
+    .nombreEspecialista{
+        margin-top: 20%;
     }
 
     .descripcion{
