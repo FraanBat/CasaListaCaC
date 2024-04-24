@@ -59,9 +59,8 @@ const mostrarEspecialistas = function(listadoEspecialistas) {
                 <img class="foto" src="${especialista.foto_perfil}" alt="">
             </div>
             <div>
-                <br> <br><br>
                 <a href="detalle.html?id_especialista=${especialista.id}">
-                    <h4>${especialista.profesion}<br>
+                    <h4 class="nombreEspecialista">${especialista.profesion}<br>
                         ${especialista.apellido} ${especialista.nombre}
                     </h4>
                 </a>
