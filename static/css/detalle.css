@@ -8,11 +8,19 @@ main {
 
 }
 
+<<<<<<< HEAD
 a {
+=======
+main a {
+>>>>>>> main
     margin: 5%;
     width: 30%;
     font-size: 5vh;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 
 .fila1 {
     margin-left: 6%;
@@ -30,8 +38,13 @@ a {
     margin-top: 4%;
     margin-left: 1%;
     border-radius: 30%;
+<<<<<<< HEAD
     width: 80%;
     height: 100%;
+=======
+    max-width: 100%;
+    height: auto;
+>>>>>>> main
 
 }
 
@@ -88,6 +101,7 @@ main p {
 }
 
 .opiniones {
+<<<<<<< HEAD
     background-color: rgb(231, 226, 226);
     margin-left: 3%;
     width: 85%;
@@ -99,14 +113,35 @@ h5 {
 }
 
 @media screen and (max-width:769px) {
+=======
+    margin: 4%;
+    width: 85%;
+    background-color: rgb(224, 221, 221);
+    border-radius: 15px;
+}
+
+.comentarista {
+    margin: 2%;
+}
+
+
+
+@media screen and (max-width:768px) {
+>>>>>>> main
     .foto {
         margin: 0;
         margin-top: 15%;
         margin-left: 10%;
         border-radius: 30%;
+<<<<<<< HEAD
         width: 90%;
         height: 90%;
 
+=======
+        max-width: 100%;
+        height: auto;
+        border: double var(--color-fondo-header-footer);
+>>>>>>> main
     }
 
     .derecha {
@@ -123,7 +158,7 @@ h5 {
         margin-left: 6%;
         display: grid;
         grid-template-columns: 90%;
-        grid-template-rows: 40% 35% 25%;
+        grid-template-rows: 50% 20% 25%;
         justify-content: space-between;
         width: 75%;
         height: auto;
@@ -134,9 +169,15 @@ h5 {
         margin-top: 10%;
         margin-left: 20%;
         border-radius: 30%;
+<<<<<<< HEAD
         width: 70%;
         height: 100%;
 
+=======
+        max-width: 100%;
+        height: auto;
+        border: double var(--color-fondo-header-footer);
+>>>>>>> main
     }
 
     .medio {
@@ -155,6 +196,11 @@ h5 {
     }
 
     .boton {
+<<<<<<< HEAD
+=======
+        margin: 2.5%;
+        padding: 2%;
+>>>>>>> main
         width: 50%;
     }
 }

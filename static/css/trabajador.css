@@ -32,8 +32,8 @@ main {
     margin: 10%;
     margin-left: 15%;
     border-radius: 30%;
-    width: 80%;
-    height: 60%;
+    max-width: 100%;
+    height: auto;
     border: outset #B6DAB8;
 }
 
@@ -69,16 +69,8 @@ main {
     color: #308df8;
 }
 
-.volver {
-    font-size: 5vh;
-}
 
-.volver:hover {
-    border: outset #B6DAB8;
-    color: #B6DAB8;
-}
-
-@media screen and (max-width:427px) {
+@media screen and (max-width:425px) {
     main {
         margin-top: 15vh;
         margin-bottom: 10vh;
@@ -111,8 +103,8 @@ main {
         margin: 20%;
         margin-left: 10%;
         border-radius: 30%;
-        width: 90%;
-        height: 90%;
+        max-width: 100%;
+        height: auto;
         border: double #B6DAB8;
     }
 
@@ -124,9 +116,11 @@ main {
         margin-bottom: 3%;
     }
 
-    .boton {
-        width: 100%;
+    .booton {
+        width: 70%;
     }
+
+
 }
 
 
