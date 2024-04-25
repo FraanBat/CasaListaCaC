@@ -9,36 +9,14 @@ main {
     margin-bottom: 1vh;
 }
 
-<<<<<<< HEAD
-
-.caja {
-    margin-left: 5%;
-    margin-top: 2.5%;
-    margin-bottom: 1.5%;
-    width: 90%;
-    display: grid;
-    grid-template-columns: 25% 25% 50%;
-    grid-template-rows: 100%;
-    color: black;
-
-=======
 #filtrarBusqueda {
     display: grid;
     grid-template-columns: 25%;
     grid-template-rows: 40% 40% 15%;
     justify-content: left;
     gap: 0;
->>>>>>> main
 }
 
-.caja:hover {
-    border: double #356194;
-    color: #356194;
-}
-
-.linea {
-    text-decoration: none;
-}
 
 
 .filtroColor {
@@ -115,16 +93,6 @@ main h2 {
     max-width: 100%;
     height: auto;
     border-radius: 30%;
-<<<<<<< HEAD
-    border: outset #356194;
-}
-
-
-
-.descripcion {
-    background-color: rgb(221, 212, 212);
-    border-radius: 50px;
-=======
     border: outset var(--color-primario-azul);
 }
 
@@ -135,7 +103,6 @@ main h2 {
 
 .nombreEspecialista {
     margin-top: 30%;
->>>>>>> main
 }
 
 main h4 {
@@ -147,20 +114,7 @@ main p {
     margin: 2%;
 }
 
-<<<<<<< HEAD
-@media screen and (max-width:427px) {
-
-    .caja {
-        margin-left: 5%;
-        margin-top: 2.5%;
-        margin-bottom: 1.5%;
-        width: 90%;
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 25% 25% 50%;
-=======
 @media screen and (max-width:1025px) {
->>>>>>> main
 
     #filtrarBusqueda div {
         grid-template-columns: 25%;
@@ -207,12 +161,6 @@ main p {
 
     .foto {
         margin: 5%;
-<<<<<<< HEAD
-        width: 60%;
-        height: 100%;
-        border-radius: 30%;
-        border: outset #356194;
-=======
         max-width: 100%;
         height: auto;
         border-radius: 30%;
@@ -303,27 +251,5 @@ main p {
     #filtrarBusqueda input[type=number],
     #filtrarBusqueda input[type=text] {
         width: 80%;
->>>>>>> main
     }
-}
-
-@media screen and (min-width:1023px) {
-    .foto {
-        height: 80%;
-    }
-
-    h4 {
-        font-size: 3vh;
-    }
-}
-
-@media screen and (width:768px) {
-    .caja {
-        grid-template-columns: 40% 20% 40%;
-    }
-
-    .foto {
-        width: 30vh;
-    }
-
 }
