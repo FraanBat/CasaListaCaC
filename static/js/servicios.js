@@ -88,7 +88,6 @@ const mostrarEspecialistas = function (listadoEspecialistas) {
             <div>
                     <h4 class="nombreEspecialista">${especialista.profesion}<br>
                         ${especialista.apellido} ${especialista.nombre}
-                </a>
             </div>
             <div class="descripcion">
                 <br>

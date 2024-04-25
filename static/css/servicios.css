@@ -21,7 +21,9 @@ main {
 
 .filtroColor {
     border: outset var(--color-primario-azul);
-    width: 20vh;
+    min-width: 20vh;
+    height: 3vh;
+    border-radius: 10px;
 }
 
 .filtroColor:hover {
@@ -45,18 +47,17 @@ button:hover {
     max-width: 10%;
     height: auto;
     padding: 1%;
-    box-shadow: 0px 0px 80px var(--color-primario-azul);
     border-radius: 15px;
     position: sticky;
     top: 100px;
-    z-index: 40;
+
 }
 
 .caja {
-    margin-left: 5%;
+    margin-left: 15%;
     margin-top: 5%;
     margin-bottom: 1.5%;
-    max-width: 90%;
+    max-width: 80%;
     display: grid;
     grid-template-columns: 25% 25% 50%;
     grid-template-rows: 100%;
@@ -74,6 +75,10 @@ button:hover {
     text-decoration: none;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
 
 main div {
     margin-left: 4%;
@@ -85,8 +90,8 @@ main h2 {
 
 .foto {
     margin: 2%;
-    width: 20vw;
-    height: 34vh;
+    max-width: 100%;
+    height: auto;
     border-radius: 30%;
     border: outset var(--color-primario-azul);
 }
@@ -112,23 +117,24 @@ main p {
 @media screen and (max-width:1025px) {
 
     #filtrarBusqueda div {
-        width: 80%;
+        grid-template-columns: 25%;
+        grid-template-rows: 40% 40% 15%;
     }
 
     #filtrarBusqueda div {
         width: 80%;
     }
 
-    #filtrarBusqueda .filtroOpcion {
-        font-size: 2vh;
-    }
+
+
 
     #filtrarBusqueda input[type=text] {
         width: 50%;
     }
 
     .foto {
-        height: 80%;
+        max-width: 100%;
+        height: auto;
     }
 
     main h4 {
@@ -139,7 +145,8 @@ main p {
 @media screen and (max-width:769px) {
 
     #filtrarBusqueda div {
-        width: 95%;
+        grid-template-columns: 25%;
+        grid-template-rows: 40% 40% 15%;
     }
 
     #filtrarBusqueda input[type=text] {
@@ -147,14 +154,15 @@ main p {
         width: 55%;
     }
 
-    .linea {
-        grid-template-columns: 40% 20% 40%;
+    .caja {
+        grid-template-columns: 30% 20% 40%;
+        gap: 5%;
     }
 
     .foto {
         margin: 5%;
-        width: 40%;
-        height: 80%;
+        max-width: 100%;
+        height: auto;
         border-radius: 30%;
         border: outset var(--color-primario-azul);
     }
@@ -186,14 +194,21 @@ main p {
         width: 70%;
     }
 
-    .linea {
-        margin-left: 5%;
+    .cajita {
         margin-top: 2.5%;
+        top: 0px;
+
+    }
+
+    .caja {
+        margin-left: 5%;
+        margin-top: 20%;
         margin-bottom: 1.5%;
         width: 90%;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 25% 25% 50%;
+        grid-template-rows: 40% 15% 30%;
+        gap: 4%;
     }
 
     main div {
@@ -202,8 +217,8 @@ main p {
 
     .foto {
         margin: 5%;
-        width: 40%;
-        height: 80%;
+        max-width: 80%;
+        height: auto;
         border-radius: 30%;
         border: outset var(--color-primario-azul);
     }
@@ -211,6 +226,7 @@ main p {
     main h4 {
         font-size: 3vh;
         margin-top: 3%;
+        text-align: center;
     }
 
     .nombreEspecialista {
@@ -223,6 +239,10 @@ main p {
 }
 
 @media screen and (max-width:321px) {
+    .caja {
+        margin-top: 25%;
+    }
+
     main h4 {
         margin-top: 0%;
         padding-left: 5%;
