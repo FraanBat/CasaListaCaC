@@ -2,7 +2,7 @@ let listaEspecialistas = []
 
 
 //Solicita a la API el listado con todos los especialistas y lo guarda
-const solicitarEspecialistas = () => {
+const solicitarEspecialistas = function () {
     fetch(`https://api.mockaroo.com/api/9d323580?count=80&key=b59cfd90`)
         .then(response => response.json())
         .then(data => new Promise(() => {
@@ -12,7 +12,8 @@ const solicitarEspecialistas = () => {
         }))
 }
 
-const filtroEspecialistas = (listaEspecialistas, filtroEspecialista) => {
+
+const filtroEspecialistas = function (listaEspecialistas, filtroEspecialista) {
     if (filtroEspecialista !== "") {
         listaEspecialistas = listaEspecialistas.filter(especialista => especialista.profesion === filtroEspecialista)
     }
@@ -39,7 +40,7 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
 })
 
 //Muestra los especialistas, de acuerdo con las especificaciones realizadas
-const mostrarEspecialistas = listadoEspecialistas => {
+const mostrarEspecialistas = function (listadoEspecialistas) {
 
     //Verifica si hay que limpiar el listado de especialistas que muestra actualmente
     const limpiarListado = document.querySelectorAll("div.especialista")
@@ -59,11 +60,11 @@ const mostrarEspecialistas = listadoEspecialistas => {
                 <img class="foto" src="${especialista.foto_perfil}" alt="">
             </div>
             <div>
-                <br> <br><br>
+                
             
-                    <h4>${especialista.profesion}<br>
+                    <h3>${especialista.profesion}<br>
                         ${especialista.apellido} ${especialista.nombre}
-                    </h4>
+                    </h3>
                 
             </div>
             <div class="descripcion">

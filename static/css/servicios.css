@@ -5,7 +5,7 @@ main {
 
 
 
-.especialista {}
+
 
 
 .linea {
@@ -50,9 +50,13 @@ main h2 {
     border-radius: 50px;
 }
 
+main h3 {
+    margin-top: 30%;
+}
+
 main h4 {
-    margin: 2%;
-    margin-top: 5%;
+    margin-top: 3%;
+    margin-left: 2%;
 }
 
 main p {
@@ -85,7 +89,7 @@ main p {
         padding-right: 0;
         height: auto;
         grid-template-columns: 100%;
-        grid-template-rows: 40% 25% 50%;
+        grid-template-rows: 40% 25% 40%;
     }
 
     main div {

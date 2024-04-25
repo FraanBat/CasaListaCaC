@@ -5,44 +5,34 @@ main {
 
 
 
-.container {
-    border: double #356194;
-    margin-left: 15%;
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
-    width: 70%;
-    border-radius: 20px;
-
-}
-
-.container:hover {
-    border: outset #B6DAB8;
-}
 
 .en-linea {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 80%;
+    max-width: 90%;
+    height: auto;
+    margin-top: 1.5%;
     display: grid;
     grid-template-columns: 40% 50%;
+    border: double #356194;
+    border-radius: 30px;
+}
+
+.en-linea:hover {
+    border: outset #B6DAB8;
 }
 
 main div {
     margin-left: 4%;
-
-
 }
 
 .foto {
     margin: 5%;
-    width: 20vw;
-    height: 34vh;
+    max-width: 100;
+    height: auto;
     border-radius: 30%;
     border: outset #356194;
 }
 
-.container:hover .foto {
+.en-linea:hover .foto {
     border: outset #B6DAB8;
 }
 
@@ -50,9 +40,15 @@ main div {
     margin: 10%;
     width: 75%;
     height: 80%;
+    font-size: 4vh;
 }
 
 main h2 {
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+main h3 {
     margin-top: 10%;
 }
 
@@ -85,24 +81,23 @@ main p {
 
 @media screen and (max-width:425px) {
     .en-linea {
-        margin: 0;
+        margin-top: 1%;
         padding: 0;
         width: auto;
         height: auto;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 50% 50%;
+        grid-template-rows: 40% 50%;
     }
 
     main div {
         margin-left: 5%;
-
     }
 
     .foto {
         margin: 5%;
-        width: 80%;
-        height: 34vh;
+        max-width: 100%;
+        height: auto;
         border-radius: 30%;
         border: double #356194;
     }
