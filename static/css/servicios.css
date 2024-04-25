@@ -3,32 +3,77 @@ main {
     margin-bottom: 15vh;
 }
 
+#filtroTitulo {
+    font-size: 3vh;
+    text-decoration: underline;
+    margin-bottom: 1vh;
+}
+
+#filtrarBusqueda {
+    display: grid;
+    grid-template-columns: 25%;
+    grid-template-rows: 40% 40% 15%;
+    justify-content: left;
+    gap: 0;
+}
 
 
 
+.filtroColor {
+    border: outset var(--color-primario-azul);
+    width: 20vh;
+}
 
+.filtroColor:hover {
+    border: outset var(--color-primario-verde-opacidad);
+}
 
-.linea {
+button {
+    border: outset var(--color-primario-azul);
+    width: 20vh;
+    padding-right: 1%;
+    padding-left: 1%;
+    border-radius: 5px;
+}
+
+button:hover {
+    border: outset var(--color-primario-verde-opacidad);
+    color: var(--color-primario-verde-opacidad);
+}
+
+.cajita {
+    max-width: 10%;
+    height: auto;
+    padding: 1%;
+    box-shadow: 0px 0px 80px var(--color-primario-azul);
+    border-radius: 15px;
+    position: sticky;
+    top: 100px;
+    z-index: 40;
+}
+
+.caja {
     margin-left: 5%;
-    margin-top: 2.5%;
+    margin-top: 5%;
     margin-bottom: 1.5%;
-    width: 90%;
+    max-width: 90%;
     display: grid;
     grid-template-columns: 25% 25% 50%;
     grid-template-rows: 100%;
-    color: black;
-    text-decoration: none;
+    border-radius: 30px;
 }
 
-.linea:hover {
-    border-radius: 20px;
+.caja:hover {
     border: double var(--color-primario-azul);
     color: var(--color-primario-azul);
 }
 
-.linea:hover .foto {
-    border: outset var(--color-primario-azul);
+
+.caja:hover a {
+    color: var(--color-primario-azul);
+    text-decoration: none;
 }
+
 
 main div {
     margin-left: 4%;
@@ -40,9 +85,10 @@ main h2 {
 
 .foto {
     margin: 2%;
-    max-width: 100%;
-    height: auto;
+    width: 20vw;
+    height: 34vh;
     border-radius: 30%;
+    border: outset var(--color-primario-azul);
 }
 
 .descripcion {
@@ -50,46 +96,104 @@ main h2 {
     border-radius: 50px;
 }
 
-main h3 {
+.nombreEspecialista {
     margin-top: 30%;
 }
 
 main h4 {
-    margin-top: 3%;
-    margin-left: 2%;
+    margin: 2%;
+    margin-top: 5%;
 }
 
 main p {
     margin: 2%;
 }
 
-@media screen and (min-width:1025px) {
+@media screen and (max-width:1025px) {
+
+    #filtrarBusqueda div {
+        width: 80%;
+    }
+
+    #filtrarBusqueda div {
+        width: 80%;
+    }
+
+    #filtrarBusqueda .filtroOpcion {
+        font-size: 2vh;
+    }
+
+    #filtrarBusqueda input[type=text] {
+        width: 50%;
+    }
+
+    .foto {
+        height: 80%;
+    }
 
     main h4 {
         font-size: 3vh;
     }
 }
 
-@media screen and (width:769px) {
+@media screen and (max-width:769px) {
+
+    #filtrarBusqueda div {
+        width: 95%;
+    }
+
+    #filtrarBusqueda input[type=text] {
+        font-size: 2vh;
+        width: 55%;
+    }
+
     .linea {
         grid-template-columns: 40% 20% 40%;
     }
 
+    .foto {
+        margin: 5%;
+        width: 40%;
+        height: 80%;
+        border-radius: 30%;
+        border: outset var(--color-primario-azul);
+    }
 
+    main h4 {
+        font-size: 3vh;
+    }
 
 }
 
 @media screen and (max-width:426px) {
 
+    #filtrarBusqueda {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr;
+        width: 100%;
+        vertical-align: middle;
+    }
+
+    #filtrarBusqueda .filtroOpcion {
+        font-size: 2vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #filtrarBusqueda input[type=number],
+    #filtrarBusqueda input[type=text] {
+        width: 70%;
+    }
+
     .linea {
-        margin: 0;
-        margin-top: 1.2%;
-        padding: 20%;
-        padding-left: 0;
-        padding-right: 0;
-        height: auto;
+        margin-left: 5%;
+        margin-top: 2.5%;
+        margin-bottom: 1.5%;
+        width: 90%;
+        display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 40% 25% 40%;
+        grid-template-rows: 25% 25% 50%;
     }
 
     main div {
@@ -97,12 +201,20 @@ main p {
     }
 
     .foto {
-        max-width: 100%;
+        margin: 5%;
+        width: 40%;
+        height: 80%;
+        border-radius: 30%;
+        border: outset var(--color-primario-azul);
     }
 
     main h4 {
         font-size: 3vh;
         margin-top: 3%;
+    }
+
+    .nombreEspecialista {
+        margin-top: 20%;
     }
 
     .descripcion {
@@ -111,21 +223,13 @@ main p {
 }
 
 @media screen and (max-width:321px) {
-    .linea {
-        margin: 0;
-        margin-top: 1.2%;
-        padding: 20%;
-        padding-left: 0;
-        padding-right: 0;
-        height: auto;
-    }
-
-    .descripcion {
-        padding-bottom: 0.5%;
-    }
-
     main h4 {
         margin-top: 0%;
         padding-left: 5%;
+    }
+
+    #filtrarBusqueda input[type=number],
+    #filtrarBusqueda input[type=text] {
+        width: 80%;
     }
 }

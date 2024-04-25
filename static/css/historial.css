@@ -26,7 +26,7 @@ main div {
 
 .foto {
     margin: 5%;
-    max-width: 100;
+    max-width: 100%;
     height: auto;
     border-radius: 30%;
     border: outset #356194;
@@ -73,8 +73,8 @@ main p {
 
 .boton:hover {
     background-color: white;
-    border: ridge #308df8;
-    color: #308df8;
+    border: ridge var(--color-primario-azul);
+    color: var(--color-primario-azul);
 }
 
 
@@ -99,6 +99,6 @@ main p {
         max-width: 100%;
         height: auto;
         border-radius: 30%;
-        border: double #356194;
+        border: double var(--color-primario-azul);
     }
 }
