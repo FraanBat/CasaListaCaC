@@ -50,7 +50,7 @@ button:hover {
     margin-bottom: 1.5%;
     max-width: 80%;
     display: grid;
-    grid-template-columns: 25% 25% 50%;
+    grid-template-columns: 25% 15% 60%;
     grid-template-rows: 100%;
     border-radius: 30px;
     background-color: rgb(240, 237, 237);
@@ -87,8 +87,8 @@ main h2 {
 }
 
 .foto {
-    margin: 2%;
-    max-width: 100%;
+    margin-top: 2%;
+    max-width: 60%;
     height: auto;
     border-radius: 30%;
     border: outset var(--color-primario-azul);
@@ -96,22 +96,23 @@ main h2 {
 
 .descripcion {
     background-color: rgb(221, 212, 212);
-    border-radius: 50px;
+    border-radius: 30px;
     overflow: hidden;
 }
 
 .nombreEspecialista {
-    margin-top: 30%;
-    font-size: 5vh;
+    margin-top: 20%;
+    margin-left: 0;
+    font-size: 3vh;
 }
 
 main h4 {
     margin: 2%;
-    margin-top: 5%;
+    margin-top: 1%;
 }
 
 main p {
-    margin: 2%;
+    margin: 1%;
 }
 
 @media screen and (max-width:1025px) {
@@ -132,9 +133,18 @@ main p {
         width: 50%;
     }
 
+    .caja {
+        grid-template-columns: 25% 25% 50%;
+    }
+
     .foto {
         max-width: 100%;
         height: auto;
+    }
+
+    .nombreEspecialista {
+        margin-top: 20%;
+        margin-left: 2%;
     }
 
     main h4 {

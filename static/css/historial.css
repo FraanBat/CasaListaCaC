@@ -7,22 +7,20 @@ main {
 
 .en-linea {
     max-width: 70%;
-    height: auto;
+    height: 15%;
     margin-left: 0;
     margin-right: 0;
     margin: auto;
     margin-top: 1.5%;
     display: grid;
     grid-template-columns: 40% 50%;
+    grid-template-rows: 15%;
     border-radius: 30px;
     transition: 1s;
-    background-color: rgb(216, 208, 208);
+    background-color: rgb(231, 226, 226);
 }
 
-.en-linea:hover {
-    border: outset #B6DAB8;
-    box-shadow: 0px 0px 40px rgb(45, 182, 45);
-}
+
 
 main div {
     margin-left: 4%;
@@ -30,7 +28,7 @@ main div {
 
 .foto {
     margin: 5%;
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
     border-radius: 30%;
     border: outset #356194;
@@ -41,10 +39,9 @@ main div {
 }
 
 .derecha {
-    margin: 10%;
-    max-width: 75%;
-    height: 80%;
-    font-size: 4vh;
+    max-width: 55%;
+    height: auto;
+    font-size: 3vh;
 }
 
 main h2 {
@@ -65,7 +62,7 @@ main p {
 
 
 .boton {
-    width: 100%;
+    max-width: 100%;
     background-color: rgb(221, 216, 216);
     text-decoration: none;
     color: black;
