@@ -78,17 +78,23 @@ main p {
     color: rgba(141, 189, 142, 0.5);
 }
 
+@media screen and (max-width: 769px) {
+    .derecha {
+        font-size: 2vh;
+    }
+
+}
 
 
 @media screen and (max-width:426px) {
     .en-linea {
-        margin-top: 1%;
+        margin-top: 10%;
         padding: 0;
-        width: auto;
+        max-width: 50%;
         height: auto;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 35% 50%;
+        grid-template-rows: 45% 50%;
     }
 
     main div {
@@ -96,11 +102,15 @@ main p {
     }
 
     .foto {
-        margin-left: 2%;
+        margin-left: 15%;
         margin-right: 0;
         margin-top: 3%;
-        max-width: 70%;
+        max-width: 60%;
         height: auto;
         border-radius: 30%;
+    }
+
+    .derecha {
+        margin-left: 25%;
     }
 }
