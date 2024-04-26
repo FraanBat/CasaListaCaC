@@ -11,8 +11,8 @@ main {
 
 #filtrarBusqueda {
     display: grid;
-    grid-template-columns: 25%;
-    grid-template-rows: 40% 40% 15%;
+    grid-template-columns: 25% 25% 25%;
+    grid-template-rows: 40%;
     justify-content: left;
     gap: 0;
 }
@@ -43,18 +43,9 @@ button:hover {
     color: var(--color-primario-verde-opacidad);
 }
 
-.cajita {
-    max-width: 10%;
-    height: auto;
-    padding: 1%;
-    border-radius: 15px;
-    position: sticky;
-    top: 100px;
-
-}
 
 .caja {
-    margin-left: 15%;
+    margin-left: 5%;
     margin-top: 5%;
     margin-bottom: 1.5%;
     max-width: 80%;
@@ -62,11 +53,15 @@ button:hover {
     grid-template-columns: 25% 25% 50%;
     grid-template-rows: 100%;
     border-radius: 30px;
+    background-color: rgb(240, 237, 237);
+    transition: 1s;
+
 }
 
 .caja:hover {
-    border: double var(--color-primario-azul);
+    border: outset var(--color-primario-azul);
     color: var(--color-primario-azul);
+    box-shadow: 0px 0px 40px var(--color-primario-azul);
 }
 
 
@@ -86,6 +81,9 @@ main div {
 
 main h2 {
     text-align: center;
+    margin-bottom: 5vh;
+    font-size: 5vh;
+
 }
 
 .foto {
@@ -99,10 +97,12 @@ main h2 {
 .descripcion {
     background-color: rgb(221, 212, 212);
     border-radius: 50px;
+    overflow: hidden;
 }
 
 .nombreEspecialista {
     margin-top: 30%;
+    font-size: 5vh;
 }
 
 main h4 {
@@ -155,19 +155,20 @@ main p {
     }
 
     .caja {
+        max-width: 90%;
         grid-template-columns: 30% 20% 40%;
         gap: 5%;
     }
 
     .foto {
         margin: 5%;
-        max-width: 100%;
+        max-width: 80%;
         height: auto;
         border-radius: 30%;
         border: outset var(--color-primario-azul);
     }
 
-    main h4 {
+    .nombreEspecialista {
         font-size: 3vh;
     }
 
@@ -204,10 +205,10 @@ main p {
         margin-left: 5%;
         margin-top: 20%;
         margin-bottom: 1.5%;
-        width: 90%;
+        max-width: 80%;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 40% 15% 30%;
+        grid-template-rows: 35% 15% 35%;
         gap: 4%;
     }
 

@@ -21,14 +21,31 @@ main {
 
 .pedido {
 
-    border: outset var(--color-primario-azul);
+
     border-radius: 15px;
     max-width: 15%;
     min-width: 10%;
     height: auto;
     padding: 2%;
+    padding-right: 0;
     flex: 1 1 200px;
+    background-color: gainsboro;
+    transition: 1s;
+    margin-left: 0;
+    margin-right: 0;
+    margin: auto;
+}
 
+.pedido:hover {
+    border: outset var(--color-primario-verde-opacidad);
+    box-shadow: 0px 0px 40px rgb(45, 182, 45);
+}
+
+
+
+
+.pedido:hover .foto {
+    border: outset var(--color-primario-verde-opacidad);
 }
 
 .Cli {
@@ -43,15 +60,19 @@ main {
     max-width: 80%;
     height: auto;
     align-items: center;
+    transition: 3s;
 }
 
 p {
     margin-top: 15%;
+    font-size: 4vh;
 }
 
 .boton {
     margin-top: 15%;
     border: outset var(--color-primario-azul);
+    width: 20vh;
+
 }
 
 .boton:hover {
@@ -67,8 +88,13 @@ p {
         min-width: 10%;
         height: auto;
         padding: 2%;
-        padding-right: 5%;
+        padding-right: 1%;
     }
+
+    .pedido:hover {
+        padding-right: 4%;
+    }
+
 
     .foto {
         border-radius: 10px;
@@ -87,8 +113,9 @@ p {
     }
 
     .boton {
-        margin-top: 25%;
+        margin-top: 15%;
         border: outset var(--color-primario-azul);
+        max-width: 70%;
     }
 }
 
@@ -100,6 +127,14 @@ p {
         padding: 5%;
         padding-right: 15%;
     }
+
+    .pedido:hover {
+        padding-right: 13%;
+    }
+
+    .boton {
+        max-width: 80px;
+    }
 }
 
 @media screen and (max-width: 376px) {
@@ -109,5 +144,9 @@ p {
         height: auto;
         padding: 4%;
         padding-right: 17%;
+    }
+
+    .pedido:hover {
+        padding-right: 20%;
     }
 }
