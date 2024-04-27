@@ -1,3 +1,5 @@
+const login = document.getElementById("login")
+
 //En función de si el usuario está o no logueado, refleja el contenido del header
 const login_confirmado = function(iniciado) {
   if(iniciado){
