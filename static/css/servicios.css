@@ -28,6 +28,10 @@ main {
     border: outset var(--color-primario-verde-opacidad);
 }
 
+#filtrarBusqueda .filtroOpcion:hover{
+    cursor: pointer;
+}
+
 main button {
     border: outset var(--color-primario-azul);
     width: 20vh;
@@ -52,24 +56,13 @@ main button:hover {
     border-radius: 30px;
     background-color: rgb(240, 237, 237);
     transition: 1s;
-
 }
 
 .especialista:hover {
     border: outset var(--color-primario-azul);
     color: var(--color-primario-azul);
     box-shadow: 0px 0px 40px var(--color-primario-azul);
-}
-
-
-.especialista:hover a {
-    color: var(--color-primario-azul);
-    text-decoration: none;
-}
-
-main a {
-    color: black;
-    text-decoration: none;
+    cursor: pointer;
 }
 
 main div {

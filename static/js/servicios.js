@@ -1,20 +1,4 @@
-let listaEspecialistas = []
-
-//Solicita a la API el listado con todos los especialistas y lo guarda
-const solicitarEspecialistas = function() {
-    fetch(`https://api.mockaroo.com/api/9d323580?count=80&key=b59cfd90`)
-    .then(response => response.json())
-    .then(data => new Promise(() => {
-        sessionStorage.setItem("listadoEspecialistas", JSON.stringify(data))
-        listaEspecialistas = data
-        mostrarEspecialistas(data)
-    }))
-}
-
-const filtroEspecialistas = function(listaEspecialistas, filtroEspecialista, filtroZona, filtroValoracion) {
-    if(filtroEspecialista !== ""){
-        listaEspecialistas = listaEspecialistas.filter(especialista => especialista.profesion === filtroEspecialista)
-    }
+const filtroEspecialistas = function(listaEspecialistas, filtroZona, filtroValoracion) {
     if(filtroZona !== ""){
         listaEspecialistas = listaEspecialistas.filter(especialista => especialista.zona === filtroZona)
     }
@@ -24,32 +8,12 @@ const filtroEspecialistas = function(listaEspecialistas, filtroEspecialista, fil
     return listaEspecialistas
 }
 
-document.getElementById("buscadorEspecialidad").addEventListener('submit', function(event){
-    event.preventDefault()
-
-    let especialidad = document.getElementById("especialidad").value
-    listaEspecialistas = filtroEspecialistas(JSON.parse(sessionStorage.getItem("listadoEspecialistas")), especialidad, "", NaN)
-    if(listaEspecialistas.length > 0){
-        mostrarEspecialistas(listaEspecialistas)
-    }
-    else{
-        listaEspecialistas = JSON.parse(sessionStorage.getItem("listadoEspecialistas"))
-        Swal.fire({
-            title: "Sin disponibilidad",
-            text: "Lo siento, pero no se encontraron especialistas con las especificaciones realizadas",
-            icon: "warning",
-            confirmButtonColor: "#356194",
-            confirmButtonText: "Aceptar"
-          });
-    }
-})
-
 document.getElementById("filtrarBusqueda").addEventListener('submit', function(event){
     event.preventDefault()
 
     let zona = document.getElementById("zona").value
     let valoracion = parseFloat(document.getElementById("valoracion").value)
-    let especialistasFiltrados = filtroEspecialistas(listaEspecialistas, "", zona, valoracion)
+    let especialistasFiltrados = filtroEspecialistas(JSON.parse(sessionStorage.getItem("FiltradoEspecialistaBuscado")), zona, valoracion)
     if(especialistasFiltrados.length > 0){
         mostrarEspecialistas(especialistasFiltrados)
     }
@@ -77,19 +41,18 @@ const mostrarEspecialistas = function(listadoEspecialistas) {
     const especialistaDisponible = []
     listadoEspecialistas.forEach(especialista => {
         const nuevoEspecialista = document.createElement("div")
-        nuevoEspecialista.className = "especialista"
+        nuevoEspecialista.className = "especialista linea"
+        nuevoEspecialista.id = `especialista ${especialista.id}`
+        nuevoEspecialista.setAttribute("onclick", `enviarDetalleEspecailista(${especialista.id})`)
         nuevoEspecialista.innerHTML = 
         `
-        <a class="linea" href="detalle.html?id_especialista=${especialista.id}">
             <div>
                 <img class="foto" src="${especialista.foto_perfil}" alt="">
             </div>
             <div>
-                <a href="detalle.html?id_especialista=${especialista.id}">
-                    <h4 class="nombreEspecialista">${especialista.profesion}<br>
-                        ${especialista.apellido} ${especialista.nombre}
-                    </h4>
-                </a>
+                <h4 class="nombreEspecialista">${especialista.profesion}<br>
+                    ${especialista.apellido} ${especialista.nombre}
+                </h4>
             </div>
             <div class="descripcion">
                 <br>
@@ -99,11 +62,15 @@ const mostrarEspecialistas = function(listadoEspecialistas) {
                 </p>
                 <br>
             </div>
-        </a>
         `
         especialistaDisponible.push(nuevoEspecialista)
     })
     especialistas.append(...especialistaDisponible)
 }
 
-solicitarEspecialistas()
+const enviarDetalleEspecailista = function(idEspecialista){
+    sessionStorage.setItem("especialistaDetalle", idEspecialista)
+    window.location.replace("../templates/detalle.html")
+}
+
+mostrarEspecialistas(JSON.parse(sessionStorage.getItem("FiltradoEspecialistaBuscado")))

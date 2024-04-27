@@ -32,17 +32,14 @@ const guardadoLogin = function() {
   }
 }
 
-//Valida que el campo ingresado sea un mail
-const validarEmail = email => {
-  let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
-  return reg.test(email)
-}
-
 //Al seleccionar una especialidad, valida que el usuario haya iniciado sesión. Si no lo hizo, le pide que se loguee
 const validarLogin = function(iniciado, especialidad) {
-  console.log(especialidad)
   if(guardadoLogin(iniciado)){
-    window.location.replace("templates/servicios.html?especialidad=" + especialidad)
+    //sessionStorage.setItem("categoriaEspecialistaBuscado", especialidad)
+    let listaEspecialistasABuscar = JSON.parse(sessionStorage.getItem("listadoEspecialistas"))
+    listaEspecialistasABuscar = listaEspecialistasABuscar.filter(especialista => especialista.profesion === especialidad)
+    sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(listaEspecialistasABuscar))
+    window.location.replace("templates/servicios.html")
   }
   else{
     loginUsuario()

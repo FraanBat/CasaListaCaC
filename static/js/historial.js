@@ -21,12 +21,12 @@ const mostrarHistorialEspecialistas = function(listadoEspecialistas) {
         nuevoEspecialista.innerHTML = 
         `
             <div>
-                <a href="trabajador.html?id_especialista=${especialista.id}"><img class="foto" src="${especialista.foto_perfil}" alt="imagen"></a>
+                <img class="foto" src="${especialista.foto_perfil}" alt="imagen">
             </div>
             <div class="derecha">
                 <h3>${especialista.profesion}: ${especialista.apellido} ${especialista.nombre}</h3>
                 <p><strong>Fecha de realización: ${especialista.fecha_trabajo}</strong>
-                    <br>Dejar comentario <a class="boton" href="trabajador.html?id_especialista=${especialista.id}"> Click </a>
+                    <br>Dejar comentario <span class="boton" onclick="enviarDetalleHistorial(${especialista.id})"> Click </a>
                 </p>
             </div>
         `
@@ -34,6 +34,11 @@ const mostrarHistorialEspecialistas = function(listadoEspecialistas) {
     })
 
     especialistas.append(...especialistaHistorial)
+}
+
+const enviarDetalleHistorial = function(idEspecialista){
+    sessionStorage.setItem("historialEspecialistaDetalle", idEspecialista)
+    window.location.replace("../templates/trabajador.html")
 }
 
 solicitarHistorial()
