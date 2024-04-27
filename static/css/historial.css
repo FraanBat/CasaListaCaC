@@ -5,20 +5,22 @@ main {
 
 
 
-
 .en-linea {
-    max-width: 90%;
-    height: auto;
+    max-width: 70%;
+    height: 15%;
+    margin-left: 0;
+    margin-right: 0;
+    margin: auto;
     margin-top: 1.5%;
     display: grid;
     grid-template-columns: 40% 50%;
-    border: double #356194;
+    grid-template-rows: 15%;
     border-radius: 30px;
+    transition: 1s;
+    background-color: rgb(231, 226, 226);
 }
 
-.en-linea:hover {
-    border: outset #B6DAB8;
-}
+
 
 main div {
     margin-left: 4%;
@@ -26,7 +28,7 @@ main div {
 
 .foto {
     margin: 5%;
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
     border-radius: 30%;
     border: outset #356194;
@@ -37,15 +39,16 @@ main div {
 }
 
 .derecha {
-    margin: 10%;
-    width: 75%;
-    height: 80%;
-    font-size: 4vh;
+    max-width: 55%;
+    height: auto;
+    font-size: 3vh;
 }
 
 main h2 {
     text-align: center;
     margin-bottom: 5vh;
+    font-size: 5vh;
+
 }
 
 main h3 {
@@ -59,35 +62,39 @@ main p {
 
 
 .boton {
-    width: 100%;
-    background-color: white;
-    color: #356194;
+    max-width: 100%;
+    background-color: rgb(221, 216, 216);
     text-decoration: none;
+    color: black;
     font-size: 1.5em;
     letter-spacing: 4px;
-    transition-property: background-color, border, color;
     border-radius: 10px;
     border: double white;
 
 }
 
 .boton:hover {
-    background-color: white;
-    border: ridge var(--color-primario-azul);
-    color: var(--color-primario-azul);
+    border: ridge rgba(180, 217, 182, 0.5);
+    color: rgba(141, 189, 142, 0.5);
+}
+
+@media screen and (max-width: 769px) {
+    .derecha {
+        font-size: 2vh;
+    }
+
 }
 
 
-
-@media screen and (max-width:425px) {
+@media screen and (max-width:426px) {
     .en-linea {
-        margin-top: 1%;
+        margin-top: 10%;
         padding: 0;
-        width: auto;
+        max-width: 50%;
         height: auto;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 40% 50%;
+        grid-template-rows: 45% 50%;
     }
 
     main div {
@@ -95,10 +102,15 @@ main p {
     }
 
     .foto {
-        margin: 5%;
-        max-width: 100%;
+        margin-left: 15%;
+        margin-right: 0;
+        margin-top: 3%;
+        max-width: 60%;
         height: auto;
         border-radius: 30%;
-        border: double var(--color-primario-azul);
+    }
+
+    .derecha {
+        margin-left: 25%;
     }
 }
