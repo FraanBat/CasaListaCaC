@@ -20,8 +20,6 @@ main {
 
 }
 
-
-
 .imagenes {
     margin: 15%;
     width: 100%;
@@ -32,13 +30,12 @@ main {
     margin: 10%;
     margin-left: 15%;
     border-radius: 30%;
-    width: 80%;
-    height: 60%;
+    max-width: 100%;
+    height: auto;
     border: outset #B6DAB8;
 }
 
 .derecha {
-
     margin-left: 18%;
     width: 100%;
     height: 100%;
@@ -68,66 +65,6 @@ main {
     border: double #308df8;
     color: #308df8;
 }
-
-.volver {
-    font-size: 5vh;
-}
-
-.volver:hover {
-    border: outset #B6DAB8;
-    color: #B6DAB8;
-}
-
-@media screen and (max-width:425px) {
-    main {
-        margin-top: 15vh;
-        margin-bottom: 10vh;
-        margin-right: 0;
-        margin-left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .en-linea {
-        margin: 0;
-        padding: 0;
-        display: grid;
-        grid-template-columns: 80%;
-        grid-template-rows: 40% 60%;
-        justify-self: center;
-        width: auto;
-        height: auto;
-
-    }
-
-    .imagenes {
-        margin: 5%;
-        margin-bottom: 0%;
-        width: 100%;
-        height: 80%;
-    }
-
-    .foto {
-        margin: 20%;
-        margin-left: 10%;
-        border-radius: 30%;
-        width: 90%;
-        height: 90%;
-        border: double #B6DAB8;
-    }
-
-    .derecha {
-
-        margin-top: 0;
-        width: 100%;
-        height: 100%;
-        margin-bottom: 3%;
-    }
-
-
-}
-
-
 
 .star {
     margin-left: 1%;
@@ -176,4 +113,55 @@ input[type="radio"] {
 
 input[type="radio"]:checked~.star {
     color: #EB7C00;
+}
+
+@media screen and (max-width:425px) {
+    main {
+        margin-top: 15vh;
+        margin-bottom: 10vh;
+        margin-right: 0;
+        margin-left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .en-linea {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 80%;
+        grid-template-rows: 40% 60%;
+        justify-self: center;
+        width: auto;
+        height: auto;
+
+    }
+
+    .imagenes {
+        margin: 5%;
+        margin-bottom: 0%;
+        width: 100%;
+        height: 80%;
+    }
+
+    .foto {
+        margin: 20%;
+        margin-left: 10%;
+        border-radius: 30%;
+        max-width: 100%;
+        height: auto;
+        border: double #B6DAB8;
+    }
+
+    .derecha {
+
+        margin-top: 0;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 3%;
+    }
+
+    .booton {
+        width: 70%;
+    }
 }

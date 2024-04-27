@@ -14,22 +14,26 @@
 <body>
     <main>
         <section id="especialistas">
-          <h2>Especialistas</h2>
-          <p id="filtroTitulo">Filtrar por:</p>
-          <form id="filtrarBusqueda">
-            <div class="filtroOpcion">
-                <label for="zona">Zona de trabajo:</label>
-                <input type="text" name="zona" id="zona">
+            <h2>Especialistas</h2>
+            <div class="filtroEspecialistas">
+                <p id="filtroTitulo">Filtrar por:</p>
+                <form id="filtrarBusqueda">
+                    <div class="filtroOpcion">
+                        <label for="zona"></label>
+                        <input class="filtroColor" type="text" name="zona" id="zona" placeholder="Zona de trabajo">
+                    </div>
+                    <div class="filtroOpcion">
+                        <label for="valoracion"></label>
+                        <input class="filtroColor" type="number" name="valoracion" id="valoracion" min="1" max="5"
+                            placeholder="Valoración mínima">
+                    </div>
+                    <div>
+                        <button class="filtroOpcion" type="submit">Filtrar</button>
+                    </div>
+                </form>
             </div>
-            <div class="filtroOpcion">
-                <label for="valoracion">Valoración mínima:</label>
-                <input type="number" name="valoracion" id="valoracion" min="1" max="5">
-            </div>
-            <div>
-                <button type="submit">Filtrar</button>
-            </div>
-          </form>
         </section>
+
     </main>
     <footer>
         <div>
