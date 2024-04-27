@@ -12,44 +12,28 @@
 </head>
 
 <body>
-    <header>
-        <a href="../index.html">
-            <div class="logo-completo">
-                <img class="encabezado-en-linea logo-imagen" src="../static/img/header/logo/logo.png" alt="logo">
-                <img class="encabezado-en-linea logo-letras" src="../static/img/header/logo/letras.png" alt="casalista">
-            </div>
-        </a>
-        <form class="buscador" id="buscadorEspecialidad">
-            <input type="text" name="especialidad" id="especialidad" placeholder="Especialidad...">
-            <input class="buscador-boton" type="submit" value="🔍">
-        </form>
-        <div class="menu" id="login">
-            <p class="encabezado-en-linea">Bienvenido</p>
-            <div class="menu-dropdown" id="login-opciones">
-                <a href="perfil.html">Perfil</a>
-                <a href="historial.html">Historial</a>
-                <a href="../index.html" id="cerrar_sesion" onclick="cerrarSesion()">Cerrar Sesión</a>
-            </div>
-        </div>
-    </header>
     <main>
         <section id="especialistas">
-          <h2>Especialistas</h2>
-          <p id="filtroTitulo">Filtrar por:</p>
-          <form id="filtrarBusqueda">
-            <div class="filtroOpcion">
-                <label for="zona">Zona de trabajo:</label>
-                <input type="text" name="zona" id="zona">
+            <h2>Especialistas</h2>
+            <div class="filtroEspecialistas">
+                <p id="filtroTitulo">Filtrar por:</p>
+                <form id="filtrarBusqueda">
+                    <div class="filtroOpcion">
+                        <label for="zona"></label>
+                        <input class="filtroColor" type="text" name="zona" id="zona" placeholder="Zona de trabajo">
+                    </div>
+                    <div class="filtroOpcion">
+                        <label for="valoracion"></label>
+                        <input class="filtroColor" type="number" name="valoracion" id="valoracion" min="1" max="5"
+                            placeholder="Valoración mínima">
+                    </div>
+                    <div>
+                        <button class="filtroOpcion" type="submit">Filtrar</button>
+                    </div>
+                </form>
             </div>
-            <div class="filtroOpcion">
-                <label for="valoracion">Valoración mínima:</label>
-                <input type="number" name="valoracion" id="valoracion" min="1" max="5">
-            </div>
-            <div>
-                <button type="submit">Filtrar</button>
-            </div>
-          </form>
         </section>
+
     </main>
     <footer>
         <div>
@@ -60,6 +44,7 @@
         <p class="copyright">&copy; Copyright 2024</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../static/js/headerLogueado.js"></script>
     <script src="../static/js/validacion_login.js"></script>
     <script src="../static/js/servicios.js"></script>
     <script src="../static/js/footer.js"></script>

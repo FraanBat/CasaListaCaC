@@ -12,31 +12,7 @@
 </head>
 
 <body>
-    <header>
-        <a href="../index.html">
-            <div class="logo-completo">
-                <img class="encabezado-en-linea logo-imagen" src="../static/img/header/logo/logo.png" alt="logo">
-                <img class="encabezado-en-linea logo-letras" src="../static/img/header/logo/letras.png" alt="casalista">
-            </div>
-        </a>
-        <form class="buscador" action="" method="get">
-            <input type="text" name="especialidad" id="especialidad" placeholder="Especialidad...">
-            <input class="buscador-boton" type="submit" value="🔍">
-        </form>
-        <div class="menu" id="login">
-            <p class="encabezado-en-linea">Bienvenido</p>
-            <div class="menu-dropdown" id="login-opciones">
-                <a href="perfil.html">Perfil</a>
-                <a href="historial.html">Historial</a>
-                <a href="../index.html" id="cerrar_sesion" onclick="cerrarSesion()">Cerrar Sesión</a>
-            </div>
-        </div>
-    </header>
-
     <main>
-        <div>
-            <a href="servicios.html">⏪ </a>
-        </div>
         <div class="fila1">
             <div class="imagen"><img class="foto" src="../static/img/fotos/images (1).jpg" alt="imagen"></div>
             <div class="medio">
@@ -47,7 +23,8 @@
             </div>
             <div class="derecha">
                 <br>
-                ★★★★★ N°.N° <br>
+                <br>
+                Teléfono: <br>
                 Zona:
             </div>
         </div>
@@ -63,6 +40,16 @@
         </div>
         <div class="fila3"><button class="boton" type="button">Confirmar</button>
         </div>
+        <div class="fila4">
+            <h4>Opiniones sobre el profesional</h4>
+            <div class="opiniones">
+                <h5 class="comentarista">Nombre</h5>
+                <p class="comentario">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur ducimus
+                    aliquam obcaecati a
+                    ipsa aut deleniti, itaque natus autem? Laborum quam dolorum corporis inventore architecto eum minus
+                    fugit labore accusamus?</p>
+            </div>
+        </div>
     </main>
     <footer>
         <div>
@@ -72,6 +59,7 @@
         </div>
         <p class="copyright">&copy; Copyright 2024</p>
     </footer>
+    <script src="../static/js/headerLogueado.js"></script>
     <script src="../static/js/validacion_login.js"></script>
     <script src="../static/js/footer.js"></script>
 </body>
