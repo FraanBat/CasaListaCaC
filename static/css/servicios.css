@@ -17,8 +17,6 @@ main {
     gap: 0;
 }
 
-
-
 .filtroColor {
     border: outset var(--color-primario-azul);
     min-width: 20vh;
@@ -30,7 +28,7 @@ main {
     border: outset var(--color-primario-verde-opacidad);
 }
 
-button {
+main button {
     border: outset var(--color-primario-azul);
     width: 20vh;
     padding-right: 1%;
@@ -38,13 +36,12 @@ button {
     border-radius: 5px;
 }
 
-button:hover {
+main button:hover {
     border: outset var(--color-primario-verde-opacidad);
     color: var(--color-primario-verde-opacidad);
 }
 
-
-.caja {
+.especialista {
     margin-left: 5%;
     margin-top: 5%;
     margin-bottom: 1.5%;
@@ -58,19 +55,19 @@ button:hover {
 
 }
 
-.caja:hover {
+.especialista:hover {
     border: outset var(--color-primario-azul);
     color: var(--color-primario-azul);
     box-shadow: 0px 0px 40px var(--color-primario-azul);
 }
 
 
-.caja:hover a {
+.especialista:hover a {
     color: var(--color-primario-azul);
     text-decoration: none;
 }
 
-a {
+main a {
     color: black;
     text-decoration: none;
 }
@@ -126,14 +123,11 @@ main p {
         width: 80%;
     }
 
-
-
-
     #filtrarBusqueda input[type=text] {
         width: 50%;
     }
 
-    .caja {
+    .especialista {
         grid-template-columns: 25% 25% 50%;
     }
 
@@ -154,7 +148,8 @@ main p {
 
 @media screen and (max-width:769px) {
 
-    #filtrarBusqueda div {
+    #filtrarBusqueda {
+        display: grid;
         grid-template-columns: 25%;
         grid-template-rows: 40% 40% 15%;
     }
@@ -164,7 +159,7 @@ main p {
         width: 55%;
     }
 
-    .caja {
+    .especialista {
         max-width: 90%;
         grid-template-columns: 30% 20% 40%;
         gap: 5%;
@@ -190,14 +185,12 @@ main p {
         display: grid;
         grid-template-rows: repeat(3, 1fr);
         grid-template-columns: 1fr;
-        width: 100%;
-        vertical-align: middle;
+        text-align: center;
     }
 
     #filtrarBusqueda .filtroOpcion {
         font-size: 2vh;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        margin-top: 2vh;
     }
 
     #filtrarBusqueda input[type=number],
@@ -205,15 +198,14 @@ main p {
         width: 70%;
     }
 
-    .cajita {
+    .filtroEspecialistas {
         margin-top: 2.5%;
         top: 0px;
-
     }
 
-    .caja {
+    .especialista {
         margin-left: 5%;
-        margin-top: 20%;
+        margin-top: 5%;
         margin-bottom: 1.5%;
         max-width: 80%;
         display: grid;
@@ -227,7 +219,7 @@ main p {
     }
 
     .foto {
-        margin: 5%;
+        margin: 10%;
         max-width: 80%;
         height: auto;
         border-radius: 30%;
@@ -250,9 +242,6 @@ main p {
 }
 
 @media screen and (max-width:321px) {
-    .caja {
-        margin-top: 25%;
-    }
 
     main h4 {
         margin-top: 0%;
