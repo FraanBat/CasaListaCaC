@@ -43,7 +43,7 @@ main button:hover {
 
 .especialista {
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 1%;
     margin-bottom: 1.5%;
     max-width: 80%;
     display: grid;
@@ -238,6 +238,7 @@ main p {
 
     .descripcion {
         margin-top: 3vh;
+        margin-right: 3%;
     }
 }
 
