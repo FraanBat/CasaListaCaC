@@ -68,6 +68,7 @@ main p {
     letter-spacing: 4px;
     border-radius: 10px;
     border: double white;
+    cursor: pointer;
 
 }
 
@@ -110,5 +111,11 @@ main p {
 
     .derecha {
         margin-left: 25%;
+    }
+}
+
+@media screen and (max-width:321px) {
+    .en-linea{
+        padding-bottom: 5%;
     }
 }

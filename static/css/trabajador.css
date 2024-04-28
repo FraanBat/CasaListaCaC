@@ -7,6 +7,10 @@ main {
     height: 100%;
 }
 
+main h2{
+    text-align: center;
+    margin-top: 12vh;
+}
 
 .en-linea {
     margin: 0;
