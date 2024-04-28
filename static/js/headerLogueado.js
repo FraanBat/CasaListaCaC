@@ -45,6 +45,16 @@ else{
 
 document.body.insertAdjacentHTML('afterbegin', headerContent)
 
+//Valida que el mail y contraseña ingresados sean válidos
+const validarUsuario = function(mail, contrasena){
+    if(localStorage.getItem("listaUsuarios") !== null && JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.mail === mail && usuario.contrasena === contrasena)){
+        return true
+    }
+    else{
+        return false
+    }
+}
+
 //Si se hace click en el texto para ingresar, y el usuario no está logueado, solicita que lo haga
 document.getElementById("login").addEventListener('click', function(){
     if(localStorage.getItem("usuarioLogueado") === null)

@@ -2,7 +2,7 @@
 const validarLogin = function(especialidad) {
   if(localStorage.getItem("usuarioLogueado") !== null){
     let listaEspecialistasABuscar = JSON.parse(sessionStorage.getItem("listadoEspecialistas"))
-    listaEspecialistasABuscar = listaEspecialistasABuscar.filter(especialista => especialista.profesion === especialidad)
+      listaEspecialistasABuscar = listaEspecialistasABuscar.filter(especialista => especialista.profesion === especialidad)
     sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(listaEspecialistasABuscar))
     window.location.replace("templates/servicios.html")
   }
@@ -14,16 +14,6 @@ const validarLogin = function(especialidad) {
       confirmButtonColor: "#356194",
       confirmButtonText: "Aceptar"
   });
-  }
-}
-
-//Valida que el mail y contraseña ingresados sean válidos
-const validarUsuario = function(mail, contrasena){
-  if(localStorage.getItem("listaUsuarios") !== null && JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.mail === mail && usuario.contrasena === contrasena)){
-    return true
-  }
-  else{
-    return false
   }
 }
 
