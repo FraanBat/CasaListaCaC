@@ -12,26 +12,6 @@
 </head>
 
 <body>
-    <header>
-        <a href="../index.html">
-            <div class="logo-completo">
-                <img class="encabezado-en-linea logo-imagen" src="../static/img/header/logo/logo.png" alt="logo">
-                <img class="encabezado-en-linea logo-letras" src="../static/img/header/logo/letras.png" alt="casalista">
-            </div>
-        </a>
-        <form class="buscador" id="buscadorEspecialidad">
-            <input type="text" name="especialidad" id="especialidad" placeholder="Especialidad...">
-            <input class="buscador-boton" type="submit" value="🔍">
-        </form>
-        <div class="menu" id="login">
-            <p class="encabezado-en-linea">Bienvenido</p>
-            <div class="menu-dropdown" id="login-opciones">
-                <a href="perfil.html">Perfil</a>
-                <a href="historial.html">Historial</a>
-                <a href="../index.html" id="cerrar_sesion" onclick="cerrarSesion()">Cerrar Sesión</a>
-            </div>
-        </div>
-    </header>
     <main>
         <h2 class="titulo">Pedidos Pendientes</h2>
         <section class="cajas">
@@ -127,7 +107,9 @@
         <p class="copyright">&copy; Copyright 2024</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../static/js/validacion_login.js"></script>
+    <script src="../static/js/validacionPostLogin.js"></script>
+    <script src="../static/js/headerLogueado.js"></script>
+    <script src="../static/js/buscadorHeaderEspecialista.js"></script>
     <script src="../static/js/footer.js"></script>
 </body>
 

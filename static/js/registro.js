@@ -27,6 +27,10 @@ document.getElementById("altaUsuario").addEventListener('submit', function(event
             telefono: document.getElementById("telefono").value,
             genero: document.getElementById("genero").value,
             imagen: document.getElementById("imagen").value.replace('C:\\fakepath\\', '../static/img/perfil/'),
+            especializacion: {
+                especialista: false,
+                profesion: null
+            },
             contrasena: document.getElementById("contrasena").value
         })
         localStorage.setItem("listaUsuarios", JSON.stringify(usuarios))
