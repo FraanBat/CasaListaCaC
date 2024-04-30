@@ -1,3 +1,5 @@
+let headerContent
+
 if(localStorage.getItem("usuarioLogueado") !== null){
     headerContent = `
     <header>
