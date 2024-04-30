@@ -22,5 +22,3 @@ const cerrarSesion = function() {
   localStorage.removeItem("usuarioLogueado")
   window.location.replace("../index.html")
 }
-
-console.log(JSON.parse(localStorage.getItem("listaUsuarios")))
