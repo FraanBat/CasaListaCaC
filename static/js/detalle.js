@@ -16,6 +16,10 @@ const mostrarDetalleEspecialista = function(){
             <div class="derecha">
                 <p>Teléfono: ${detalleEspecialista.telefono}</p>
                 <p>Zona: ${detalleEspecialista.zona}</p>
+<<<<<<< HEAD
+=======
+                <p>Valoración: ${Math.floor(detalleEspecialista.valoracion)}/5</p>
+>>>>>>> main
             </div>
         </div>
         <div class="fila2">

@@ -3,9 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/general.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/perfil.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Perfil</h1>
+    <section id="perfil">
+        <h2>Perfil</h2>
+        <form id="editarPerfil">
+            <div>
+                <label for="mail" id="mail"></label>
+            </div>
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input size="30" type="text" id="nombre" name="nombre" required>
+            </div>
+            <div>
+                <label for="apellido">Apellido:</label>
+                <input size="30" type="text" id="apellido" name="apellido" required>
+            </div>
+            <div>
+                <label for="fotoPerfil">Foto actual:</label>
+                <img id="fotoPerfil" alt="foto_perfil">
+            </div>
+            <div>
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div>
+                <label for="zona">Barrio:</label>
+                <input list="barrios" id="zona" name="zona">
+                <datalist id="barrios">
+                    <option value="Agronomía"></option>
+                    <option value="Almagro"></option>                       
+                    <option value="Balvanera"></option>
+                    <option value="Barracas"></option>
+                    <option value="Belgrano"></option>
+                    <option value="Boedo"></option>
+                    <option value="Caballito"></option>
+                    <option value="Chacarita"></option>
+                    <option value="Coghlan"></option>
+                    <option value="Colegiales"></option>
+                    <option value="Constitución"></option>
+                    <option value="Flores"></option>
+                    <option value="Floresta"></option>
+                    <option value="La Boca"></option>
+                    <option value="La Paternal"></option>
+                    <option value="Liniers"></option>
+                    <option value="Mataderos"></option>
+                    <option value="Monte Castro"></option>
+                    <option value="Montserrat"></option>
+                    <option value="Nueva Pompeya"></option>
+                    <option value="Nuñez"></option>
+                    <option value="Palermo"></option>
+                    <option value="Parque Avellaneda"></option>
+                    <option value="Parque Chacabuco"></option>
+                    <option value="Parque Chas"></option>
+                    <option value="Parque Patricios"></option>
+                    <option value="Puerto Madero"></option>
+                    <option value="Recoleta"></option>
+                    <option value="Retiro"></option>
+                    <option value="Saavedra"></option>
+                    <option value="San Cristóbal"></option>
+                    <option value="San Nicolás"></option>
+                    <option value="San Telmo"></option>
+                    <option value="Versalles"></option>
+                    <option value="Villa Crespo"></option>
+                    <option value="Villa Devoto"></option>
+                    <option value="Villa General Mitre"></option>
+                    <option value="Villa Lugano"></option>
+                    <option value="Villa Luro"></option>
+                    <option value="Villa Ortúzar"></option>
+                    <option value="Villa Pueyrredón"></option>
+                    <option value="Villa Real"></option>
+                    <option value="Villa Riachuelo"></option>
+                    <option value="Villa Santa Rita"></option>
+                    <option value="Villa Soldati"></option>
+                    <option value="Villa Urquiza"></option>
+                    <option value="Villa del Parque"></option>
+                    <option value="Vélez Sarsfield"></option>
+                </datalist>                                    
+            </div>
+            <div>
+                <label for="imagenNueva">Cargar nueva foto de perfil:</label>
+                <input type="file" id="imagenNueva" name="imagenNueva" accept="image/*">
+            </div>
+            <div>
+                <label for="contrasenaNueva">Contraseña nueva:</label>
+                <input type="password" id="contrasenaNueva" name="contrasenaNueva" required minlength="8">
+            </div>
+            <div>
+                <label for="repetir_contrasena_nueva">Repetir Contraseña nueva:</label>
+                <input type="password" id="repetir_contrasena_nueva" name="repetir_contrasena_nueva" required minlength="8">
+            </div>
+            <div>
+                <label for="habilitarEspecialidad">Habilitar especialidad:</label>
+                <button id="habilitarEspecialidad">Habilitar</button>
+            </div>
+            <div id="seccionProfesion">
+                <label for="especialidadPerfil">Profesión:</label>
+                <input list="profesion" id="especialidadPerfil" name="especialidadPerfil">
+                <datalist id="profesion">
+                    <option value="Electricista"></option>
+                    <option value="Gasista"></option>                       
+                    <option value="Plomero"></option>
+                    <option value="Carpintero"></option>
+                    <option value="Jardinero"></option>
+                    <option value="Cerrajero"></option>
+                    <option value="Aire acondicionado"></option>
+                    <option value="Pintor"></option>
+                    <option value="Albañil"></option>
+                    <option value="Fletero"></option>
+                </datalist>
+            </div>
+            <div>
+                <button type="submit" id="actualizarDatos">Actualizar</button>
+            </div>
+        </form>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../static/js/validacionPostLogin.js"></script>
+    <script src="../static/js/headerLogueado.js"></script>
+    <script src="../static/js/buscadorHeaderEspecialista.js"></script>
+    <script src="../static/js/perfil.js"></script>
 </body>
 </html>

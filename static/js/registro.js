@@ -23,7 +23,6 @@ document.getElementById("altaUsuario").addEventListener('submit', function(event
             apellido: document.getElementById("apellido").value,
             mail: document.getElementById("mail").value,
             zona: document.getElementById("zona").value,
-            localidad: document.getElementById("localidad").value,
             telefono: document.getElementById("telefono").value,
             genero: document.getElementById("genero").value,
             imagen: document.getElementById("imagen").value.replace('C:\\fakepath\\', '../static/img/perfil/'),
