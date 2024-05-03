@@ -1,4 +1,4 @@
-const mostrarDetalleEspecialista = function(){
+const mostrarDetalleEspecialista = function () {
 
     let detalleEspecialista = JSON.parse(sessionStorage.getItem("listadoEspecialistas")).find(especialista => especialista.id === parseInt(sessionStorage.getItem("especialistaDetalle")))
 
@@ -16,10 +16,6 @@ const mostrarDetalleEspecialista = function(){
             <div class="derecha">
                 <p>Teléfono: ${detalleEspecialista.telefono}</p>
                 <p>Zona: ${detalleEspecialista.zona}</p>
-<<<<<<< HEAD
-=======
-                <p>Valoración: ${Math.floor(detalleEspecialista.valoracion)}/5</p>
->>>>>>> main
             </div>
         </div>
         <div class="fila2">
