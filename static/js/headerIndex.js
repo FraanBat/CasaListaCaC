@@ -1,6 +1,6 @@
 let headerContent
 
-if(localStorage.getItem("usuarioLogueado") === null){
+if (localStorage.getItem("usuarioLogueado") === null) {
     headerContent = `
         <header>
         <a href="index.html">
@@ -20,9 +20,9 @@ if(localStorage.getItem("usuarioLogueado") === null){
         </header>
         `
 }
-else{
+else {
     let usuarioActual = JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === localStorage.getItem("usuarioLogueado"))
-    if(!usuarioActual.especializacion.especialista){
+    if (!usuarioActual.especializacion.especialista) {
         headerContent = `
         <header>
         <a href="index.html">
@@ -46,7 +46,7 @@ else{
         </header>
         `
     }
-    else{
+    else {
         headerContent = `
         <header>
         <a href="index.html">
@@ -76,69 +76,68 @@ else{
 document.body.insertAdjacentHTML('afterbegin', headerContent)
 
 //Valida que el mail y contraseña ingresados sean válidos
-const validarUsuario = function(mail, contrasena){
-    if(localStorage.getItem("listaUsuarios") !== null && JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.mail === mail && usuario.contrasena === contrasena)){
+const validarUsuario = function (mail, contrasena) {
+    if (localStorage.getItem("listaUsuarios") !== null && JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.mail === mail && usuario.contrasena === contrasena)) {
         return true
     }
-    else{
+    else {
         return false
     }
 }
 
 //Si se hace click en el texto para ingresar, y el usuario no está logueado, solicita que lo haga
-document.getElementById("login").addEventListener('click', function(){
-    if(localStorage.getItem("usuarioLogueado") === null)
-    {
+document.getElementById("login").addEventListener('click', function () {
+    if (localStorage.getItem("usuarioLogueado") === null) {
         (async () => {
             const { value: datos_login } = await Swal.fire({
-              title: "Loguearse",
-              html:
-              'Email: <input type="email" id="swal-input1" class="swal2-input">' +
-              'Clave: <input type="password" id="swal-input2" class="swal2-input">',
-            focusConfirm: false,
-            preConfirm: () => {
-              return [
-                document.getElementById('swal-input1').value,
-                document.getElementById('swal-input2').value
-              ]
-            },
-            confirmButtonColor: "#356194",
-            confirmButtonText: "Ingresar",
-            footer: '<a href="templates/registro.html">¿No tienes cuenta? Registrate</a>'
+                title: "Loguearse",
+                html:
+                    'Email: <input type="email" id="swal-input1" class="swal2-input">' +
+                    'Clave: <input type="password" id="swal-input2" class="swal2-input">',
+                focusConfirm: false,
+                preConfirm: () => {
+                    return [
+                        document.getElementById('swal-input1').value,
+                        document.getElementById('swal-input2').value
+                    ]
+                },
+                confirmButtonColor: "#356194",
+                confirmButtonText: "Ingresar",
+                footer: '<a href="templates/registro.html">¿No tienes cuenta? Registrate</a>'
             })
             if (validarUsuario(datos_login[0], datos_login[1])) {
-              localStorage.setItem("usuarioLogueado", datos_login[0])
-              window.location.replace("../")
-              }
-            else{
+                localStorage.setItem("usuarioLogueado", datos_login[0])
+                window.location.replace("../")
+            }
+            else {
                 Swal.fire({
-                  title: "Usuario incorrecto",
-                  text: "Usuario y/o contraseña no válidos",
-                  icon: "warning"
-              })
+                    title: "Usuario incorrecto",
+                    text: "Usuario y/o contraseña no válidos",
+                    icon: "warning"
+                })
             }
         })()
     }
 })
 
 
-document.getElementById("buscadorEspecialidad").addEventListener('submit', function(event){
+document.getElementById("buscadorEspecialidad").addEventListener('submit', function (event) {
     event.preventDefault()
 
-    if(localStorage.getItem("usuarioLogueado") !== null){
-        if(document.getElementById("especialidad").value === ""){
+    if (localStorage.getItem("usuarioLogueado") !== null) {
+        if (document.getElementById("especialidad").value === "") {
             sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(JSON.parse(sessionStorage.getItem("listadoEspecialistas"))))
         }
-        else{
+        else {
             let listaEspecialistasFiltrada = JSON.parse(sessionStorage.getItem("listadoEspecialistas"))
             listaEspecialistasFiltrada = listaEspecialistasFiltrada.filter(especialista => especialista.profesion === document.getElementById("especialidad").value)
             sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(listaEspecialistasFiltrada))
         }
 
-        if(JSON.parse(sessionStorage.getItem("FiltradoEspecialistaBuscado")).length > 0){
+        if (JSON.parse(sessionStorage.getItem("FiltradoEspecialistaBuscado")).length > 0) {
             window.location.replace("templates/servicios.html")
         }
-        else{
+        else {
             sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(JSON.parse(sessionStorage.getItem("listadoEspecialistas"))))
 
             Swal.fire({
@@ -150,7 +149,7 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
             });
         }
     }
-    else{
+    else {
         Swal.fire({
             title: "Usuario sin loguearse",
             text: "Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista",
@@ -160,4 +159,3 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
         });
     }
 })
-
