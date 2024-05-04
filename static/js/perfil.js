@@ -79,7 +79,7 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
     actualizarDatosUsuario(perfilUsuario)
 })
 
-let perfilUsuario = JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.mail === localStorage.getItem("usuarioLogueado"))
+let perfilUsuario = JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.id === parseInt(localStorage.getItem("usuarioLogueado")))
 let especialidad = perfilUsuario.especializacion.especialista
 solicitarPerfil(perfilUsuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario)
 seccionEspecialidad(especialidad)

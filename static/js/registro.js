@@ -19,6 +19,7 @@ document.getElementById("altaUsuario").addEventListener('submit', function(event
     if(buscarUsuario(document.getElementById("mail").value) === false){
         let usuarios = JSON.parse(localStorage.getItem("listaUsuarios")) || []
         usuarios.push({
+            id: usuarios.length + 1,
             nombre: document.getElementById("nombre").value,
             apellido: document.getElementById("apellido").value,
             mail: document.getElementById("mail").value,
@@ -40,7 +41,7 @@ document.getElementById("altaUsuario").addEventListener('submit', function(event
             icon: "success"
           }).then((result) =>{
             if(result.isConfirmed){
-                localStorage.setItem("usuarioLogueado", document.getElementById("mail").value)
+                localStorage.setItem("usuarioLogueado", usuarios[usuarios.length - 1].id)
                 window.location.replace("../index.html")
             }
           });

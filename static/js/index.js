@@ -1,4 +1,4 @@
-//Al seleccionar una especialidad,c valida que el usuario haya iniciado sesión. Si no lo hizo, le pide que se loguee
+//Al seleccionar una especialidad, se valida que el usuario haya iniciado sesión. Si no lo hizo, le pide que se loguee
 const validarLogin = function(especialidad) {
   if(localStorage.getItem("usuarioLogueado") !== null){
     let listaEspecialistasABuscar = JSON.parse(sessionStorage.getItem("listadoEspecialistas"))
@@ -19,6 +19,8 @@ const validarLogin = function(especialidad) {
 
 //Cierra sesión del usuario
 const cerrarSesion = function() {
-  localStorage.removeItem("usuarioLogueado")
   window.location.replace("../index.html")
+  localStorage.removeItem("usuarioLogueado")
 }
+
+//localStorage.removeItem("listaUsuarios")
