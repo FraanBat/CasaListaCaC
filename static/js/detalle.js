@@ -45,12 +45,13 @@ const confirmarPedido = function(){
     Swal.fire({
         title: "Pedido confirmado",
         confirmButtonText: "Aceptar",
+        background: "#E9F5DB",
         icon: "success"
       }).then((result) =>{
         if(result.isConfirmed){
             window.location.replace("servicios.html")
         }
-      })
+    })
 }
 
 mostrarDetalleEspecialista()

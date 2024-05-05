@@ -96,6 +96,7 @@ document.getElementById("login").addEventListener('click', function(){
               'Email: <input type="email" id="swal-input1" class="swal2-input">' +
               'Clave: <input type="password" id="swal-input2" class="swal2-input">',
             focusConfirm: false,
+            background: "#d9d9d9",
             preConfirm: () => {
               return [
                 document.getElementById('swal-input1').value,

@@ -47,6 +47,7 @@ const actualizarDatosUsuario = function(perfilUsuario){
     Swal.fire({
         title: "Datos actualizados",
         confirmButtonText: "Aceptar",
+        background: "#E9F5DB",
         icon: "success"
       }).then((result) =>{
         if(result.isConfirmed){

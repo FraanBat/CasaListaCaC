@@ -11,6 +11,7 @@ const validarLogin = function(especialidad) {
       title: "Usuario sin loguearse",
       text: "Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista",
       icon: "warning",
+      background: "#E9F5DB",
       confirmButtonColor: "#356194",
       confirmButtonText: "Aceptar"
   });

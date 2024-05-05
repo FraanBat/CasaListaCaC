@@ -5,6 +5,7 @@ main {
 
 .titulo {
     text-align: center;
+    margin-top: -5vh;
 }
 
 .cajas {
@@ -20,8 +21,6 @@ main {
 }
 
 .pedido {
-
-
     border-radius: 15px;
     max-width: 15%;
     min-width: 10%;
@@ -29,7 +28,7 @@ main {
     padding: 2%;
     padding-right: 0;
     flex: 1 1 200px;
-    background-color: rgb(236, 235, 235);
+    background-color: #b0bbad;
     transition: 1s;
     margin-left: 0;
     margin-right: 0;
@@ -78,6 +77,7 @@ main {
 .boton:hover {
     border: outset var(--color-primario-verde-opacidad);
     color: var(--color-primario-verde-opacidad);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

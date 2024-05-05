@@ -1,5 +1,5 @@
 :root {
-    --color-primario-verde: #B6DAB8;
+    --color-primario-verde: #9fd0a1;
     --color-primario-verde-opacidad: rgba(180, 217, 182, 0.5);
     --color-primario-azul: #356194;
     --color-secundario-naranja: #EB7C00;
@@ -18,4 +18,5 @@
 
 body {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
+    background-color: #d9d9d9;
 }

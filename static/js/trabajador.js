@@ -85,6 +85,7 @@ const enviarCalificacion = function(){
         title: "Calificación enviada",
         text: "Su calificación ha sido enviada. ¡Muchas gracias!",
         confirmButtonText: "Aceptar",
+        background: "#E9F5DB",
         icon: "success"
       }).then((result) =>{
         if(result.isConfirmed){

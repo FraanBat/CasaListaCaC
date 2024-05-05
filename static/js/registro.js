@@ -38,6 +38,7 @@ document.getElementById("altaUsuario").addEventListener('submit', function(event
         Swal.fire({
             title: "Usuario creado",
             confirmButtonText: "Aceptar",
+            background: "#E9F5DB",
             icon: "success"
           }).then((result) =>{
             if(result.isConfirmed){
@@ -52,6 +53,7 @@ document.getElementById("altaUsuario").addEventListener('submit', function(event
             title: "Usuario ya existente",
             text: "Lo siento, ya existe un usuario con el mail especificado",
             icon: "error",
+            background: "#E9F5DB",
             confirmButtonColor: "#356194",
             confirmButtonText: "Aceptar"
           });
