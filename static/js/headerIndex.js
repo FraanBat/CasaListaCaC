@@ -134,7 +134,7 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
         }
         else{
             let listaEspecialistasFiltrada = JSON.parse(sessionStorage.getItem("listadoEspecialistas"))
-            listaEspecialistasFiltrada = listaEspecialistasFiltrada.filter(especialista => especialista.profesion === document.getElementById("especialidad").value)
+            listaEspecialistasFiltrada = listaEspecialistasFiltrada.filter(especialista => especialista.profesion.toLowerCase() === document.getElementById("especialidad").value.toLowerCase())
             sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(listaEspecialistasFiltrada))
         }
 
