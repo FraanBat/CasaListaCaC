@@ -14,7 +14,6 @@ const mostrarDetalleHistorial = function(){
                     <br><br>
                     <h3>${detalleHistorial.profesion}: ${detalleHistorial.apellido} ${detalleHistorial.nombre}</h3>
                     <br><br>
-                    <form>
                         <strong class="amabilidad">
                             <input type="radio" id="star5" name="Amabilidad" value="5">
                             <label class="star" for="star5">★</label>
@@ -74,15 +73,25 @@ const mostrarDetalleHistorial = function(){
                         <strong><label for="comentario">Comentario</label></strong>
                         <textarea name="comentario" id="comentario" cols="40" rows="5" maxlength="200"></textarea>
                         <br><br><br>
-                        <div class="booton">
-                            <strong><button class="boton">Enviar</button></strong>
-                        </div>
-                    </form>
-
+                        <strong><button class="boton booton" type="submit" onclick="enviarCalificacion()">Enviar</button></strong>
                 </div>
     `
 
     seccionHistorialEspecialista.appendChild(especialistaContenido)
+}
+
+const enviarCalificacion = function(){
+    Swal.fire({
+        title: "Calificación enviada",
+        text: "Su calificación ha sido enviada. ¡Muchas gracias!",
+        confirmButtonText: "Aceptar",
+        background: "#E9F5DB",
+        icon: "success"
+      }).then((result) =>{
+        if(result.isConfirmed){
+            window.location.replace("historial.html")
+        }
+      })
 }
 
 mostrarDetalleHistorial()

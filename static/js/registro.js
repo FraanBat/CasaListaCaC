@@ -19,6 +19,7 @@ document.getElementById("altaUsuario").addEventListener('submit', function(event
     if(buscarUsuario(document.getElementById("mail").value) === false){
         let usuarios = JSON.parse(localStorage.getItem("listaUsuarios")) || []
         usuarios.push({
+            id: usuarios.length + 1,
             nombre: document.getElementById("nombre").value,
             apellido: document.getElementById("apellido").value,
             mail: document.getElementById("mail").value,
@@ -37,10 +38,11 @@ document.getElementById("altaUsuario").addEventListener('submit', function(event
         Swal.fire({
             title: "Usuario creado",
             confirmButtonText: "Aceptar",
+            background: "#E9F5DB",
             icon: "success"
           }).then((result) =>{
             if(result.isConfirmed){
-                localStorage.setItem("usuarioLogueado", document.getElementById("mail").value)
+                localStorage.setItem("usuarioLogueado", usuarios[usuarios.length - 1].id)
                 window.location.replace("../index.html")
             }
           });
@@ -51,6 +53,7 @@ document.getElementById("altaUsuario").addEventListener('submit', function(event
             title: "Usuario ya existente",
             text: "Lo siento, ya existe un usuario con el mail especificado",
             icon: "error",
+            background: "#E9F5DB",
             confirmButtonColor: "#356194",
             confirmButtonText: "Aceptar"
           });

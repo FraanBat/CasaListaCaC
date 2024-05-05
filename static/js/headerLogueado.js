@@ -21,7 +21,7 @@ if(localStorage.getItem("usuarioLogueado") === null){
         `
 }
 else{
-    let usuarioActual = JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === localStorage.getItem("usuarioLogueado"))
+    let usuarioActual = JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.id === parseInt(localStorage.getItem("usuarioLogueado")))
     if(!usuarioActual.especializacion.especialista){
         headerContent = `
         <header>
@@ -96,6 +96,7 @@ document.getElementById("login").addEventListener('click', function(){
               'Email: <input type="email" id="swal-input1" class="swal2-input">' +
               'Clave: <input type="password" id="swal-input2" class="swal2-input">',
             focusConfirm: false,
+            background: "#d9d9d9",
             preConfirm: () => {
               return [
                 document.getElementById('swal-input1').value,
@@ -107,9 +108,9 @@ document.getElementById("login").addEventListener('click', function(){
             footer: '<a href="templates/registro.html">¿No tienes cuenta? Registrate</a>'
             })
             if (validarUsuario(datos_login[0], datos_login[1])) {
-              localStorage.setItem("usuarioLogueado", datos_login[0])
-              window.location.replace("../")
-              }
+                localStorage.setItem("usuarioLogueado", JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === datos_login[0]).id)
+                window.location.replace("../")
+            }
             else{
                 Swal.fire({
                   title: "Usuario incorrecto",

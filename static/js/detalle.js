@@ -16,7 +16,7 @@ const mostrarDetalleEspecialista = function(){
             <div class="derecha">
                 <p>Teléfono: ${detalleEspecialista.telefono}</p>
                 <p>Zona: ${detalleEspecialista.zona}</p>
-                <p>Valoración: ${Math.floor(detalleEspecialista.valoracion)}/5</p>
+                <p>Valoración: ${Math.floor(detalleEspecialista.valoracion)}/5 ⭐</p>
             </div>
         </div>
         <div class="fila2">
@@ -27,7 +27,7 @@ const mostrarDetalleEspecialista = function(){
             </p>
             <br>
         </div>
-        <div class="fila3"><button class="boton" type="button">Confirmar</button>
+        <div class="fila3"><button class="boton" onclick="confirmarPedido()">Confirmar</button>
         </div>
         <div class="fila4">
             <h4>Opiniones sobre el profesional</h4>
@@ -39,6 +39,19 @@ const mostrarDetalleEspecialista = function(){
     `
 
     seccionEspecialista.appendChild(especialistaContenido)
+}
+
+const confirmarPedido = function(){
+    Swal.fire({
+        title: "Pedido confirmado",
+        confirmButtonText: "Aceptar",
+        background: "#E9F5DB",
+        icon: "success"
+      }).then((result) =>{
+        if(result.isConfirmed){
+            window.location.replace("servicios.html")
+        }
+    })
 }
 
 mostrarDetalleEspecialista()

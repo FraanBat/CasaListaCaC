@@ -22,6 +22,7 @@ document.getElementById("filtrarBusqueda").addEventListener('submit', function(e
             title: "Sin disponibilidad",
             text: "Lo siento, pero no se encontraron especialistas con las especificaciones realizadas",
             icon: "warning",
+            background: "#E9F5DB",
             confirmButtonColor: "#356194",
             confirmButtonText: "Aceptar"
           });

@@ -21,7 +21,7 @@ if(localStorage.getItem("usuarioLogueado") === null){
         `
 }
 else{
-    let usuarioActual = JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === localStorage.getItem("usuarioLogueado"))
+    let usuarioActual = JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.id === parseInt(localStorage.getItem("usuarioLogueado")))
     if(!usuarioActual.especializacion.especialista){
         headerContent = `
         <header>
@@ -96,6 +96,7 @@ document.getElementById("login").addEventListener('click', function(){
               'Email: <input type="email" id="swal-input1" class="swal2-input">' +
               'Clave: <input type="password" id="swal-input2" class="swal2-input">',
             focusConfirm: false,
+            background: "#E9F5DB",
             preConfirm: () => {
               return [
                 document.getElementById('swal-input1').value,
@@ -107,13 +108,15 @@ document.getElementById("login").addEventListener('click', function(){
             footer: '<a href="templates/registro.html">¿No tienes cuenta? Registrate</a>'
             })
             if (validarUsuario(datos_login[0], datos_login[1])) {
-              localStorage.setItem("usuarioLogueado", datos_login[0])
-              window.location.replace("../")
-              }
+                
+                localStorage.setItem("usuarioLogueado", JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === datos_login[0]).id)
+                window.location.replace("../")
+            }
             else{
                 Swal.fire({
                   title: "Usuario incorrecto",
                   text: "Usuario y/o contraseña no válidos",
+                  background: "#E9F5DB",
                   icon: "warning"
               })
             }
@@ -131,7 +134,7 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
         }
         else{
             let listaEspecialistasFiltrada = JSON.parse(sessionStorage.getItem("listadoEspecialistas"))
-            listaEspecialistasFiltrada = listaEspecialistasFiltrada.filter(especialista => especialista.profesion === document.getElementById("especialidad").value)
+            listaEspecialistasFiltrada = listaEspecialistasFiltrada.filter(especialista => especialista.profesion.toLowerCase() === document.getElementById("especialidad").value.toLowerCase())
             sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(listaEspecialistasFiltrada))
         }
 
@@ -145,6 +148,7 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
                 title: "Sin disponibilidad",
                 text: "Lo siento, pero no se encontraron especialistas con las especificaciones realizadas",
                 icon: "warning",
+                background: "#E9F5DB",
                 confirmButtonColor: "#356194",
                 confirmButtonText: "Aceptar"
             });
@@ -155,6 +159,7 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
             title: "Usuario sin loguearse",
             text: "Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista",
             icon: "warning",
+            background: "#E9F5DB",
             confirmButtonColor: "#356194",
             confirmButtonText: "Aceptar"
         });
