@@ -3,6 +3,7 @@ document.getElementById("TerminosYCondiciones").addEventListener('click', functi
         title: "Términos y condiciones",
         text: "Casa Lista nunca compartirá sus datos personales, más allá de su nombre, apellido, zona en donde vive y número de teléfono",
         icon: "info",
+        background: "#E9F5DB",
         confirmButtonText: "Confirmar"
     });
 })
@@ -12,6 +13,7 @@ document.getElementById("FAQ").addEventListener('click', function(){
     Swal.fire({
         title: "Preguntas frecuentes",
         icon: "info",
+        background: "#E9F5DB",
         html: '<pre>' + FAQ + '</pre>',
         confirmButtonText: "Confirmar"
     });
@@ -22,6 +24,7 @@ document.getElementById("QuienesSomos").addEventListener('click', function(){
     Swal.fire({
         title: "¿Quiénes somos?",
         icon: "info",
+        background: "#E9F5DB",
         html: '<pre>' + equipo + '</pre>',
         confirmButtonText: "Confirmar"
     });

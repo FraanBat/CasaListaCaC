@@ -68,6 +68,7 @@ main h2{
     background-color: white;
     border: double #308df8;
     color: #308df8;
+    cursor: pointer;
 }
 
 .star {

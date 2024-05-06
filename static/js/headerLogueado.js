@@ -20,9 +20,15 @@ if (localStorage.getItem("usuarioLogueado") === null) {
         </header>
         `
 }
+<<<<<<< HEAD
 else {
     let usuarioActual = JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === localStorage.getItem("usuarioLogueado"))
     if (!usuarioActual.especializacion.especialista) {
+=======
+else{
+    let usuarioActual = JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.id === parseInt(localStorage.getItem("usuarioLogueado")))
+    if(!usuarioActual.especializacion.especialista){
+>>>>>>> main
         headerContent = `
         <header>
         <a href="../index.html">
@@ -90,6 +96,7 @@ document.getElementById("login").addEventListener('click', function () {
     if (localStorage.getItem("usuarioLogueado") === null) {
         (async () => {
             const { value: datos_login } = await Swal.fire({
+<<<<<<< HEAD
                 title: "Loguearse",
                 html:
                     'Email: <input type="email" id="swal-input1" class="swal2-input">' +
@@ -110,6 +117,29 @@ document.getElementById("login").addEventListener('click', function () {
                 window.location.replace("../")
             }
             else {
+=======
+              title: "Loguearse",
+              html:
+              'Email: <input type="email" id="swal-input1" class="swal2-input">' +
+              'Clave: <input type="password" id="swal-input2" class="swal2-input">',
+            focusConfirm: false,
+            background: "#d9d9d9",
+            preConfirm: () => {
+              return [
+                document.getElementById('swal-input1').value,
+                document.getElementById('swal-input2').value
+              ]
+            },
+            confirmButtonColor: "#356194",
+            confirmButtonText: "Ingresar",
+            footer: '<a href="templates/registro.html">¿No tienes cuenta? Registrate</a>'
+            })
+            if (validarUsuario(datos_login[0], datos_login[1])) {
+                localStorage.setItem("usuarioLogueado", JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === datos_login[0]).id)
+                window.location.replace("../")
+            }
+            else{
+>>>>>>> main
                 Swal.fire({
                     title: "Usuario incorrecto",
                     text: "Usuario y/o contraseña no válidos",

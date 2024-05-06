@@ -54,7 +54,7 @@ main button:hover {
     grid-template-columns: 25% 15% 60%;
     grid-template-rows: 100%;
     border-radius: 30px;
-    background-color: rgb(240, 237, 237);
+    background-color: #e6eae4;
     transition: 1s;
 }
 
@@ -85,7 +85,7 @@ main h2 {
 }
 
 .descripcion {
-    background-color: rgb(221, 212, 212);
+    background-color: #d3cbcb;
     border-radius: 30px;
     overflow: hidden;
 }
@@ -140,12 +140,6 @@ main p {
 }
 
 @media screen and (max-width:769px) {
-
-    #filtrarBusqueda {
-        display: grid;
-        grid-template-columns: 25%;
-        grid-template-rows: 40% 40% 15%;
-    }
 
     #filtrarBusqueda input[type=text] {
         font-size: 2vh;

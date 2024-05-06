@@ -7,7 +7,7 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
         }
         else{
             let listaEspecialistasFiltrada = JSON.parse(sessionStorage.getItem("listadoEspecialistas"))
-            listaEspecialistasFiltrada = listaEspecialistasFiltrada.filter(especialista => especialista.profesion === document.getElementById("especialidad").value)
+            listaEspecialistasFiltrada = listaEspecialistasFiltrada.filter(especialista => especialista.profesion.toLowerCase() === document.getElementById("especialidad").value.toLowerCase())
             sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(listaEspecialistasFiltrada))
         }
 
@@ -21,6 +21,7 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
                 title: "Sin disponibilidad",
                 text: "Lo siento, pero no se encontraron especialistas con las especificaciones realizadas",
                 icon: "warning",
+                background: "#E9F5DB",
                 confirmButtonColor: "#356194",
                 confirmButtonText: "Aceptar"
             });
@@ -31,6 +32,7 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
             title: "Usuario sin loguearse",
             text: "Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista",
             icon: "warning",
+            background: "#E9F5DB",
             confirmButtonColor: "#356194",
             confirmButtonText: "Aceptar"
         });

@@ -85,13 +85,13 @@ main p {
     transition-property: background-color, border, color;
     border-radius: 10px;
     border: solid #B6DAB8;
-
 }
 
 .boton:hover {
     background-color: white;
     border: double #308df8;
     color: #308df8;
+    cursor: pointer;
 }
 
 .opiniones {
