@@ -132,10 +132,7 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
 })
 
 //Cierra sesión del usuario
-
 const cerrarSesion = function () {
     localStorage.removeItem("usuarioLogueado")
     window.location.replace("index.html")
-    localStorage.removeItem("usuarioLogueado")
 }
-

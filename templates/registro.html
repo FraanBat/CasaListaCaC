@@ -17,7 +17,7 @@
         <h1>Registro de Usuario</h1>
         <section class="container">
             <h2>Alta usuario</h2>
-            <form id="altaUsuario">
+            <form id="altaUsuario" onsubmit="return validarDatos()">
                 <div>
                     <label for="nombre">Nombre:</label>
                     <input size="30" type="text" id="nombre" name="nombre" placeholder="Ej: Juan" required>
@@ -32,7 +32,7 @@
                 </div>
                 <div>
                     <label for="zona">Seleccione barrio:</label>
-                    <input list="barrios" id="zona" name="zona">
+                    <input list="barrios" id="zona" name="zona" required>
                     <datalist id="barrios">
                         <option value="Agronomía"></option>
                         <option value="Almagro"></option>
@@ -92,7 +92,7 @@
 
                 <div>
                     <label for="genero">Seleccine género</label>
-                    <select name="genero" id="genero">
+                    <select name="genero" id="genero" required>
                         <option value="M">M</option>
                         <option value="F">F</option>
                         <option value="Otro">Otro</option>
