@@ -28,7 +28,7 @@ main {
     padding: 2%;
     padding-right: 0;
     flex: 1 1 200px;
-    background-color: #b0bbad;
+    background-color: rgb(206, 204, 204);
     transition: 1s;
     margin-left: 0;
     margin-right: 0;

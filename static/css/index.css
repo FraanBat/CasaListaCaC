@@ -6,6 +6,10 @@ main {
     margin-bottom: 10vh;
 }
 
+body {
+    background-color: rgb(234, 255, 252);
+}
+
 #titulo {
     height: 15vh;
     margin-top: -5vh;
@@ -38,12 +42,12 @@ main {
     cursor: pointer;
 }
 
-#acercaDeCasaLista{
+#acercaDeCasaLista {
     margin-top: 8vh;
     text-align: center;
 }
 
-main iframe{
+main iframe {
     margin-top: 1vh;
     margin-bottom: 2vh;
 }
@@ -61,7 +65,7 @@ main iframe{
         font-size: 1em;
     }
 
-    main iframe{
+    main iframe {
         width: 92%;
         height: 320px;
         margin-left: 3vw;

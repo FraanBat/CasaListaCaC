@@ -1,4 +1,4 @@
-const mostrarDetalleEspecialista = function(){
+const mostrarDetalleEspecialista = function () {
 
     let detalleEspecialista = JSON.parse(sessionStorage.getItem("listadoEspecialistas")).find(especialista => especialista.id === parseInt(sessionStorage.getItem("especialistaDetalle")))
 
@@ -41,7 +41,7 @@ const mostrarDetalleEspecialista = function(){
     seccionEspecialista.appendChild(especialistaContenido)
 }
 
-const confirmarPedido = function(){
+const confirmarPedido = function () {
     alert("Pedido confirmado")
     window.location.replace("servicios.html")
 }

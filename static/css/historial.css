@@ -15,7 +15,7 @@ main {
     grid-template-rows: 15%;
     border-radius: 30px;
     transition: 1s;
-    background-color: #b0bbad;
+    background-color: rgb(221, 216, 216);
 }
 
 
@@ -115,7 +115,7 @@ main p {
 }
 
 @media screen and (max-width:321px) {
-    .en-linea{
+    .en-linea {
         padding-bottom: 5%;
     }
 }

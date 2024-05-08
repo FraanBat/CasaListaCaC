@@ -1,6 +1,6 @@
 let headerContent
 
-if(localStorage.getItem("usuarioLogueado") === null){
+if (localStorage.getItem("usuarioLogueado") === null) {
     headerContent = `
         <header>
         <a href="index.html">
@@ -22,9 +22,9 @@ if(localStorage.getItem("usuarioLogueado") === null){
         </header>
         `
 }
-else{
+else {
     let usuarioActual = JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.id === parseInt(localStorage.getItem("usuarioLogueado")))
-    if(!usuarioActual.especializacion.especialista){
+    if (!usuarioActual.especializacion.especialista) {
         headerContent = `
         <header>
         <a href="index.html">
@@ -48,7 +48,7 @@ else{
         </header>
         `
     }
-    else{
+    else {
         headerContent = `
         <header>
         <a href="index.html">
@@ -78,62 +78,61 @@ else{
 document.body.insertAdjacentHTML('afterbegin', headerContent)
 
 //Valida que el mail y contraseña ingresados sean válidos
-const validarUsuario = function(mail, contrasena){
-    if(localStorage.getItem("listaUsuarios") !== null && JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.mail === mail && usuario.contrasena === contrasena)){
+const validarUsuario = function (mail, contrasena) {
+    if (localStorage.getItem("listaUsuarios") !== null && JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.mail === mail && usuario.contrasena === contrasena)) {
         return true
     }
-    else{
+    else {
         return false
     }
 }
 
 //Si se hace click en el texto para ingresar, y el usuario no está logueado, solicita que lo haga
-const loginUsuario = function(){
-    if(localStorage.getItem("usuarioLogueado") === null)
-    {
+const loginUsuario = function () {
+    if (localStorage.getItem("usuarioLogueado") === null) {
         let usuario = prompt("Ingrese su mail")
         let password = prompt("Ingrese su contraseña")
         if (validarUsuario(usuario, password)) {
-                
+
             localStorage.setItem("usuarioLogueado", JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === usuario).id)
             window.location.replace("../")
         }
-        else{
+        else {
             alert("Usuario y/o contraseña no válidos")
         }
     }
 }
 
 
-document.getElementById("buscadorEspecialidad").addEventListener('submit', function(event){
+document.getElementById("buscadorEspecialidad").addEventListener('submit', function (event) {
     event.preventDefault()
 
-    if(localStorage.getItem("usuarioLogueado") !== null){
-        if(document.getElementById("especialidad").value === ""){
+    if (localStorage.getItem("usuarioLogueado") !== null) {
+        if (document.getElementById("especialidad").value === "") {
             sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(JSON.parse(sessionStorage.getItem("listadoEspecialistas"))))
         }
-        else{
+        else {
             let listaEspecialistasFiltrada = JSON.parse(sessionStorage.getItem("listadoEspecialistas"))
             listaEspecialistasFiltrada = listaEspecialistasFiltrada.filter(especialista => especialista.profesion.toLowerCase() === document.getElementById("especialidad").value.toLowerCase())
             sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(listaEspecialistasFiltrada))
         }
 
-        if(JSON.parse(sessionStorage.getItem("FiltradoEspecialistaBuscado")).length > 0){
+        if (JSON.parse(sessionStorage.getItem("FiltradoEspecialistaBuscado")).length > 0) {
             window.location.replace("templates/servicios.html")
         }
-        else{
+        else {
             sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(JSON.parse(sessionStorage.getItem("listadoEspecialistas"))))
 
             alert("Lo siento, pero no se encontraron especialistas con las especificaciones realizadas")
         }
     }
-    else{
+    else {
         alert("Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista")
     }
 })
 
 //Cierra sesión del usuario
-const cerrarSesion = function() {
+const cerrarSesion = function () {
     localStorage.removeItem("usuarioLogueado")
     window.location.replace("index.html")
 }
