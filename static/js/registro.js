@@ -15,23 +15,30 @@ const buscarUsuario = function (mail) {
 function validarDatos() {
     let nombre1 = document.getElementById("nombre").value.trim();
     let apellido1 = document.getElementById("apellido").value.trim();
+    let mail1 = document.getElementById("mail").value.trim();
     let telefono1 = document.getElementById("telefono").value.trim();
     let contrasenia1 = document.getElementById("contrasena").value.trim();
     let contraRepetida1 = document.getElementById("repetir_contrasena").value.trim();
     let campos = document.getElementById("campos");
 
-    if (!/^[a-zA-Z]+$/.test(nombre1)) {
+    if (!/^[a-zA-Z\s]+$/.test(nombre1)) {
         campos.textContent = "❌ Ingrese un nombre valido. "
         campos.style.color = "red"
         return false
     }
-    if (!/^[a-zA-Z]+$/.test(apellido1)) {
+    if (!/^[a-zA-Z\s]+$/.test(apellido1)) {
         campos.textContent = "❌ Ingrese un apellido valido. "
         campos.style.color = "red"
         return false
     }
-    if (telefono1.length !== 10) {
-        campos.textContent = "❌ El telefono debe tener 10 caracteres. "
+    if(!(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/).test(mail1)){
+        campos.textContent = "❌ Ingrese un correo valido. "
+        campos.style.color = "red"
+        return false
+    }
+
+    if (telefono1.length !== 10 || !/^\d+$/.test(telefono1)) {
+        campos.textContent = "❌ El telefono debe tener solamente números y 10 caracteres. "
         campos.style.color = "red"
         return false
     }
