@@ -1,27 +1,12 @@
 //Al seleccionar una especialidad, se valida que el usuario haya iniciado sesión. Si no lo hizo, le pide que se loguee
-const validarLogin = function(especialidad) {
-  if(localStorage.getItem("usuarioLogueado") !== null){
+const validarLogin = function (especialidad) {
+  if (localStorage.getItem("usuarioLogueado") !== null) {
     let listaEspecialistasABuscar = JSON.parse(sessionStorage.getItem("listadoEspecialistas"))
-      listaEspecialistasABuscar = listaEspecialistasABuscar.filter(especialista => especialista.profesion === especialidad)
+    listaEspecialistasABuscar = listaEspecialistasABuscar.filter(especialista => especialista.profesion === especialidad)
     sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(listaEspecialistasABuscar))
     window.location.replace("templates/servicios.html")
   }
-  else{
-    Swal.fire({
-      title: "Usuario sin loguearse",
-      text: "Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista",
-      icon: "warning",
-      background: "#E9F5DB",
-      confirmButtonColor: "#356194",
-      confirmButtonText: "Aceptar"
-  });
+  else {
+    alert("Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista")
   }
 }
-
-//Cierra sesión del usuario
-const cerrarSesion = function() {
-  window.location.replace("../index.html")
-  localStorage.removeItem("usuarioLogueado")
-}
-
-//localStorage.removeItem("listaUsuarios")

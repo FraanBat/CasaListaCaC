@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/general.css"> 
+    <link rel="stylesheet" href="../static/css/general.css">
     <link rel="stylesheet" href="../static/css/header.css">
     <link rel="stylesheet" href="../static/css/registro.css">
     <link rel="stylesheet" href="../static/css/footer.css">
-    
+
     <title>Registro de usuario</title>
 </head>
+
 <body>
     <main>
         <h1>Registro de Usuario</h1>
         <section class="container">
-            <form id="altaUsuario">
+            <form id="altaUsuario" onsubmit="return validarDatos()">
                 <div>
                     <label for="nombre">Nombre:</label>
                     <input size="30" type="text" id="nombre" name="nombre" placeholder="Ej: Juan" required>
@@ -29,10 +31,10 @@
                 </div>
                 <div>
                     <label for="zona">Seleccione barrio:</label>
-                    <input list="barrios" id="zona" name="zona">
+                    <input list="barrios" id="zona" name="zona" required>
                     <datalist id="barrios">
                         <option value="Agronomía"></option>
-                        <option value="Almagro"></option>                       
+                        <option value="Almagro"></option>
                         <option value="Balvanera"></option>
                         <option value="Barracas"></option>
                         <option value="Belgrano"></option>
@@ -79,46 +81,47 @@
                         <option value="Villa Urquiza"></option>
                         <option value="Villa del Parque"></option>
                         <option value="Vélez Sarsfield"></option>
-                    </datalist>                                    
+                    </datalist>
                 </div>
                 <div>
                     <label for="telefono">Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono" required>
+                    <input type="number" id="telefono" name="telefono" required>
                 </div>
 
-                
+
                 <div>
                     <label for="genero">Seleccine género</label>
-                    <select name="genero" id="genero">
+                    <select name="genero" id="genero" required>
                         <option value=""></option>
                         <option value="M">M</option>
                         <option value="F">F</option>
                         <option value="Otro">Otro</option>
                     </select>
                 </div>
-                    
+
                 <div>
                     <label for="imagen">Imagen de perfil:</label>
                     <input type="file" id="imagen" name="imagen" accept="image/*">
                 </div>
                 <div>
                     <div>
-                        <input class="AceptarTerminosYCondiciones" type="checkbox" name="terminos" id="terms" value="terms" required>
+                        <input class="AceptarTerminosYCondiciones" type="checkbox" name="terminos" id="terms"
+                            value="terms" required>
                         <label class="AceptarTerminosYCondiciones" for="terms">Acepto términos y condiciones</label>
                     </div>
-                <div>
-                    <label for="contrasena">Contraseña:</label>
-                    <input type="password" id="contrasena" name="contrasena" required minlength="8">
-                </div>
-                <div>
-                    <label for="repetir_contrasena">Repetir Contraseña:</label>
-                    <input type="password" id="repetir_contrasena" name="repetir_contrasena" required minlength="8">
-                </div>
-                <div>
-                    
-                    <button type="submit">Crear Usuario</button>
-                    <button type="reset">Borrar</button>
-                </div>
+                    <div>
+                        <label for="contrasena">Contraseña:</label>
+                        <input type="password" id="contrasena" name="contrasena" required minlength="8">
+                    </div>
+                    <div>
+                        <label for="repetir_contrasena">Repetir Contraseña:</label>
+                        <input type="password" id="repetir_contrasena" name="repetir_contrasena" required minlength="8">
+                    </div>
+                    <div id="campos"></div>
+                    <div>
+                        <button type="submit">Crear usuario</button>
+                        <button type="reset">Borrar</button>
+                    </div>
             </form>
         </section>
     </main>
@@ -128,13 +131,14 @@
             <p class="footer-en-linea" id="FAQ">FAQ</p>
             <p class="footer-en-linea" id="QuienesSomos">¿Quíenes somos?</p>
         </div>
-            <p class="copyright">&copy; Copyright 2024</p>
+        <p class="copyright">&copy; Copyright 2024</p>
     </footer>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../static/js/headerLogueado.js"></script>
     <script src="../static/js/buscadorHeaderEspecialista.js"></script>
     <script src="../static/js/registro.js"></script>
     <script src="../static/js/footer.js"></script>
 </body>
+
 </html>
