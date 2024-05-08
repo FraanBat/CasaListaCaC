@@ -7,8 +7,4 @@ const validarLogin = function() {
       }
 }
 
-const cerrarSesion = () => {
-    localStorage.removeItem("usuarioLogueado")
-}
-
 validarLogin()

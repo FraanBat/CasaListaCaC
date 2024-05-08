@@ -35,27 +35,12 @@ document.getElementById("altaUsuario").addEventListener('submit', function(event
         })
         localStorage.setItem("listaUsuarios", JSON.stringify(usuarios))
 
-        Swal.fire({
-            title: "Usuario creado",
-            confirmButtonText: "Aceptar",
-            background: "#E9F5DB",
-            icon: "success"
-          }).then((result) =>{
-            if(result.isConfirmed){
-                localStorage.setItem("usuarioLogueado", usuarios[usuarios.length - 1].id)
-                window.location.replace("../index.html")
-            }
-          });
+        alert("Usuario creado")
+        localStorage.setItem("usuarioLogueado", usuarios[usuarios.length - 1].id)
+        window.location.replace("../index.html")
         
     }
     else{
-        Swal.fire({
-            title: "Usuario ya existente",
-            text: "Lo siento, ya existe un usuario con el mail especificado",
-            icon: "error",
-            background: "#E9F5DB",
-            confirmButtonColor: "#356194",
-            confirmButtonText: "Aceptar"
-          });
+        alert("Lo siento, ya existe un usuario con el mail especificado")
     }
 })
