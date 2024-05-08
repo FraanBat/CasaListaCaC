@@ -3,10 +3,6 @@ main {
     margin-bottom: 15vh;
 }
 
-body {
-    background-color: rgb(234, 255, 233);
-}
-
 .titulo {
     text-align: center;
     margin-top: -5vh;
@@ -32,7 +28,7 @@ body {
     padding: 2%;
     padding-right: 0;
     flex: 1 1 200px;
-    background-color: #def2fa;
+    background-color: rgb(206, 204, 204);
     transition: 1s;
     margin-left: 0;
     margin-right: 0;
@@ -42,7 +38,6 @@ body {
 .pedido:hover {
     border: outset var(--color-primario-verde-opacidad);
     box-shadow: 0px 0px 40px rgb(45, 182, 45);
-    background-color: rgb(233, 255, 237);
 }
 
 

@@ -45,6 +45,7 @@ function validarDatos() {
 }
 
 document.getElementById("altaUsuario").addEventListener('submit', function (event) {
+
     event.preventDefault()
     if (validarDatos()) {
         if (buscarUsuario(document.getElementById("mail").value) === false) {
@@ -73,14 +74,6 @@ document.getElementById("altaUsuario").addEventListener('submit', function (even
         }
         else {
             alert("Lo siento, ya existe un usuario con el mail especificado")
-        };
-
-        alert("Usuario creado")
-        localStorage.setItem("usuarioLogueado", usuarios[usuarios.length - 1].id)
-        window.location.replace("../index.html")
-
-    }
-    else {
-        alert("Lo siento, ya existe un usuario con el mail especificado")
+        }
     }
 })
