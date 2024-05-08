@@ -5,6 +5,7 @@ const solicitarHistorial = function() {
     .then(data => new Promise(() => {
         sessionStorage.setItem("historialEspecialistas", JSON.stringify(data))
     }))
+    .catch(error => console.error(error))
 }
 
 solicitarHistorial()

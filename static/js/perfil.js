@@ -44,16 +44,8 @@ const actualizarDatosUsuario = function(perfilUsuario){
     });
     localStorage.setItem("listaUsuarios", JSON.stringify(listadoUsuarios))
 
-    Swal.fire({
-        title: "Datos actualizados",
-        confirmButtonText: "Aceptar",
-        background: "#E9F5DB",
-        icon: "success"
-      }).then((result) =>{
-        if(result.isConfirmed){
-            window.location.replace("../index.html")
-        }
-      });
+    alert("Datos actualizados")
+    window.location.replace("../index.html")
 }
 
 document.getElementById("habilitarEspecialidad").addEventListener('click', function(event){

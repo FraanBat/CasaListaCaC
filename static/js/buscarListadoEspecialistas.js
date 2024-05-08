@@ -6,6 +6,7 @@ const solicitarEspecialistas = function() {
         sessionStorage.setItem("listadoEspecialistas", JSON.stringify(data))
         sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(data))
     }))
+    .catch(error => console.error(error))
 }
 
 solicitarEspecialistas()

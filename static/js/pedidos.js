@@ -59,6 +59,7 @@ const cargarPedidos = function(){
                 localStorage.setItem("listadoPedidos", JSON.stringify(listadoPedidos))
                 mostrarPedidos(listadoPedidosUsuario.pedidos)
             }))
+            .catch(error => console.error(error))
         }
         else
         {

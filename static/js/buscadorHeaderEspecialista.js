@@ -17,24 +17,10 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
         else{
             sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(JSON.parse(sessionStorage.getItem("listadoEspecialistas"))))
 
-            Swal.fire({
-                title: "Sin disponibilidad",
-                text: "Lo siento, pero no se encontraron especialistas con las especificaciones realizadas",
-                icon: "warning",
-                background: "#E9F5DB",
-                confirmButtonColor: "#356194",
-                confirmButtonText: "Aceptar"
-            });
+            alert("Lo siento, pero no se encontraron especialistas con las especificaciones realizadas")
         }
     }
     else{
-        Swal.fire({
-            title: "Usuario sin loguearse",
-            text: "Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista",
-            icon: "warning",
-            background: "#E9F5DB",
-            confirmButtonColor: "#356194",
-            confirmButtonText: "Aceptar"
-        });
+        alert("Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista")
     }
 })

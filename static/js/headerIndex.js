@@ -15,7 +15,9 @@ if(localStorage.getItem("usuarioLogueado") === null){
         </form>
         <div class="menu" id="login">
             <img class="encabezado-en-linea icono" src="static/img/header/key.png" alt="llave">
-            <p class="encabezado-en-linea">Ingresar</p>
+            <p class="encabezado-en-linea" onclick="loginUsuario()">Ingresar</p>
+            <p class="encabezado-en-linea">/</p>
+            <a href="templates/registro.html"><p class="encabezado-en-linea">Registrarme</p></a>
         </div>
         </header>
         `
@@ -86,43 +88,21 @@ const validarUsuario = function(mail, contrasena){
 }
 
 //Si se hace click en el texto para ingresar, y el usuario no está logueado, solicita que lo haga
-document.getElementById("login").addEventListener('click', function(){
+const loginUsuario = function(){
     if(localStorage.getItem("usuarioLogueado") === null)
     {
-        (async () => {
-            const { value: datos_login } = await Swal.fire({
-              title: "Loguearse",
-              html:
-              'Email: <input type="email" id="swal-input1" class="swal2-input">' +
-              'Clave: <input type="password" id="swal-input2" class="swal2-input">',
-            focusConfirm: false,
-            background: "#E9F5DB",
-            preConfirm: () => {
-              return [
-                document.getElementById('swal-input1').value,
-                document.getElementById('swal-input2').value
-              ]
-            },
-            confirmButtonColor: "#356194",
-            confirmButtonText: "Ingresar",
-            footer: '<a href="templates/registro.html">¿No tienes cuenta? Registrate</a>'
-            })
-            if (validarUsuario(datos_login[0], datos_login[1])) {
+        let usuario = prompt("Ingrese su mail")
+        let password = prompt("Ingrese su contraseña")
+        if (validarUsuario(usuario, password)) {
                 
-                localStorage.setItem("usuarioLogueado", JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === datos_login[0]).id)
-                window.location.replace("../")
-            }
-            else{
-                Swal.fire({
-                  title: "Usuario incorrecto",
-                  text: "Usuario y/o contraseña no válidos",
-                  background: "#E9F5DB",
-                  icon: "warning"
-              })
-            }
-        })()
+            localStorage.setItem("usuarioLogueado", JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === usuario).id)
+            window.location.replace("../")
+        }
+        else{
+            alert("Usuario y/o contraseña no válidos")
+        }
     }
-})
+}
 
 
 document.getElementById("buscadorEspecialidad").addEventListener('submit', function(event){
@@ -144,25 +124,16 @@ document.getElementById("buscadorEspecialidad").addEventListener('submit', funct
         else{
             sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(JSON.parse(sessionStorage.getItem("listadoEspecialistas"))))
 
-            Swal.fire({
-                title: "Sin disponibilidad",
-                text: "Lo siento, pero no se encontraron especialistas con las especificaciones realizadas",
-                icon: "warning",
-                background: "#E9F5DB",
-                confirmButtonColor: "#356194",
-                confirmButtonText: "Aceptar"
-            });
+            alert("Lo siento, pero no se encontraron especialistas con las especificaciones realizadas")
         }
     }
     else{
-        Swal.fire({
-            title: "Usuario sin loguearse",
-            text: "Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista",
-            icon: "warning",
-            background: "#E9F5DB",
-            confirmButtonColor: "#356194",
-            confirmButtonText: "Aceptar"
-        });
+        alert("Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista")
     }
 })
 
+//Cierra sesión del usuario
+const cerrarSesion = function() {
+    localStorage.removeItem("usuarioLogueado")
+    window.location.replace("index.html")
+}

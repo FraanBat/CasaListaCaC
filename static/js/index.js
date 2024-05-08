@@ -7,21 +7,6 @@ const validarLogin = function(especialidad) {
     window.location.replace("templates/servicios.html")
   }
   else{
-    Swal.fire({
-      title: "Usuario sin loguearse",
-      text: "Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista",
-      icon: "warning",
-      background: "#E9F5DB",
-      confirmButtonColor: "#356194",
-      confirmButtonText: "Aceptar"
-  });
+    alert("Lo siento, pero debe estar logueado para usar la funcionalidad de búsqueda de especialista")
   }
 }
-
-//Cierra sesión del usuario
-const cerrarSesion = function() {
-  window.location.replace("../index.html")
-  localStorage.removeItem("usuarioLogueado")
-}
-
-//localStorage.removeItem("listaUsuarios")
