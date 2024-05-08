@@ -1,6 +1,6 @@
 footer{
     background-color: var(--color-primario-verde);
-    height: 70px;
+    height: 80px;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -23,10 +23,6 @@ footer > div{
 
 .copyright{
     text-align: center;
-}
-
-pre {
-    text-align: left;
 }
 
 @media screen and (max-width: 427px){

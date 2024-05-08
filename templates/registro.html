@@ -16,7 +16,8 @@
     <main>
         <h1>Registro de Usuario</h1>
         <section class="container">
-            <form id="altaUsuario" onsubmit="return validarDatos()">
+            <h2>Alta usuario</h2>
+            <form id="altaUsuario">
                 <div>
                     <label for="nombre">Nombre:</label>
                     <input size="30" type="text" id="nombre" name="nombre" placeholder="Ej: Juan" required>
@@ -31,7 +32,7 @@
                 </div>
                 <div>
                     <label for="zona">Seleccione barrio:</label>
-                    <input list="barrios" id="zona" name="zona" required>
+                    <input list="barrios" id="zona" name="zona">
                     <datalist id="barrios">
                         <option value="Agronomía"></option>
                         <option value="Almagro"></option>
@@ -83,16 +84,15 @@
                         <option value="Vélez Sarsfield"></option>
                     </datalist>
                 </div>
+
                 <div>
                     <label for="telefono">Teléfono:</label>
-                    <input type="number" id="telefono" name="telefono" required>
+                    <input type="tel" id="telefono" name="telefono" required>
                 </div>
-
 
                 <div>
                     <label for="genero">Seleccine género</label>
-                    <select name="genero" id="genero" required>
-                        <option value=""></option>
+                    <select name="genero" id="genero">
                         <option value="M">M</option>
                         <option value="F">F</option>
                         <option value="Otro">Otro</option>
@@ -109,19 +109,20 @@
                             value="terms" required>
                         <label class="AceptarTerminosYCondiciones" for="terms">Acepto términos y condiciones</label>
                     </div>
-                    <div>
-                        <label for="contrasena">Contraseña:</label>
-                        <input type="password" id="contrasena" name="contrasena" required minlength="8">
-                    </div>
-                    <div>
-                        <label for="repetir_contrasena">Repetir Contraseña:</label>
-                        <input type="password" id="repetir_contrasena" name="repetir_contrasena" required minlength="8">
-                    </div>
-                    <div id="campos"></div>
-                    <div>
-                        <button type="submit">Crear usuario</button>
-                        <button type="reset">Borrar</button>
-                    </div>
+                </div>
+                <div>
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" required minlength="8">
+                </div>
+                <div>
+                    <label for="repetir_contrasena">Repetir Contraseña:</label>
+                    <input type="password" id="repetir_contrasena" name="repetir_contrasena" required minlength="8">
+                </div>
+                <div>
+
+                    <button type="submit">Crear Usuario</button>
+                    <button type="reset">Borrar</button>
+                </div>
             </form>
         </section>
     </main>
@@ -134,7 +135,6 @@
         <p class="copyright">&copy; Copyright 2024</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../static/js/headerLogueado.js"></script>
     <script src="../static/js/buscadorHeaderEspecialista.js"></script>
     <script src="../static/js/registro.js"></script>

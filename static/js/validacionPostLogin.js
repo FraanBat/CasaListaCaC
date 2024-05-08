@@ -7,6 +7,4 @@ const validarLogin = function () {
     }
 }
 
-
-
 validarLogin()

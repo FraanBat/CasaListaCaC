@@ -1,4 +1,4 @@
-const mailUsuario = document.getElementById("mail")
+const mailUsuario = document.getElementById("mailUSuario")
 const nombreUsuario = document.getElementById("nombre")
 const apellidoUsuario = document.getElementById("apellido")
 const fotoUsuario = document.getElementById("fotoPerfil")
@@ -9,11 +9,25 @@ const contrasenaUsuario = document.getElementById("contrasenaNueva")
 const repetirContrasenaUsuario = document.getElementById("repetir_contrasena_nueva")
 const usuarioEspecialidad = document.getElementById("especialidadPerfil")
 
+const cargarMail = function(usuario, mailUsuario){
+    const textoMail = document.createElement("label")
+    textoMail.textContent = "Correo de usuario: " + usuario.mail
+    mailUsuario.appendChild(textoMail)
+}
+
+const cargarFoto = function(usuario, fotoUsuario){
+    const foto = document.createElement("img")
+    foto.className = "fotoPerfil"
+    foto.setAttribute("src", usuario.imagen)
+    foto.setAttribute("alt", "foto de perfil")
+    fotoUsuario.appendChild(foto)
+}
+
 const solicitarPerfil = function(usuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario){
-    mailUsuario.textContent = "Correo de usuario: " + usuario.mail
+   cargarMail(usuario, mailUsuario)
     nombreUsuario.value = usuario.nombre
     apellidoUsuario.value = usuario.apellido
-    fotoUsuario.setAttribute("src", usuario.imagen)
+    cargarFoto(usuario, fotoUsuario)
     telefonoUsuario.value = usuario.telefono
     contrasenaUsuario.value = usuario.contrasena
     repetirContrasenaUsuario.value = usuario.contrasena
@@ -44,16 +58,8 @@ const actualizarDatosUsuario = function(perfilUsuario){
     });
     localStorage.setItem("listaUsuarios", JSON.stringify(listadoUsuarios))
 
-    Swal.fire({
-        title: "Datos actualizados",
-        confirmButtonText: "Aceptar",
-        background: "#E9F5DB",
-        icon: "success"
-      }).then((result) =>{
-        if(result.isConfirmed){
-            window.location.replace("../index.html")
-        }
-      });
+    alert("Datos actualizados")
+    window.location.replace("../index.html")
 }
 
 document.getElementById("habilitarEspecialidad").addEventListener('click', function(event){
