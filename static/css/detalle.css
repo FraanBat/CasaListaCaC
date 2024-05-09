@@ -8,7 +8,7 @@ main {
 
 }
 
-main h2{
+main h2 {
     text-align: center;
     margin-top: 12vh;
 }
@@ -26,8 +26,8 @@ main a {
     grid-template-columns: 25% 25% 50%;
     grid-template-rows: 90%;
     justify-content: space-between;
-    width: 75%;
-    height: 100%;
+    max-width: 75%;
+    height: auto;
 }
 
 
@@ -43,6 +43,7 @@ main a {
 
 .medio {
     margin-left: 15%;
+    white-space: pre;
 
 }
 
@@ -53,16 +54,21 @@ main a {
 }
 
 .fila2 {
+    max-width: 85%;
+    height: auto;
     margin: 0;
     margin-top: 2%;
     margin-left: 4%;
     margin-right: 4%;
     background-color: rgb(218, 210, 210);
-    border-radius: 50px;
+    border-radius: 10px;
+    padding: 1%;
+    padding-top: 0.5%;
 }
 
 main h4 {
-    margin-left: 2%;
+    margin-left: 4%;
+    margin-top: 2%;
 }
 
 main p {
@@ -96,13 +102,15 @@ main p {
 
 .opiniones {
     margin: 4%;
-    width: 85%;
+    max-width: 85%;
     background-color: rgb(224, 221, 221);
     border-radius: 15px;
+    padding: 1%;
+
 }
 
 .comentarista {
-    margin: 2%;
+    margin: 0.5%;
 }
 
 
@@ -131,16 +139,16 @@ main p {
     .fila1 {
         margin-left: 6%;
         display: grid;
-        grid-template-columns: 90%;
-        grid-template-rows: 50% 20% 25%;
+        grid-template-columns: 100%;
+        grid-template-rows: 44% 25% 10%;
         justify-content: space-between;
-        width: 75%;
-        height: auto;
+        height: 80vh;
+
     }
 
     .foto {
         margin: 0;
-        margin-top: 10%;
+        margin-top: 20%;
         margin-left: 20%;
         border-radius: 30%;
         max-width: 100%;
@@ -150,14 +158,20 @@ main p {
 
     .medio {
         text-align: center;
+        font-size: 3vh;
     }
 
     .derecha {
         text-align: center;
+        margin-left: 15%;
+    }
+
+    .fila2 {
+        margin-top: 0%;
     }
 
     .fila3 {
-        margin-top: 2%;
+        margin-top: 0%;
         text-align: center;
     }
 
@@ -169,26 +183,43 @@ main p {
 }
 
 @media screen and (max-width:376px) {
-    .foto{
+    .fila1 {
+        grid-template-rows: 40% 25% 15%;
+        padding: 0%;
+        margin: 0;
+    }
+
+    .foto {
         margin-left: 15%;
     }
 
     .derecha {
         margin-top: 25%;
     }
-    
-    .derecha p{
+
+    .derecha p {
         margin-top: 0%;
-        font-size: 2.5vh;
+        font-size: 3vh;
     }
 }
 
-@media screen and (max-width:321px) {
-    .foto{
+@media screen and (max-width: 321px) {
+    .fila1 {
+        max-width: 100%;
+        height: 90vh;
+        grid-template-columns: 100%;
+        grid-template-rows: 45% 20% 15%;
+    }
+
+    .foto {
         margin-left: 10%;
     }
 
-    .derecha p{
-        font-size: 2vh;
+    .medio {
+        text-align: left;
+    }
+
+    .derecha p {
+        font-size: 3vh;
     }
 }

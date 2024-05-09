@@ -28,7 +28,7 @@ main {
     border: outset var(--color-primario-verde-opacidad);
 }
 
-#filtrarBusqueda .filtroOpcion:hover{
+#filtrarBusqueda .filtroOpcion:hover {
     cursor: pointer;
 }
 
@@ -46,12 +46,14 @@ main button:hover {
 }
 
 .especialista {
-    margin-left: 5%;
+    margin-left: 0;
+    margin-right: 0%;
+    margin: auto;
     margin-top: 1%;
     margin-bottom: 1.5%;
     max-width: 80%;
     display: grid;
-    grid-template-columns: 25% 15% 60%;
+    grid-template-columns: 20% 15% 70%;
     grid-template-rows: 100%;
     border-radius: 30px;
     background-color: #e6eae4;
@@ -63,7 +65,7 @@ main button:hover {
     color: var(--color-primario-azul);
     box-shadow: 0px 0px 40px var(--color-primario-azul);
     cursor: pointer;
-}   
+}
 
 main div {
     margin-left: 4%;
@@ -78,7 +80,7 @@ main h2 {
 
 .foto {
     margin-top: 2%;
-    max-width: 60%;
+    max-width: 80%;
     height: auto;
     border-radius: 30%;
     border: outset var(--color-primario-azul);
@@ -88,6 +90,7 @@ main h2 {
     background-color: #d3cbcb;
     border-radius: 30px;
     overflow: hidden;
+
 }
 
 .nombreEspecialista {
@@ -98,7 +101,8 @@ main h2 {
 
 main h4 {
     margin: 2%;
-    margin-top: 1%;
+    margin-top: 6%;
+    white-space: pre;
 }
 
 main p {
@@ -224,8 +228,12 @@ main p {
     }
 
     .descripcion {
-        margin-top: 3vh;
+        margin-top: 8vh;
         margin-right: 2%;
+    }
+
+    p {
+        margin-top: 46%;
     }
 }
 
