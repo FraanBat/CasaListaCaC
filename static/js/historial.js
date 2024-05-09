@@ -1,19 +1,21 @@
-const mostrarHistorialEspecialistas = function(listadoEspecialistas) {
+const mostrarHistorialEspecialistas = function (listadoEspecialistas) {
     const especialistas = document.getElementById("historialEspecialistas")
     const especialistaHistorial = []
 
     listadoEspecialistas.forEach(especialista => {
         const nuevoEspecialista = document.createElement("div")
         nuevoEspecialista.className = "en-linea"
-        nuevoEspecialista.innerHTML = 
-        `
+        nuevoEspecialista.innerHTML =
+            `
             <div>
                 <img class="foto" src="${especialista.foto_perfil}" alt="imagen">
             </div>
             <div class="derecha">
                 <h3>${especialista.profesion}: ${especialista.apellido} ${especialista.nombre}</h3>
                 <p><strong>Fecha de realización: ${especialista.fecha_trabajo}</strong>
-                    <br>Dejar comentario <span class="boton" onclick="enviarDetalleHistorial(${especialista.id})"> Click </a>
+            Dejar comentario 
+            
+           <span class="boton" onclick="enviarDetalleHistorial(${especialista.id})"> Click </span>
                 </p>
             </div>
         `
@@ -23,7 +25,7 @@ const mostrarHistorialEspecialistas = function(listadoEspecialistas) {
     especialistas.append(...especialistaHistorial)
 }
 
-const enviarDetalleHistorial = function(idEspecialista){
+const enviarDetalleHistorial = function (idEspecialista) {
     sessionStorage.setItem("historialEspecialistaDetalle", idEspecialista)
     window.location.replace("../templates/trabajador.html")
 }

@@ -25,14 +25,15 @@ main {
     max-width: 15%;
     min-width: 10%;
     height: auto;
-    padding: 2%;
-    padding-right: 0;
+    padding: 0%;
+    padding-right: 4%;
     flex: 1 1 200px;
     background-color: rgb(206, 204, 204);
     transition: 1s;
     margin-left: 0;
     margin-right: 0;
     margin: auto;
+
 }
 
 .pedido:hover {
@@ -50,6 +51,8 @@ main {
 .Cli {
     font-size: 4vh;
     text-align: center;
+    margin-left: 15%;
+    margin-top: 15%;
 }
 
 
@@ -60,15 +63,23 @@ main {
     height: auto;
     align-items: center;
     transition: 3s;
+    margin-left: 20%;
+    margin-top: 20%;
 }
 
 .nombre {
-    margin-top: 15%;
+    margin: 0%;
+    padding-left: 0%;
+    margin-top: 5%;
     font-size: 3vh;
+    white-space: pre;
+
 }
 
 .boton {
-    margin-top: 15%;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-bottom: 15%;
     border: outset var(--color-primario-azul);
     width: 20vh;
 
@@ -80,7 +91,7 @@ main {
     cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .pedido {
 
         border-radius: 15px;
@@ -88,19 +99,17 @@ main {
         min-width: 10%;
         height: auto;
         padding: 2%;
-        padding-right: 1%;
-    }
+        padding-right: 12%;
 
-    .pedido:hover {
-        padding-right: 4%;
     }
 
 
     .foto {
         border-radius: 10px;
-        min-width: 60px;
+        min-width: 95px;
         height: auto;
         align-items: center;
+        margin-left: 35%;
     }
 
     .Cli {
@@ -113,23 +122,29 @@ main {
     }
 
     .boton {
-        margin-top: 15%;
+        margin-top: 5%;
         border: outset var(--color-primario-azul);
-        max-width: 70%;
+        margin-left: 50%;
+        max-width: 90%;
     }
 }
 
 @media screen and (max-width: 426px) {
+    .cajas {
+        gap: 30px;
+    }
+
     .pedido {
         border-radius: 15px;
         max-width: 10%;
         height: auto;
         padding: 5%;
-        padding-right: 15%;
+        padding-right: 32%;
     }
 
-    .pedido:hover {
-        padding-right: 13%;
+
+    .foto {
+        margin-left: 50%;
     }
 
     .boton {
@@ -143,10 +158,12 @@ main {
         max-width: 10%;
         height: auto;
         padding: 4%;
-        padding-right: 17%;
+        padding-right: 35%;
     }
+}
 
-    .pedido:hover {
-        padding-right: 20%;
+@media screen and (max-width: 321px) {
+    .pedido {
+        padding-right: 39%;
     }
 }

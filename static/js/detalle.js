@@ -7,11 +7,12 @@ const mostrarDetalleEspecialista = function () {
     especialistaContenido.innerHTML = `
     <div class="fila1">
             <div class="imagen"><img class="foto" src="${detalleEspecialista.foto_perfil}" alt="imagen"></div>
-            <div class="medio">
-                <br><br>
-                <h3>${detalleEspecialista.profesion} <br><br>
-                    ${detalleEspecialista.apellido} ${detalleEspecialista.nombre}
-                </h3>
+            <div class="medio">           
+         <h3>
+
+           ${detalleEspecialista.profesion} 
+        ${detalleEspecialista.apellido} ${detalleEspecialista.nombre}
+           </h3>
             </div>
             <div class="derecha">
                 <p>Teléfono: ${detalleEspecialista.telefono}</p>
@@ -20,12 +21,12 @@ const mostrarDetalleEspecialista = function () {
             </div>
         </div>
         <div class="fila2">
-            <br>
-            <h4>Descripción:</h4><br>
+            
+            <h4>Descripción:</h4>
             <p>
                 ${detalleEspecialista.descripcion}
             </p>
-            <br>
+            
         </div>
         <div class="fila3"><button class="boton" onclick="confirmarPedido()">Confirmar</button>
         </div>
