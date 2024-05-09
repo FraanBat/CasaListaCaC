@@ -78,7 +78,7 @@ main {
 
 .boton {
     margin-top: 5%;
-    margin-left: 15%;
+    margin-left: 25%;
     margin-bottom: 15%;
     border: outset var(--color-primario-azul);
     width: 20vh;
@@ -124,6 +124,7 @@ main {
     .boton {
         margin-top: 5%;
         border: outset var(--color-primario-azul);
+        margin-left: 50%;
         max-width: 90%;
     }
 }
@@ -148,7 +149,6 @@ main {
 
     .boton {
         max-width: 80px;
-        margin-left: 50%;
     }
 }
 
@@ -160,14 +160,10 @@ main {
         padding: 4%;
         padding-right: 35%;
     }
-
-
 }
 
 @media screen and (max-width: 321px) {
     .pedido {
         padding-right: 39%;
     }
-
-
 }

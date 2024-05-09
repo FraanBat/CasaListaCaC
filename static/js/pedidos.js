@@ -19,12 +19,11 @@ const mostrarPedidos = function (listadoPedidosUsuario) {
                 <h4 class="Cli">Cliente</h4> 
                 <img class="foto" src="${pedidoPendiente.foto_perfil}" alt="">
                 <p class="nombre">
-   ${pedidoPendiente.nombre}       
-   ${pedidoPendiente.apellido}     
-   ${pedidoPendiente.telefono}
-                </P>
-                <button class="boton" onclick="pedidoRealizado(${pedidoPendiente.id})">Aceptar</button><br>
-                      
+    ${pedidoPendiente.nombre}       
+    ${pedidoPendiente.apellido}     
+    ${pedidoPendiente.telefono}
+                </p>
+                <button class="boton" onclick="pedidoRealizado(${pedidoPendiente.id})">Aceptar</button>              
         `
         pedidosPendientes.push(pedido)
     })
