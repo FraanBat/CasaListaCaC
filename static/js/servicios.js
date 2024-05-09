@@ -1,6 +1,6 @@
-const filtroEspecialistas = function (listaEspecialistas, filtroZona, filtroValoracion) {
-    if (filtroZona !== "") {
-        listaEspecialistas = listaEspecialistas.filter(especialista => especialista.zona === filtroZona)
+const filtroEspecialistas = function(listaEspecialistas, filtroZona, filtroValoracion) {
+    if(filtroZona !== ""){
+        listaEspecialistas = listaEspecialistas.filter(especialista => especialista.zona.toLowerCase() === filtroZona.toLowerCase())
     }
     if (filtroValoracion >= 1) {
         listaEspecialistas = listaEspecialistas.filter(especialista => especialista.valoracion >= filtroValoracion)
