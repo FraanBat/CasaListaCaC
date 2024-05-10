@@ -75,7 +75,7 @@ const mostrarDetalleHistorial = function () {
 }
 
 const validarCalificacion = function(radio){
-    for (let i = 0, length = radio.length; i < length; i++) {
+    for (let i = 0; i < radio.length; i++) {
         if (radio[i].checked) {
           return true
         }
@@ -89,8 +89,6 @@ const enviarCalificacion = function () {
     let radiosProligidad = document.getElementsByName('Proligidad')
     let radiosConfiabilidad = document.getElementsByName('Confiabilidad')
     let textoComentarios = document.getElementById('comentario').value.trim()
-
-    console.log(textoComentarios)
 
     if(validarCalificacion(radiosAmabilidad) && validarCalificacion(radiosPuntualidad) && validarCalificacion(radiosProligidad) && validarCalificacion(radiosConfiabilidad) && textoComentarios !== ""){
         alert("Su calificación ha sido enviada. ¡Muchas gracias!")
