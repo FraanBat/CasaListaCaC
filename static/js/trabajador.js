@@ -10,7 +10,8 @@ const mostrarDetalleHistorial = function () {
                     <img class="foto" src="${detalleHistorial.foto_perfil}" alt="imagen">
                 </div>
                 <div class="derecha">
-                        <h3>${detalleHistorial.profesion}:    ${detalleHistorial.apellido}   ${detalleHistorial.nombre}</h3>                  
+                        <h3>  ${detalleHistorial.profesion}:    
+${detalleHistorial.apellido}   ${detalleHistorial.nombre}</h3>                  
 <strong>Amabilidad</strong> <strong class="amabilidad">
                                 <input type="radio" id="star5" name="Amabilidad" value="5">
                                 <label class="star" for="star5">★</label>
@@ -64,20 +65,20 @@ const mostrarDetalleHistorial = function () {
                                     <label class="star" for="star16">★</label>
                              </strong>
                         
-        <strong><label for="comentario">Comentario</label></strong>
-        <textarea name="comentario" id="comentario" cols="40" rows="5" maxlength="200"></textarea>
+<strong><label for="comentario">Comentario</label></strong>
+<textarea name="comentario" id="comentario" cols="40" rows="5" maxlength="200"></textarea>
                         
-                        <strong><button class="boton booton" type="submit" onclick="enviarCalificacion()">Enviar</button></strong>
+    <strong><button class="boton booton" type="submit" onclick="enviarCalificacion()">Enviar</button></strong>
                 </div>
     `
 
     seccionHistorialEspecialista.appendChild(especialistaContenido)
 }
 
-const validarCalificacion = function(radio){
+const validarCalificacion = function (radio) {
     for (let i = 0; i < radio.length; i++) {
         if (radio[i].checked) {
-          return true
+            return true
         }
     }
     return false
@@ -90,11 +91,11 @@ const enviarCalificacion = function () {
     let radiosConfiabilidad = document.getElementsByName('Confiabilidad')
     let textoComentarios = document.getElementById('comentario').value.trim()
 
-    if(validarCalificacion(radiosAmabilidad) && validarCalificacion(radiosPuntualidad) && validarCalificacion(radiosProligidad) && validarCalificacion(radiosConfiabilidad) && textoComentarios !== ""){
+    if (validarCalificacion(radiosAmabilidad) && validarCalificacion(radiosPuntualidad) && validarCalificacion(radiosProligidad) && validarCalificacion(radiosConfiabilidad) && textoComentarios !== "") {
         alert("Su calificación ha sido enviada. ¡Muchas gracias!")
         window.location.replace("historial.html")
     }
-    else{
+    else {
         alert("Disculpe, falta completar alguno de los campos")
     }
 }
