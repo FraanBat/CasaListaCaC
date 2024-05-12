@@ -36,27 +36,27 @@ const cargarPedidos = function () {
     let listadoPedidosUsuario
 
     if (localStorage.getItem("listadoPedidos") === null) {
-        fetch(`https://api.mockaroo.com/api/e805c390?count=6&key=df8e15e0`)
+        fetch(`https://api.mockaroo.com/api/9b6045e0?count=6&key=b59cfd90`)
             .then(response => response.json())
-            .then(data => new Promise(() => {
+            .then(data => {
                 listadoPedidosUsuario = { id: identificadorUsuarioActual, pedidos: data }
                 listadoPedidos.push(listadoPedidosUsuario)
                 localStorage.setItem("listadoPedidos", JSON.stringify(listadoPedidos))
                 mostrarPedidos(listadoPedidosUsuario.pedidos)
-            }))
+            })
     }
     else {
         listadoPedidos = JSON.parse(localStorage.getItem("listadoPedidos"))
         listadoPedidosUsuario = listadoPedidos.find(especialistaBuscado => especialistaBuscado.id === identificadorUsuarioActual)
         if (listadoPedidosUsuario === undefined || listadoPedidosUsuario.pedidos.length === 0) {
-            fetch(`https://api.mockaroo.com/api/e805c390?count=6&key=df8e15e0`)
+            fetch(`https://api.mockaroo.com/api/9b6045e0?count=6&key=b59cfd90`)
                 .then(response => response.json())
-                .then(data => new Promise(() => {
+                .then(data => {
                     listadoPedidosUsuario = { id: identificadorUsuarioActual, pedidos: data }
                     listadoPedidos.push(listadoPedidosUsuario)
                     localStorage.setItem("listadoPedidos", JSON.stringify(listadoPedidos))
                     mostrarPedidos(listadoPedidosUsuario.pedidos)
-                }))
+                })
                 .catch(error => console.error(error))
         }
         else {

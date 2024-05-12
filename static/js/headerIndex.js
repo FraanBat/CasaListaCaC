@@ -15,7 +15,7 @@ if (localStorage.getItem("usuarioLogueado") === null) {
         </form>
         <div class="menu" id="login">
             <img class="encabezado-en-linea icono" src="static/img/header/key.png" alt="llave">
-            <p class="encabezado-en-linea" onclick="loginUsuario()">Ingresar</p>
+            <a href="templates/login.html"><p class="encabezado-en-linea">Ingresar</p></a>
             <p class="encabezado-en-linea">/</p>
             <a href="templates/registro.html"><p class="encabezado-en-linea">Registrarme</p></a>
         </div>
@@ -37,7 +37,7 @@ else {
             <input type="text" name="especialidad" id="especialidad" placeholder="Especialidad...">
             <input class="buscador-boton" type="submit" value="🔍">
         </form>
-        <div class="menu" id="login">
+        <div class="menu-logueado" id="login">
             <p class="encabezado-en-linea">Bienvenido</p>
             <div class="menu-dropdown" id="login-opciones">
                 <a href="templates/perfil.html">Perfil</a>
@@ -61,7 +61,7 @@ else {
             <input type="text" name="especialidad" id="especialidad" placeholder="Especialidad...">
             <input class="buscador-boton" type="submit" value="🔍">
         </form>
-        <div class="menu" id="login">
+        <div class="menu-logueado" id="login">
             <p class="encabezado-en-linea">Bienvenido</p>
             <div class="menu-dropdown" id="login-opciones">
                 <a href="templates/perfil.html">Perfil</a>
@@ -76,32 +76,6 @@ else {
 }
 
 document.body.insertAdjacentHTML('afterbegin', headerContent)
-
-//Valida que el mail y contraseña ingresados sean válidos
-const validarUsuario = function (mail, contrasena) {
-    if (localStorage.getItem("listaUsuarios") !== null && JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.mail === mail && usuario.contrasena === contrasena)) {
-        return true
-    }
-    else {
-        return false
-    }
-}
-
-//Si se hace click en el texto para ingresar, y el usuario no está logueado, solicita que lo haga
-const loginUsuario = function () {
-    if (localStorage.getItem("usuarioLogueado") === null) {
-        let usuario = prompt("Ingrese su mail")
-        let password = prompt("Ingrese su contraseña")
-        if (validarUsuario(usuario, password)) {
-
-            localStorage.setItem("usuarioLogueado", JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === usuario).id)
-            window.location.replace("../")
-        }
-        else {
-            alert("Usuario y/o contraseña no válidos")
-        }
-    }
-}
 
 
 document.getElementById("buscadorEspecialidad").addEventListener('submit', function (event) {

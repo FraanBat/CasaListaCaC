@@ -44,7 +44,7 @@ header a {
     background-color: var(--color-fondo);
 }
 
-.menu {
+.menu, .menu-logueado {
     font-weight: bold;
     padding-right: 40px;
 }
@@ -66,7 +66,7 @@ header a {
     cursor: pointer;
 }
 
-.menu:hover .menu-dropdown {
+.menu:hover .menu-dropdown, .menu-logueado:hover .menu-dropdown {
     display: block;
     position: absolute;
     min-width: 165px;
@@ -94,6 +94,10 @@ header a {
 
     .menu p {
         font-size: 0.8em;
+    }
+
+    .menu-logueado{
+        margin-right: 2vw;
     }
 
     .buscador {
