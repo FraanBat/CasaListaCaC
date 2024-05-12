@@ -57,6 +57,7 @@ document.getElementById("altaUsuario").addEventListener('submit', function (even
     if (validarDatos()) {
         if (buscarUsuario(document.getElementById("mail").value) === false) {
             let usuarios = JSON.parse(localStorage.getItem("listaUsuarios")) || []
+            console.log(document.getElementById("imagen").value)
             usuarios.push({
                 id: usuarios.length + 1,
                 nombre: document.getElementById("nombre").value,
