@@ -57,7 +57,6 @@ document.getElementById("altaUsuario").addEventListener('submit', function (even
     if (validarDatos()) {
         if (buscarUsuario(document.getElementById("mail").value) === false) {
             let usuarios = JSON.parse(localStorage.getItem("listaUsuarios")) || []
-            console.log(document.getElementById("imagen").value)
             usuarios.push({
                 id: usuarios.length + 1,
                 nombre: document.getElementById("nombre").value,
@@ -66,7 +65,8 @@ document.getElementById("altaUsuario").addEventListener('submit', function (even
                 zona: document.getElementById("zona").value,
                 telefono: document.getElementById("telefono").value,
                 genero: document.getElementById("genero").value,
-                imagen: document.getElementById("imagen").value.replace('C:\\fakepath\\', '../static/img/perfil/'),
+                //imagen: document.getElementById("imagen").value.replace('C:\\fakepath\\', '../static/img/perfil/'),
+                imagen: document.getElementById("imagen").value,
                 especializacion: {
                     especialista: false,
                     profesion: null
