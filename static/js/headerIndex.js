@@ -37,7 +37,7 @@ else {
             <input type="text" name="especialidad" id="especialidad" placeholder="Especialidad...">
             <input class="buscador-boton" type="submit" value="🔍">
         </form>
-        <div class="menu" id="login">
+        <div class="menu-logueado" id="login">
             <p class="encabezado-en-linea">Bienvenido</p>
             <div class="menu-dropdown" id="login-opciones">
                 <a href="templates/perfil.html">Perfil</a>
@@ -61,7 +61,7 @@ else {
             <input type="text" name="especialidad" id="especialidad" placeholder="Especialidad...">
             <input class="buscador-boton" type="submit" value="🔍">
         </form>
-        <div class="menu" id="login">
+        <div class="menu-logueado" id="login">
             <p class="encabezado-en-linea">Bienvenido</p>
             <div class="menu-dropdown" id="login-opciones">
                 <a href="templates/perfil.html">Perfil</a>
