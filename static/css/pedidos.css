@@ -1,3 +1,12 @@
+:root {
+    --color-primario-verde: #9fd0a1;
+    --color-primario-verde-opacidad: rgba(180, 217, 182, 0.5);
+    --color-primario-azul: #356194;
+    --color-secundario-naranja: #EB7C00;
+    --color-secundario-naranajaDos: #C6A785;
+    --color-fondo: #E9F5DB;
+}
+
 main {
     margin-top: 20vh;
     margin-bottom: 15vh;

@@ -1,3 +1,12 @@
+:root {
+    --color-primario-verde: #9fd0a1;
+    --color-primario-verde-opacidad: rgba(180, 217, 182, 0.5);
+    --color-primario-azul: #356194;
+    --color-secundario-naranja: #EB7C00;
+    --color-secundario-naranajaDos: #C6A785;
+    --color-fondo: #E9F5DB;
+}
+
 main {
     margin-top: 10vh;
     margin-bottom: 15vh;
@@ -124,7 +133,7 @@ main p {
         border-radius: 30%;
         max-width: 100%;
         height: auto;
-        border: double var(--color-fondo-header-footer);
+        border: double var(--color-fondo);
     }
 
     .derecha {
@@ -155,7 +164,7 @@ main p {
         border-radius: 30%;
         max-width: 100%;
         height: auto;
-        border: double var(--color-fondo-header-footer);
+        border: double var(--color-fondo);
     }
 
     .medio {
