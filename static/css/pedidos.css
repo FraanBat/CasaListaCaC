@@ -18,11 +18,11 @@ main {
 }
 
 .cajas {
-    margin-top: 3%;
+    margin-top: 13%;
     max-width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1px;
     margin-left: 2%;
     margin-right: 2%;
     justify-content: left;
@@ -143,7 +143,7 @@ main {
 
 @media screen and (max-width: 426px) {
     .cajas {
-        gap: 30px;
+        gap: 1px;
     }
 
     .pedido {
@@ -175,8 +175,19 @@ main {
 }
 
 @media screen and (max-width: 321px) {
+    .cajas {
+        gap: 10px;
+    }
+
     .pedido {
         padding-right: 39%;
+        max-width: 30%;
+    }
+
+    .foto {
+        max-width: 100%;
+        margin: 0%;
+        margin-left: 50%;
     }
 
     .nombre {
