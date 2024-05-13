@@ -1,3 +1,7 @@
+:root {
+    --color-fondo: #E9F5DB;
+}
+
 main {
     margin-top: 20vh;
     display: flex;
