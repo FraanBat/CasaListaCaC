@@ -65,7 +65,7 @@ document.getElementById("altaUsuario").addEventListener('submit', function (even
                 zona: document.getElementById("zona").value,
                 telefono: document.getElementById("telefono").value,
                 genero: document.getElementById("genero").value,
-                imagen: document.getElementById("imagen").value.replace('C:\\fakepath\\'),
+                imagen: document.getElementById("imagen").value,
                 especializacion: {
                     especialista: false,
                     profesion: null
