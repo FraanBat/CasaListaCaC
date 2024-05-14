@@ -82,9 +82,12 @@ main {
     padding-left: 0%;
     margin-top: 5%;
     font-size: 3vh;
-    white-space: pre;
+}
 
-
+.nombre p{
+    word-wrap: break-word;
+    white-space:nowrap;
+    text-align: center;
 }
 
 .boton {
