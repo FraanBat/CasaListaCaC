@@ -127,8 +127,8 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
     
     event.preventDefault()
     let campos = document.getElementById("campos")
-
     if (validarDatos()) {
+        campos.textContent = ""
         if(validarMail(mailUsuario.value, perfilUsuario.mail)){
             perfilUsuario.mail = mailUsuario.value
             perfilUsuario.nombre = nombreUsuario.value
@@ -136,7 +136,7 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
             perfilUsuario.zona = zonaUsuario.value
             perfilUsuario.telefono = telefonoUsuario.value
             perfilUsuario.contrasena = contrasenaUsuario.value
-            if(imagenNuevaUsuario.value !== ""){perfilUsuario.imagen = imagenNuevaUsuario.value}
+            if(imagenNuevaUsuario.value !== ""){perfilUsuario.imagen = imagenNuevaUsuario.value.replace('C:\\fakepath\\', 'C:/fakepath/')}
             perfilUsuario.especializacion.especialista = especialidad
             if(especialidad) {perfilUsuario.especializacion.profesion = usuarioEspecialidad.value}
             else {perfilUsuario.especializacion.profesion = null}
