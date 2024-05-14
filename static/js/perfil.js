@@ -136,7 +136,7 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
             perfilUsuario.zona = zonaUsuario.value
             perfilUsuario.telefono = telefonoUsuario.value
             perfilUsuario.contrasena = contrasenaUsuario.value
-            if(imagenNuevaUsuario.value !== ""){perfilUsuario.imagen = imagenNuevaUsuario.value.replace('C:\\fakepath\\', 'C:/fakepath/')}
+            if(imagenNuevaUsuario.value !== ""){perfilUsuario.imagen = imagenNuevaUsuario.value}
             perfilUsuario.especializacion.especialista = especialidad
             if(especialidad) {perfilUsuario.especializacion.profesion = usuarioEspecialidad.value}
             else {perfilUsuario.especializacion.profesion = null}
