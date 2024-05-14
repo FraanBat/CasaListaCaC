@@ -24,6 +24,15 @@ const validarMail = function(nuevoMail, mailUusuario){
     }
 }
 
+const validarEspecialidad = function(especialidad, usuarioEspecialidad){
+    if(!especialidad || especialidad && usuarioEspecialidad !== ""){
+        return true
+    }
+    else{
+        return false
+    }
+}
+
 function validarDatos(){
     let mailUsuarioValidar = document.getElementById("mail").value.trim();
     let nombreUsuarioValidar = document.getElementById("nombre").value.trim();
@@ -129,7 +138,7 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
     let campos = document.getElementById("campos")
     if (validarDatos()) {
         campos.textContent = ""
-        if(validarMail(mailUsuario.value, perfilUsuario.mail)){
+        if(validarMail(mailUsuario.value, perfilUsuario.mail) && validarEspecialidad(especialidad, usuarioEspecialidad.value)){
             perfilUsuario.mail = mailUsuario.value
             perfilUsuario.nombre = nombreUsuario.value
             perfilUsuario.apellido = apellidoUsuario.value
@@ -142,6 +151,11 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
             else {perfilUsuario.especializacion.profesion = null}
         
             actualizarDatosUsuario(perfilUsuario)
+        }
+        else if(!validarEspecialidad(especialidad, usuarioEspecialidad.value)){
+            campos.textContent = "❌ No ha ingresado ninguna especialidad "
+            campos.style.color = "red"
+            return false
         }
         else{
             campos.textContent = "❌ El mail ingresado pertenece a otro usuario "
