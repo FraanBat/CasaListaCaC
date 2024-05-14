@@ -11,7 +11,8 @@ const mostrarHistorialEspecialistas = function (listadoEspecialistas) {
                 <img class="foto" src="${especialista.foto_perfil}" alt="imagen">
             </div>
             <div class="derecha">
-                <h3>${especialista.profesion}: ${especialista.apellido} ${especialista.nombre}</h3>
+                <h3>${especialista.profesion}: 
+${especialista.apellido} ${especialista.nombre}</h3>
                 <p><strong>Fecha de realización: ${especialista.fecha_trabajo}</strong>
             Dejar comentario 
             
