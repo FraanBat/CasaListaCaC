@@ -18,7 +18,7 @@ main {
 }
 
 .cajas {
-    margin-top: 13%;
+    margin-top: 3%;
     max-width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -84,9 +84,9 @@ main {
     font-size: 3vh;
 }
 
-.nombre p{
+.nombre p {
     word-wrap: break-word;
-    white-space:nowrap;
+    white-space: nowrap;
     text-align: center;
 }
 
@@ -95,7 +95,7 @@ main {
     margin-left: 25%;
     margin-bottom: 15%;
     border: outset var(--color-primario-azul);
-    width: 20vh;
+    width: 15vh;
 
 }
 
