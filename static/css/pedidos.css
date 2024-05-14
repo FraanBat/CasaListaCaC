@@ -62,6 +62,7 @@ main {
     text-align: center;
     margin-left: 15%;
     margin-top: 15%;
+    width: 100%;
 }
 
 
@@ -72,16 +73,17 @@ main {
     height: auto;
     align-items: center;
     transition: 3s;
-    margin-left: 20%;
+    margin-left: 25%;
     margin-top: 20%;
 }
 
 .nombre {
-    margin: 0%;
-    margin-left: 2vh;
+    width: 100%;
+    margin-left: 15%;
     padding-left: 0%;
     margin-top: 5%;
     font-size: 3vh;
+    text-align: center;
 }
 
 .nombre p {
@@ -92,7 +94,7 @@ main {
 
 .boton {
     margin-top: 5%;
-    margin-left: 25%;
+    margin-left: 35%;
     margin-bottom: 15%;
     border: outset var(--color-primario-azul);
     width: 15vh;
@@ -108,14 +110,12 @@ main {
 
 @media screen and (max-width: 769px) {
     .pedido {
-
         border-radius: 15px;
         max-width: 12%;
         min-width: 10%;
         height: auto;
         padding: 2%;
         padding-right: 12%;
-
     }
 
 
@@ -127,13 +127,15 @@ main {
         margin-left: 35%;
     }
 
-    .Cli {
-        font-size: 3vh;
+    .nombre{
+        margin-left: 40%;
         text-align: center;
     }
 
-    p {
-        font-size: 90%;
+    .Cli {
+        margin-left: 40%;
+        font-size: 3vh;
+        text-align: center;
     }
 
     .boton {
@@ -157,13 +159,23 @@ main {
         padding-right: 32%;
     }
 
+    .Cli{
+        margin-left: 100%;
+    }
 
     .foto {
         margin-left: 50%;
     }
 
+    .nombre{
+        width: 100%;
+        text-align: center;
+        margin-left: 70%;
+    }
+
     .boton {
         max-width: 80px;
+        margin-left: 90%;
     }
 }
 
@@ -187,6 +199,10 @@ main {
         max-width: 30%;
     }
 
+    .Cli{
+        margin-left: 50%;
+    }
+
     .foto {
         max-width: 100%;
         margin: 0%;
@@ -194,7 +210,11 @@ main {
     }
 
     .nombre {
-        margin-left: 0;
+        margin-left: 50%;
+    }
+
+    .boton{
+        margin-left: 60%;
     }
 
 }

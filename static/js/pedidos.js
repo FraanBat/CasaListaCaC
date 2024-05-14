@@ -23,7 +23,7 @@ const mostrarPedidos = function (listadoPedidosUsuario) {
 <p>${pedidoPendiente.apellido}</p>     
 <p>${pedidoPendiente.telefono}</p>
                 </div>
-                <button class="boton" onclick="pedidoRealizado(${pedidoPendiente.id})">Aceptar</button>              
+<button class="boton" onclick="pedidoRealizado(${pedidoPendiente.id})">Aceptar</button>              
         `
         pedidosPendientes.push(pedido)
     })
