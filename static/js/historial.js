@@ -13,8 +13,9 @@ const mostrarHistorialEspecialistas = function (listadoEspecialistas) {
             <div class="derecha">
                 <h3>${especialista.profesion}: 
 ${especialista.apellido} ${especialista.nombre}</h3>
-                <p><strong>Fecha de realización: ${especialista.fecha_trabajo}</strong>
-            Dejar comentario 
+                <p><strong>  Fecha de realización: 
+        ${especialista.fecha_trabajo}</strong>
+        Dejar comentario 
             
            <span class="boton" onclick="enviarDetalleHistorial(${especialista.id})"> Click </span>
                 </p>
