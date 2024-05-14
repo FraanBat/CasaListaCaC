@@ -21,7 +21,7 @@ const mostrarPedidos = function (listadoPedidosUsuario) {
                 <div class="nombre">
 <p>${pedidoPendiente.nombre}</p>     
 <p>${pedidoPendiente.apellido}</p>     
-<p>${pedidoPendiente.telefono}</p>
+<p id="telefonoCliente">${pedidoPendiente.telefono}</p>
                 </div>
 <button class="boton" onclick="pedidoRealizado(${pedidoPendiente.id})">Aceptar</button>              
         `
