@@ -46,6 +46,16 @@ body {
     cursor: pointer;
 }
 
+#acercaDeCasaLista {
+    margin-top: 8vh;
+    text-align: center;
+}
+
+main iframe {
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
 @media screen and (max-width: 427px) {
     #titulo {
         height: 10vh;
@@ -57,6 +67,12 @@ body {
 
     .especialidad h3 {
         font-size: 1em;
+    }
+
+    main iframe {
+        width: 92%;
+        height: 320px;
+        margin-left: 3vw;
     }
 }
 
