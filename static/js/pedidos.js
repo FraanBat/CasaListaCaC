@@ -36,7 +36,7 @@ const cargarPedidos = function () {
     let listadoPedidosUsuario
 
     if (localStorage.getItem("listadoPedidos") === null) {
-        fetch(`https://api.mockaroo.com/api/9b6045e0?count=6&key=b59cfd90`)
+        fetch(`https://api.mockaroo.com/api/e805c390?count=6&key=df8e15e0`)
             .then(response => response.json())
             .then(data => {
                 listadoPedidosUsuario = { id: identificadorUsuarioActual, pedidos: data }
@@ -49,7 +49,7 @@ const cargarPedidos = function () {
         listadoPedidos = JSON.parse(localStorage.getItem("listadoPedidos"))
         listadoPedidosUsuario = listadoPedidos.find(especialistaBuscado => especialistaBuscado.id === identificadorUsuarioActual)
         if (listadoPedidosUsuario === undefined || listadoPedidosUsuario.pedidos.length === 0) {
-            fetch(`https://api.mockaroo.com/api/9b6045e0?count=6&key=b59cfd90`)
+            fetch(`https://api.mockaroo.com/api/e805c390?count=6&key=df8e15e0`)
                 .then(response => response.json())
                 .then(data => {
                     listadoPedidosUsuario = { id: identificadorUsuarioActual, pedidos: data }
