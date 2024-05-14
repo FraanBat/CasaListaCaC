@@ -10,8 +10,8 @@ const mostrarDetalleEspecialista = function () {
             <div class="medio">           
          <h3>
 
-           ${detalleEspecialista.profesion} 
-        ${detalleEspecialista.apellido} ${detalleEspecialista.nombre}
+${detalleEspecialista.profesion} 
+${detalleEspecialista.apellido} ${detalleEspecialista.nombre}
            </h3>
             </div>
             <div class="derecha">
