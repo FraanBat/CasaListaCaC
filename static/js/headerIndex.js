@@ -53,8 +53,8 @@ else {
         <header>
         <a href="index.html">
             <div class="logo-completo">
-                <img class="encabezado-en-linea logo-imagen" src="../static/img/header/logo/logo.png" alt="logo">
-                <img class="encabezado-en-linea logo-letras" src="../static/img/header/logo/letras.png" alt="casalista">
+                <img class="encabezado-en-linea logo-imagen" src="static/img/header/logo/logo.png" alt="logo">
+                <img class="encabezado-en-linea logo-letras" src="static/img/header/logo/letras.png" alt="casalista">
             </div>
         </a>
         <form class="buscador" id="buscadorEspecialidad">
