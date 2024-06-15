@@ -123,7 +123,7 @@ else {
                 }
         
                 if (JSON.parse(sessionStorage.getItem("FiltradoEspecialistaBuscado")).length > 0) {
-                    window.location.replace("templates/servicios.html")
+                    window.location.replace("../templates/servicios.html")
                 }
                 else {
                     sessionStorage.setItem("FiltradoEspecialistaBuscado", JSON.stringify(JSON.parse(sessionStorage.getItem("listadoEspecialistas"))))
