@@ -1,17 +1,3 @@
-const buscarUsuario = function (mail) {
-    if (localStorage.getItem("listaUsuarios") !== null) {
-        if (JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === mail)) {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-    else {
-        return false
-    }
-}
-
 function validarDatos() {
     let nombre1 = document.getElementById("nombre").value.trim();
     let apellido1 = document.getElementById("apellido").value.trim();
@@ -70,32 +56,49 @@ document.getElementById("altaUsuario").addEventListener('submit', function (even
 
     event.preventDefault()
     if (validarDatos()) {
-        if (buscarUsuario(document.getElementById("mail").value) === false) {
-            let usuarios = JSON.parse(localStorage.getItem("listaUsuarios")) || []
-            usuarios.push({
-                id: usuarios.length + 1,
-                nombre: document.getElementById("nombre").value,
-                apellido: document.getElementById("apellido").value,
-                mail: document.getElementById("mail").value,
-                zona: document.getElementById("zona").value,
-                telefono: document.getElementById("telefono").value,
-                genero: document.getElementById("genero").value,
-                imagen: document.getElementById("imagen").value.replace('C:\\fakepath\\', 'https://raw.githubusercontent.com/FraanBat/imagenesCaC/main/'),
-                especializacion: {
-                    especialista: false,
-                    profesion: null
-                },
-                contrasena: document.getElementById("contrasena").value
-            })
-            localStorage.setItem("listaUsuarios", JSON.stringify(usuarios))
-
-            alert("Usuario creado")
-            localStorage.setItem("usuarioLogueado", usuarios[usuarios.length - 1].id)
-            window.location.replace("../index.html")
-
-        }
-        else {
-            alert("Lo siento, ya existe un usuario con el mail especificado")
-        }
+        let url = "http://127.0.0.1:5000/correoExistente?mail=" + document.getElementById("mail").value
+    
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if(data.existe){
+                alert("Lo siento, ya existe un usuario con el mail especificado")
+            }
+            else{
+                let usuarioNuevo = {
+                    nombre: document.getElementById("nombre").value,
+                    apellido: document.getElementById("apellido").value,
+                    mail: document.getElementById("mail").value,
+                    zona: document.getElementById("zona").value,
+                    telefono: document.getElementById("telefono").value,
+                    genero: document.getElementById("genero").value,
+                    imagen: document.getElementById("imagen").value,
+                    contrasena: document.getElementById("contrasena").value
+                }
+                
+                let url = "http://127.0.0.1:5000/altaUsuario"
+    
+                let options = {
+                    body: JSON.stringify(usuarioNuevo),
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    redirect: 'follow'
+                }
+    
+                fetch(url, options)
+                .then(response => response.json())
+                .then(data => {
+                    localStorage.setItem("usuarioLogueado", data.id)
+                    window.location.replace("../index.html")
+                }
+    
+                )
+                .catch(err => {
+                    //this.errored = true
+                    alert("Error al grabar" )
+                    console.error(err);
+                })
+            }
+        })
     }
 })
