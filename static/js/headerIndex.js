@@ -58,7 +58,7 @@ else {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        if(data.profesion_id === null){
+        if(data.profesion === null){
             headerContent = `
                 <header>
                 <a href="index.html">
