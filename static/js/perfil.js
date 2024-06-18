@@ -10,20 +10,6 @@ const contrasenaUsuario = document.getElementById("contrasenaNueva")
 const repetirContrasenaUsuario = document.getElementById("repetir_contrasena_nueva")
 const usuarioEspecialidad = document.getElementById("especialidadPerfil")
 
-const validarMail = function(nuevoMail, mailUusuario){
-    if(mailUusuario === nuevoMail){
-        return true
-    }
-    else{
-        if (JSON.parse(localStorage.getItem("listaUsuarios")).find(usuarioBuscado => usuarioBuscado.mail === nuevoMail)) {
-            return false
-        }
-        else {
-            return true
-        }
-    }
-}
-
 const validarEspecialidad = function(especialidad, usuarioEspecialidad){
     if(!especialidad || especialidad && usuarioEspecialidad !== ""){
         return true
@@ -70,27 +56,34 @@ function validarDatos(){
     return true;
 }
 
+const cargarPerfilUsuario = function(idUsuario, imagenNuevaUsuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, generoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario, usuarioEspecialidad){
+    let url = "http://127.0.0.1:5000/consultaUsuario/" + idUsuario
+    return fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        imagenNuevaUsuario.value = data.imagen
+        mailUsuario.value = data.mail
+        nombreUsuario.value = data.nombre
+        apellidoUsuario.value = data.apellido
+        cargarFoto(data, fotoUsuario)
+        generoUsuario.value = data.genero
+        zonaUsuario.value = data.zona
+        telefonoUsuario.value = data.telefono
+        contrasenaUsuario.value = data.contrasena
+        repetirContrasenaUsuario.value = data.contrasena
+        if(data.profesion !== null){
+            usuarioEspecialidad.value = data.profesion
+        }
+        return data
+    })
+}
+
 const cargarFoto = function(usuario, fotoUsuario){
     const foto = document.createElement("img")
     foto.className = "imagen"
     foto.setAttribute("src", usuario.imagen)
     foto.setAttribute("alt", "foto de perfil")
     fotoUsuario.appendChild(foto)
-}
-
-const solicitarPerfil = function(usuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, generoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario, usuarioEspecialidad){
-    mailUsuario.value = usuario.mail
-    nombreUsuario.value = usuario.nombre
-    apellidoUsuario.value = usuario.apellido
-    cargarFoto(usuario, fotoUsuario)
-    generoUsuario.value = usuario.genero
-    zonaUsuario.value = usuario.zona
-    telefonoUsuario.value = usuario.telefono
-    contrasenaUsuario.value = usuario.contrasena
-    repetirContrasenaUsuario.value = usuario.contrasena
-    if(usuario.especializacion.especialista){
-        usuarioEspecialidad.value = usuario.especializacion.profesion
-    }
 }
 
 const seccionEspecialidad = function(especialidad){
@@ -104,24 +97,37 @@ const seccionEspecialidad = function(especialidad){
 }
 
 const actualizarDatosUsuario = function(perfilUsuario){
-    const listadoUsuarios = JSON.parse(localStorage.getItem("listaUsuarios"))
-    listadoUsuarios.forEach(usuario => {
-        if(usuario.id === perfilUsuario.id){
-            usuario.mail = perfilUsuario.mail
-            usuario.nombre = perfilUsuario.nombre
-            usuario.apellido = perfilUsuario.apellido
-            usuario.zona = perfilUsuario.zona
-            usuario.telefono = perfilUsuario.telefono
-            usuario.imagen = perfilUsuario.imagen
-            usuario.especializacion.especialista = perfilUsuario.especializacion.especialista
-            usuario.especializacion.profesion = perfilUsuario.especializacion.profesion
-            usuario.contrasena = perfilUsuario.contrasena
-        }
-    });
-    localStorage.setItem("listaUsuarios", JSON.stringify(listadoUsuarios))
+    
+    let datosUsuario = {
+        mail: perfilUsuario.mail,
+        nombre: perfilUsuario.nombre,
+        apellido: perfilUsuario.apellido,
+        zona: perfilUsuario.zona,
+        genero: perfilUsuario.genero,
+        telefono: perfilUsuario.telefono,
+        imagen: perfilUsuario.imagen,
+        contrasena: perfilUsuario.contrasena,
+        profesion: perfilUsuario.profesion
+    }
 
-    alert("Datos actualizados")
-    window.location.replace("../index.html")
+    let url= "http://127.0.0.1:5000/actualizarPerfil/" + perfilUsuario.id
+    let options = {
+        body: JSON.stringify(datosUsuario),
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        redirect: 'follow'
+    }
+    fetch(url, options)
+        .then(response => response.json())
+        .then(data => {
+            alert(data.mensaje)
+            window.location.replace("../index.html")
+        })
+        .catch(err => {
+            this.error = true
+            console.error(err);
+            alert("Error al Modificar")
+        })
 }
 
 document.getElementById("habilitarEspecialidad").addEventListener('click', function(event){
@@ -138,34 +144,67 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
     let campos = document.getElementById("campos")
     if (validarDatos()) {
         campos.textContent = ""
-        if(validarMail(mailUsuario.value, perfilUsuario.mail) && validarEspecialidad(especialidad, usuarioEspecialidad.value)){
-            perfilUsuario.mail = mailUsuario.value
-            perfilUsuario.nombre = nombreUsuario.value
-            perfilUsuario.apellido = apellidoUsuario.value
-            perfilUsuario.zona = zonaUsuario.value
-            perfilUsuario.telefono = telefonoUsuario.value
-            perfilUsuario.contrasena = contrasenaUsuario.value
-            if(imagenNuevaUsuario.value !== ""){perfilUsuario.imagen = imagenNuevaUsuario.value.replace('C:\\fakepath\\', 'https://raw.githubusercontent.com/FraanBat/imagenesCaC/main/')}
-            perfilUsuario.especializacion.especialista = especialidad
-            if(especialidad) {perfilUsuario.especializacion.profesion = usuarioEspecialidad.value}
-            else {perfilUsuario.especializacion.profesion = null}
-        
-            actualizarDatosUsuario(perfilUsuario)
-        }
-        else if(!validarEspecialidad(especialidad, usuarioEspecialidad.value)){
-            campos.textContent = "❌ No ha ingresado ninguna especialidad "
-            campos.style.color = "red"
-            return false
+        if(validarEspecialidad(especialidad, usuarioEspecialidad.value)){
+
+            if(perfilUsuario.mail === mailUsuario.value){
+                perfilUsuario.nombre = nombreUsuario.value
+                perfilUsuario.apellido = apellidoUsuario.value
+                perfilUsuario.zona = zonaUsuario.value
+                perfilUsuario.genero = generoUsuario.value
+                perfilUsuario.telefono = parseInt(telefonoUsuario.value)
+                perfilUsuario.contrasena = contrasenaUsuario.value
+                perfilUsuario.imagen = imagenNuevaUsuario.value
+                if(especialidad) {perfilUsuario.profesion = usuarioEspecialidad.value}
+                else {perfilUsuario.profesion = null}
+            
+                actualizarDatosUsuario(perfilUsuario)
+            }
+            else
+            {
+                let url = "http://127.0.0.1:5000/correoExistente?mail=" + mailUsuario.value
+                return fetch(url)
+                .then(response => response.json())
+                .then(data => 
+                {
+                    if(data.existe && perfilUsuario.mail !== mailUsuario.value){
+                        campos.textContent = "❌ El mail ingresado pertenece a otro usuario "
+                        campos.style.color = "red"
+                        return false
+                    }
+                    else
+                    {
+                        perfilUsuario.mail = mailUsuario.value
+                        perfilUsuario.nombre = nombreUsuario.value
+                        perfilUsuario.apellido = apellidoUsuario.value
+                        perfilUsuario.zona = zonaUsuario.value
+                        perfilUsuario.genero = generoUsuario.value
+                        perfilUsuario.telefono = telefonoUsuario.value
+                        perfilUsuario.contrasena = contrasenaUsuario.value
+                        perfilUsuario.imagen = imagenNuevaUsuario.value
+                        if(especialidad) {perfilUsuario.profesion = usuarioEspecialidad.value}
+                        else {perfilUsuario.profesion = null}
+                    
+                        actualizarDatosUsuario(perfilUsuario)
+                    }
+                })
+            }
+    
         }
         else{
-            campos.textContent = "❌ El mail ingresado pertenece a otro usuario "
+            campos.textContent = "❌ No ha ingresado ninguna especialidad "
             campos.style.color = "red"
             return false
         }
     }
 })
 
-let perfilUsuario = JSON.parse(localStorage.getItem("listaUsuarios")).find(usuario => usuario.id === parseInt(localStorage.getItem("usuarioLogueado")))
-let especialidad = perfilUsuario.especializacion.especialista
-solicitarPerfil(perfilUsuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, generoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario, usuarioEspecialidad)
-seccionEspecialidad(especialidad)
+let especialidad = null
+let perfilUsuario = null
+
+cargarPerfilUsuario(localStorage.getItem("usuarioLogueado"), imagenNuevaUsuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, generoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario, usuarioEspecialidad)
+.then(perfilUsuarioCargado => {
+    perfilUsuario = perfilUsuarioCargado
+    if(perfilUsuarioCargado.profesion === null) {especialidad = false}
+    else {especialidad = true}
+    seccionEspecialidad(especialidad)
+})
