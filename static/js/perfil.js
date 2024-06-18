@@ -9,9 +9,10 @@ const generoUsuario = document.getElementById("genero")
 const contrasenaUsuario = document.getElementById("contrasenaNueva")
 const repetirContrasenaUsuario = document.getElementById("repetir_contrasena_nueva")
 const usuarioEspecialidad = document.getElementById("especialidadPerfil")
+const descripcionEspecialidad = document.getElementById("descripcion")
 
-const validarEspecialidad = function(especialidad, usuarioEspecialidad){
-    if(!especialidad || especialidad && usuarioEspecialidad !== ""){
+const validarEspecialidad = function(especialidad, usuarioEspecialidad, descripcionEspecialidad){
+    if(!especialidad || especialidad && usuarioEspecialidad !== "" && descripcionEspecialidad !== ""){
         return true
     }
     else{
@@ -56,7 +57,7 @@ function validarDatos(){
     return true;
 }
 
-const cargarPerfilUsuario = function(idUsuario, imagenNuevaUsuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, generoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario, usuarioEspecialidad){
+const cargarPerfilUsuario = function(idUsuario, imagenNuevaUsuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, generoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario, usuarioEspecialidad, descripcionEspecialidad){
     let url = "http://127.0.0.1:5000/consultaUsuario/" + idUsuario
     return fetch(url)
     .then(response => response.json())
@@ -73,6 +74,7 @@ const cargarPerfilUsuario = function(idUsuario, imagenNuevaUsuario, mailUsuario,
         repetirContrasenaUsuario.value = data.contrasena
         if(data.profesion !== null){
             usuarioEspecialidad.value = data.profesion
+            descripcionEspecialidad.value = data.descripcion_profesion
         }
         return data
     })
@@ -107,7 +109,8 @@ const actualizarDatosUsuario = function(perfilUsuario){
         telefono: perfilUsuario.telefono,
         imagen: perfilUsuario.imagen,
         contrasena: perfilUsuario.contrasena,
-        profesion: perfilUsuario.profesion
+        profesion: perfilUsuario.profesion,
+        descripcion: perfilUsuario.descripcion
     }
 
     let url= "http://127.0.0.1:5000/actualizarPerfil/" + perfilUsuario.id
@@ -144,7 +147,7 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
     let campos = document.getElementById("campos")
     if (validarDatos()) {
         campos.textContent = ""
-        if(validarEspecialidad(especialidad, usuarioEspecialidad.value)){
+        if(validarEspecialidad(especialidad, usuarioEspecialidad.value, descripcionEspecialidad.value)){
 
             if(perfilUsuario.mail === mailUsuario.value){
                 perfilUsuario.nombre = nombreUsuario.value
@@ -154,8 +157,14 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
                 perfilUsuario.telefono = parseInt(telefonoUsuario.value)
                 perfilUsuario.contrasena = contrasenaUsuario.value
                 perfilUsuario.imagen = imagenNuevaUsuario.value
-                if(especialidad) {perfilUsuario.profesion = usuarioEspecialidad.value}
-                else {perfilUsuario.profesion = null}
+                if(especialidad) {
+                    perfilUsuario.profesion = usuarioEspecialidad.value
+                    perfilUsuario.descripcion = descripcionEspecialidad.value
+                }
+                else {
+                    perfilUsuario.profesion = null
+                    perfilUsuario.descripcion = null
+                }
             
                 actualizarDatosUsuario(perfilUsuario)
             }
@@ -191,7 +200,7 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
     
         }
         else{
-            campos.textContent = "❌ No ha ingresado ninguna especialidad "
+            campos.textContent = "❌ No ha ingresado ninguna especialidad o una descripción sobre el trabajo que hace"
             campos.style.color = "red"
             return false
         }
@@ -201,7 +210,7 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
 let especialidad = null
 let perfilUsuario = null
 
-cargarPerfilUsuario(localStorage.getItem("usuarioLogueado"), imagenNuevaUsuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, generoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario, usuarioEspecialidad)
+cargarPerfilUsuario(localStorage.getItem("usuarioLogueado"), imagenNuevaUsuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, generoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario, usuarioEspecialidad, descripcionEspecialidad)
 .then(perfilUsuarioCargado => {
     perfilUsuario = perfilUsuarioCargado
     if(perfilUsuarioCargado.profesion === null) {especialidad = false}
