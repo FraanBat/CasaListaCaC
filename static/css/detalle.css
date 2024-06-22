@@ -169,10 +169,12 @@ main p {
 
     .medio {
         font-size: 3vh;
+        margin-top: 2vh;
     }
 
     .derecha {
-        margin-left: 5%;
+        text-align: center;
+        margin-left: 18%;
         white-space: pre;
     }
 
@@ -203,6 +205,10 @@ main p {
         margin-left: 15%;
     }
 
+    .medio {
+        margin-top: 6vh;
+    }
+
     .derecha {
         white-space: pre;
     }
@@ -225,9 +231,15 @@ main p {
         margin-left: 10%;
     }
 
+    .medio {
+        text-align: center;
+        margin-top: 0;
+        margin-left: 5%;
+    }
 
     .derecha {
-        margin-left: 0%;
+        margin-left: 0;
+        margin-top: 10vh;
         white-space: pre;
     }
 

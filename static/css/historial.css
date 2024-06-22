@@ -40,6 +40,7 @@ main div {
     max-width: 100%;
     height: auto;
     font-size: 3vh;
+    text-align: left;
 }
 
 main h2 {
@@ -54,8 +55,7 @@ main h3 {
 }
 
 main p {
-    margin-top: 10%;
-    white-space: pre;
+    margin-top: 5%;
 }
 
 
@@ -118,7 +118,6 @@ main p {
         margin-left: 18%;
     }
 
-
 }
 
 @media screen and (max-width:376px) {
@@ -139,13 +138,19 @@ main p {
 @media screen and (max-width:321px) {
     .en-linea {
         min-width: 97%;
-        grid-template-columns: 25% 20%;
+        grid-template-columns: 25% 75%;
         grid-template-rows: 50%;
     }
 
     .foto {
         margin: 0%;
         margin-top: 40%;
+    }
+
+    .derecha p{
+        width: 100%;
+        word-wrap: break-word;
+        white-space:normal;
     }
 
 }

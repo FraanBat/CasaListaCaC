@@ -8,6 +8,6 @@ document.getElementById("FAQ").addEventListener('click', function(){
 })
 
 document.getElementById("QuienesSomos").addEventListener('click', function(){
-    const equipo = "Desarrolladores:\n- Eduardo Ojeda\n- Franco Andres Riggio\n- Silvia Gomez\n\nUI/UX:\n- Noelia Sciorra"
+    const equipo = "Desarrolladores:\n- Eduardo Ojeda\n- Franco Andres Riggio\n- Silvia Gomez"
     alert(equipo)
 })
