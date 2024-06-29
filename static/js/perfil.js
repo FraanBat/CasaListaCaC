@@ -127,7 +127,6 @@ const actualizarDatosUsuario = function(perfilUsuario){
             window.location.replace("../index.html")
         })
         .catch(err => {
-            this.error = true
             console.error(err);
             alert("Error al Modificar")
         })
