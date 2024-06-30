@@ -94,7 +94,6 @@ document.getElementById("altaUsuario").addEventListener('submit', function (even
     
                 )
                 .catch(err => {
-                    //this.errored = true
                     alert("Error al grabar" )
                     console.error(err);
                 })

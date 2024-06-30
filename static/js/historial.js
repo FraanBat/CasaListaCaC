@@ -16,7 +16,7 @@ ${especialista.apellido} ${especialista.nombre}</h3>
                 <p><strong>Fecha de realización: ${especialista.fecha_trabajo}</strong></p>
             <p>Dejar comentario 
             
-           <span class="boton" onclick="enviarDetalleHistorial(${especialista.id})"> Click </span>
+           <span class="boton" onclick="enviarDetalleHistorial(${especialista.id_pedido})"> Click </span>
                 </p>
             </div>
         `
@@ -26,9 +26,23 @@ ${especialista.apellido} ${especialista.nombre}</h3>
     especialistas.append(...especialistaHistorial)
 }
 
-const enviarDetalleHistorial = function (idEspecialista) {
-    sessionStorage.setItem("historialEspecialistaDetalle", idEspecialista)
+const enviarDetalleHistorial = function (idPedido) {
+    sessionStorage.setItem("historialEspecialistaDetalle", idPedido)
     window.location.replace("../templates/trabajador.html")
 }
 
-mostrarHistorialEspecialistas(JSON.parse(sessionStorage.getItem("historialEspecialistas")))
+const obtenerHistorial = function(){
+    fetch("http://127.0.0.1:5000/solicitarHistorial/" + localStorage.getItem("usuarioLogueado"))
+    .then(response => response.json())
+    .then(data => {
+        if(data.length == 0){
+            alert("No hay pedidos sin evaluar")
+        }
+        else{
+            mostrarHistorialEspecialistas(data)
+        }
+    })
+    .catch(error => console.error(error))
+}
+
+obtenerHistorial()

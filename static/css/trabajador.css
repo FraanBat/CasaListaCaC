@@ -33,10 +33,8 @@ main h2 {
 .foto {
     margin: 10%;
     margin-left: 15%;
-    border-radius: 30%;
     max-width: 100%;
     height: auto;
-    border: outset #B6DAB8;
 }
 
 .derecha {
@@ -171,15 +169,13 @@ input[type="radio"]:checked~.star {
 
     .foto {
         margin: 20%;
-        border-radius: 30%;
         max-width: 100%;
         height: auto;
-        border: double #B6DAB8;
     }
 
 
     .derecha {
-        margin-left: 0;
+        margin-left: 20%;
         margin-top: 0;
         max-width: 100%;
         height: auto;
@@ -205,5 +201,9 @@ input[type="radio"]:checked~.star {
 
     .comentario {
         max-width: 10%;
+    }
+
+    textarea{
+        width: 80%;
     }
 }

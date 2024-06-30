@@ -4,6 +4,16 @@ const mostrarDetalleEspecialista = function () {
 
     const seccionEspecialista = document.getElementById("detalleEspecialista")
     const especialistaContenido = document.createElement("div")
+
+    valoracionEspecialista = ""
+
+    if(detalleEspecialista.valoracion > 0){
+        valoracionEspecialista = `${Math.floor(detalleEspecialista.valoracion)}/5 ⭐`
+    }
+    else{
+        valoracionEspecialista = `Sin evaluar`
+    }
+
     especialistaContenido.innerHTML = `
     <div class="fila1">
             <div class="imagen"><img class="foto" src="${detalleEspecialista.foto_perfil}" alt="imagen"></div>
@@ -18,7 +28,7 @@ ${detalleEspecialista.apellido} ${detalleEspecialista.nombre}
          <p>
 Teléfono: ${detalleEspecialista.telefono}
 Zona: ${detalleEspecialista.zona}
-Valoración: ${Math.floor(detalleEspecialista.valoracion)}/5 ⭐</p>
+Valoración: ${valoracionEspecialista}</p>
             </div>
         </div>
         <div class="fila2">
@@ -29,7 +39,7 @@ Valoración: ${Math.floor(detalleEspecialista.valoracion)}/5 ⭐</p>
             </p>
             
         </div>
-        <div class="fila3"><button class="boton" onclick="confirmarPedido()">Confirmar</button>
+        <div class="fila3"><button class="boton" onclick="confirmarPedido(${detalleEspecialista.id})">Confirmar</button>
         </div>
         <div class="fila4">
             <h4>Opiniones sobre el profesional</h4>
@@ -43,9 +53,31 @@ Valoración: ${Math.floor(detalleEspecialista.valoracion)}/5 ⭐</p>
     seccionEspecialista.appendChild(especialistaContenido)
 }
 
-const confirmarPedido = function () {
-    alert("Pedido confirmado")
-    window.location.replace("servicios.html")
+const confirmarPedido = idEspecialista => {
+
+    let url = "http://127.0.0.1:5000/altaPedido"
+
+    let datosPedido = {
+        clienteId: parseInt(localStorage.getItem("usuarioLogueado")),
+        profesionalId: idEspecialista
+    }
+
+    let options = {
+        body: JSON.stringify(datosPedido),
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        redirect: 'follow'
+    }
+
+    fetch(url, options)
+                .then(function(){
+                    alert("Pedido confirmado")
+                    window.location.replace("servicios.html")
+                })
+                .catch(err => {
+                    alert("Error al grabar" )
+                    console.error(err);
+                })
 }
 
 mostrarDetalleEspecialista()

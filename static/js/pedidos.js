@@ -33,59 +33,34 @@ const mostrarPedidos = function (listadoPedidosUsuario) {
 
 const cargarPedidos = function () {
 
-    let listadoPedidosUsuario
-
-    if (localStorage.getItem("listadoPedidos") === null) {
-        fetch(`https://api.mockaroo.com/api/9b6045e0?count=6&key=b59cfd90`)
-            .then(response => response.json())
-            .then(data => {
-                listadoPedidosUsuario = { id: identificadorUsuarioActual, pedidos: data }
-                listadoPedidos.push(listadoPedidosUsuario)
-                localStorage.setItem("listadoPedidos", JSON.stringify(listadoPedidos))
-                mostrarPedidos(listadoPedidosUsuario.pedidos)
-            })
-    }
-    else {
-        listadoPedidos = JSON.parse(localStorage.getItem("listadoPedidos"))
-        listadoPedidosUsuario = listadoPedidos.find(especialistaBuscado => especialistaBuscado.id === identificadorUsuarioActual)
-        if (listadoPedidosUsuario === undefined || listadoPedidosUsuario.pedidos.length === 0) {
-            fetch(`https://api.mockaroo.com/api/9b6045e0?count=6&key=b59cfd90`)
-                .then(response => response.json())
-                .then(data => {
-                    listadoPedidosUsuario = { id: identificadorUsuarioActual, pedidos: data }
-                    listadoPedidos.push(listadoPedidosUsuario)
-                    localStorage.setItem("listadoPedidos", JSON.stringify(listadoPedidos))
-                    mostrarPedidos(listadoPedidosUsuario.pedidos)
-                })
-                .catch(error => console.error(error))
+    fetch("http://127.0.0.1:5000/solicitarPedidos/" + localStorage.getItem("usuarioLogueado"))
+        .then(response => response.json())
+        .then(data => {
+        if(data.length === 0){
+            alert("No hay pedidos pendientes")
         }
-        else {
-            mostrarPedidos(listadoPedidosUsuario.pedidos)
+        else{
+            mostrarPedidos(data)
         }
-    }
+    })
+    .catch(error => console.error(error))
 }
 
 const pedidoRealizado = function (idPedido) {
-    let usuarioPedidos = listadoPedidos.find(especialistaBuscado => especialistaBuscado.id === identificadorUsuarioActual) //Contiene la información sobre pedidos de un usuario en particular
-    const listadoPedidosUsuario = usuarioPedidos.pedidos //Contiene la información de los pedidos del usuario
-    const pedidoRealizado = listadoPedidosUsuario.findIndex(pedido => pedido.id === idPedido) //Contiene la posición del pedido realizado
 
-    listadoPedidosUsuario.splice(pedidoRealizado, 1)
-
-    if (listadoPedidosUsuario.length > 0) {
-        usuarioPedidos = { id: identificadorUsuarioActual, pedidos: listadoPedidosUsuario }
-        listadoPedidos[listadoPedidos.findIndex(usuario => usuario.id === identificadorUsuarioActual)] = usuarioPedidos
+    let url = "http://127.0.0.1:5000/pedidoRealizado/" + idPedido
+    let options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' }
     }
-
-    else {
-        listadoPedidos.splice(listadoPedidos.findIndex(usuario => usuario.id === identificadorUsuarioActual), 1)
-        alert("No cuenta con pedidos pendientes")
-    }
-
-    localStorage.setItem("listadoPedidos", JSON.stringify(listadoPedidos))
-
-    mostrarPedidos(usuarioPedidos.pedidos)
-
+    fetch(url, options)
+        .then(function(){
+            window.location.reload()
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Error al Modificar")
+        })
 }
 
 cargarPedidos()

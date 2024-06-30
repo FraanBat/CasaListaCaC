@@ -45,7 +45,7 @@ main a {
     margin-top: 4%;
     margin-left: 1%;
     border-radius: 30%;
-    max-width: 100%;
+    width: 240px;
     height: auto;
 
 }
@@ -131,7 +131,7 @@ main p {
         margin-top: 15%;
         margin-left: 10%;
         border-radius: 30%;
-        max-width: 100%;
+        width: 130px;
         height: auto;
         border: double var(--color-fondo);
     }
@@ -160,9 +160,9 @@ main p {
     .foto {
         margin: 0;
         margin-top: 20%;
-        margin-left: 20%;
+        margin-left: 25%;
         border-radius: 30%;
-        max-width: 100%;
+        width: 200px;
         height: auto;
         border: double var(--color-fondo);
     }
@@ -203,7 +203,7 @@ main p {
     }
 
     .foto {
-        margin-left: 15%;
+        margin-left: 23%;
     }
 
     .medio {
@@ -230,7 +230,7 @@ main p {
     }
 
     .foto {
-        margin-left: 10%;
+        margin-left: 18%;
     }
 
     .medio {

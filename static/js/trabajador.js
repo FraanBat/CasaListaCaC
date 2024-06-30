@@ -1,8 +1,9 @@
 const mostrarDetalleHistorial = function () {
 
-    let detalleHistorial = JSON.parse(sessionStorage.getItem("historialEspecialistas")).find(especialista => especialista.id === parseInt(sessionStorage.getItem("historialEspecialistaDetalle")))
-
-    const seccionHistorialEspecialista = document.getElementById("detalleHistorialEspecialista")
+    fetch("http://127.0.0.1:5000/solicitarEspecialistaHistorial/" + sessionStorage.getItem("historialEspecialistaDetalle"))
+    .then(response => response.json())
+    .then(detalleHistorial => {
+        const seccionHistorialEspecialista = document.getElementById("detalleHistorialEspecialista")
     const especialistaContenido = document.createElement("div")
     especialistaContenido.className = "en-linea"
     especialistaContenido.innerHTML = `
@@ -68,11 +69,12 @@ ${detalleHistorial.apellido}   ${detalleHistorial.nombre}</h3>
 <strong><label for="comentario">Comentario</label></strong>
 <textarea name="comentario" id="comentario" cols="40" rows="5" maxlength="200"></textarea>
                         
-    <strong><button class="boton booton" type="submit" onclick="enviarCalificacion()">Enviar</button></strong>
+    <strong><button class="boton booton" type="submit" onclick="enviarCalificacion(${detalleHistorial.id_profesional})">Enviar</button></strong>
                 </div>
     `
 
     seccionHistorialEspecialista.appendChild(especialistaContenido)
+    })
 }
 
 const validarCalificacion = function (radio) {
@@ -84,7 +86,27 @@ const validarCalificacion = function (radio) {
     return false
 }
 
-const enviarCalificacion = function () {
+const valorCalificacion = function(radio){
+    for (let i = 0; i < radio.length; i++) {
+        if (radio[i].checked) {
+            return radio[i].value
+        }
+    }
+}
+
+const eliminarHistorial = function(){
+    const url = "http://127.0.0.1:5000/borrarPedidoHistorial/" + sessionStorage.getItem("historialEspecialistaDetalle")
+    const options = {
+        method: 'DELETE'
+    }
+    fetch(url, options)
+    .then(function(){
+        alert("Su calificación ha sido enviada. ¡Muchas gracias!")
+        window.location.replace("historial.html")
+    })
+}
+
+const enviarCalificacion = function (idProfesional) {
     let radiosAmabilidad = document.getElementsByName('Amabilidad')
     let radiosPuntualidad = document.getElementsByName('Puntualidad')
     let radiosProligidad = document.getElementsByName('Proligidad')
@@ -92,8 +114,33 @@ const enviarCalificacion = function () {
     let textoComentarios = document.getElementById('comentario').value.trim()
 
     if (validarCalificacion(radiosAmabilidad) && validarCalificacion(radiosPuntualidad) && validarCalificacion(radiosProligidad) && validarCalificacion(radiosConfiabilidad) && textoComentarios !== "") {
-        alert("Su calificación ha sido enviada. ¡Muchas gracias!")
-        window.location.replace("historial.html")
+            let datosCalificacion = {
+                amabilidad: valorCalificacion(radiosAmabilidad),
+                puntualidad: valorCalificacion(radiosPuntualidad),
+                proligidad: valorCalificacion(radiosProligidad),
+                confiabilidad: valorCalificacion(radiosConfiabilidad),
+                comentarios: textoComentarios,
+                cliente_id: localStorage.getItem("usuarioLogueado"),
+                profesional_id: idProfesional
+            }
+
+            let url = "http://127.0.0.1:5000/nuevaValoracion"
+
+            let options = {
+                body: JSON.stringify(datosCalificacion),
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                redirect: 'follow'
+            }
+
+            fetch(url, options)
+                .then(function(){
+                    eliminarHistorial()
+                })
+                .catch(err => {
+                    alert("Error al grabar" )
+                    console.error(err);
+                })
     }
     else {
         alert("Disculpe, falta completar alguno de los campos")
