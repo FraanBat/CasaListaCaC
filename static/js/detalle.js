@@ -4,6 +4,16 @@ const mostrarDetalleEspecialista = function () {
 
     const seccionEspecialista = document.getElementById("detalleEspecialista")
     const especialistaContenido = document.createElement("div")
+
+    valoracionEspecialista = ""
+
+    if(detalleEspecialista.valoracion > 0){
+        valoracionEspecialista = `${Math.floor(detalleEspecialista.valoracion)}/5 ⭐`
+    }
+    else{
+        valoracionEspecialista = `Sin evaluar`
+    }
+
     especialistaContenido.innerHTML = `
     <div class="fila1">
             <div class="imagen"><img class="foto" src="${detalleEspecialista.foto_perfil}" alt="imagen"></div>
@@ -18,7 +28,7 @@ ${detalleEspecialista.apellido} ${detalleEspecialista.nombre}
          <p>
 Teléfono: ${detalleEspecialista.telefono}
 Zona: ${detalleEspecialista.zona}
-Valoración: ${Math.floor(detalleEspecialista.valoracion)}/5 ⭐</p>
+Valoración: ${valoracionEspecialista}</p>
             </div>
         </div>
         <div class="fila2">

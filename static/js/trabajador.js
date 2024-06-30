@@ -94,6 +94,18 @@ const valorCalificacion = function(radio){
     }
 }
 
+const eliminarHistorial = function(){
+    const url = "http://127.0.0.1:5000/borrarPedidoHistorial/" + sessionStorage.getItem("historialEspecialistaDetalle")
+    const options = {
+        method: 'DELETE'
+    }
+    fetch(url, options)
+    .then(function(){
+        alert("Su calificación ha sido enviada. ¡Muchas gracias!")
+        window.location.replace("historial.html")
+    })
+}
+
 const enviarCalificacion = function (idProfesional) {
     let radiosAmabilidad = document.getElementsByName('Amabilidad')
     let radiosPuntualidad = document.getElementsByName('Puntualidad')
@@ -123,8 +135,7 @@ const enviarCalificacion = function (idProfesional) {
 
             fetch(url, options)
                 .then(function(){
-                    alert("Su calificación ha sido enviada. ¡Muchas gracias!")
-                    //window.location.replace("historial.html")
+                    eliminarHistorial()
                 })
                 .catch(err => {
                     alert("Error al grabar" )
