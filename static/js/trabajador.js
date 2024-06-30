@@ -102,6 +102,7 @@ const eliminarHistorial = function(){
     fetch(url, options)
     .then(function(){
         alert("Su calificación ha sido enviada. ¡Muchas gracias!")
+        sessionStorage.removeItem("historialEspecialistaDetalle")
         window.location.replace("historial.html")
     })
 }

@@ -1,56 +1,72 @@
 const mostrarDetalleEspecialista = function () {
 
-    let detalleEspecialista = JSON.parse(sessionStorage.getItem("listadoEspecialistas")).find(especialista => especialista.id === parseInt(sessionStorage.getItem("especialistaDetalle")))
+    let detalleEspecialista = JSON.parse(sessionStorage.getItem("FiltradoEspecialistaBuscado")).find(especialista => especialista.id === parseInt(sessionStorage.getItem("especialistaDetalle")))
 
-    const seccionEspecialista = document.getElementById("detalleEspecialista")
-    const especialistaContenido = document.createElement("div")
+    fetch("http://127.0.0.1:5000/solicitarEspecialistaComentarios/" + sessionStorage.getItem("especialistaDetalle"))
+        .then(response => response.json())
+        .then(comentarios => {
+            const seccionEspecialista = document.getElementById("detalleEspecialista")
+            const especialistaContenido = document.createElement("div")
 
-    valoracionEspecialista = ""
+            valoracionEspecialista = ""
 
-    if(detalleEspecialista.valoracion > 0){
-        valoracionEspecialista = `${Math.floor(detalleEspecialista.valoracion)}/5 ⭐`
-    }
-    else{
-        valoracionEspecialista = `Sin evaluar`
-    }
+            if(detalleEspecialista.valoracion > 0){
+                valoracionEspecialista = `${Math.floor(detalleEspecialista.valoracion)}/5 ⭐`
+            }
+            else{
+                valoracionEspecialista = `Sin evaluar`
+            }
 
-    especialistaContenido.innerHTML = `
-    <div class="fila1">
-            <div class="imagen"><img class="foto" src="${detalleEspecialista.foto_perfil}" alt="imagen"></div>
-            <div class="medio">           
-         <h3>
+            opiniones = ""
 
-${detalleEspecialista.profesion} 
-${detalleEspecialista.apellido} ${detalleEspecialista.nombre}
-           </h3>
-            </div>
-            <div class="derecha">
-         <p>
-Teléfono: ${detalleEspecialista.telefono}
-Zona: ${detalleEspecialista.zona}
-Valoración: ${valoracionEspecialista}</p>
-            </div>
-        </div>
-        <div class="fila2">
-            
-            <h4>Descripción:</h4>
-            <p>
-                ${detalleEspecialista.descripcion}
-            </p>
-            
-        </div>
-        <div class="fila3"><button class="boton" onclick="confirmarPedido(${detalleEspecialista.id})">Confirmar</button>
-        </div>
-        <div class="fila4">
-            <h4>Opiniones sobre el profesional</h4>
-            <div class="opiniones">
-                <h5 class="comentarista">${detalleEspecialista.nombre_comentarios}</h5>
-                <p class="comentario">${detalleEspecialista.comentarios}</p>
-            </div>
-        </div>
-    `
+            if(comentarios.length > 0){
+                opiniones = `
+                    <h4>Opiniones sobre el profesional</h4>
+                `
+                comentarios.forEach(comentario => {
+                    opiniones += `
+                        <div class="opiniones">
+                            <h5 class="comentarista">${comentario.nombre_comentario}</h5>
+                            <p class="comentario">${comentario.comentario}</p>
+                        </div>
+                    `
+                })
+            }
 
-    seccionEspecialista.appendChild(especialistaContenido)
+            especialistaContenido.innerHTML = `
+            <div class="fila1">
+                    <div class="imagen"><img class="foto" src="${detalleEspecialista.foto_perfil}" alt="imagen"></div>
+                    <div class="medio">           
+                <h3>
+
+                    ${detalleEspecialista.profesion} 
+                    ${detalleEspecialista.apellido} ${detalleEspecialista.nombre}
+                            </h3>
+                                </div>
+                                <div class="derecha">
+                            <p>
+                    Teléfono: ${detalleEspecialista.telefono}
+                    Zona: ${detalleEspecialista.zona}
+                    Valoración: ${valoracionEspecialista}</p>
+                    </div>
+                </div>
+                <div class="fila2">
+                    
+                    <h4>Descripción:</h4>
+                    <p>
+                        ${detalleEspecialista.descripcion}
+                    </p>
+                    
+                </div>
+                <div class="fila3"><button class="boton" onclick="confirmarPedido(${detalleEspecialista.id})">Confirmar</button>
+                </div>
+                <div class="fila4">
+                    ${opiniones}
+                </div>
+            `
+
+            seccionEspecialista.appendChild(especialistaContenido)
+        })
 }
 
 const confirmarPedido = idEspecialista => {
