@@ -37,7 +37,7 @@ const mostrarEspecialistas = function (listadoEspecialistas) {
         const nuevoEspecialista = document.createElement("div")
         nuevoEspecialista.className = "especialista linea"
         nuevoEspecialista.id = `especialista ${especialista.id}`
-        nuevoEspecialista.setAttribute("onclick", `enviarDetalleEspecailista(${especialista.id})`)
+        nuevoEspecialista.setAttribute("onclick", `enviarDetalleEspecialista(${especialista.id})`)
         nuevoEspecialista.innerHTML =
             `
             <div>
@@ -63,7 +63,7 @@ const mostrarEspecialistas = function (listadoEspecialistas) {
     especialistas.append(...especialistaDisponible)
 }
 
-const enviarDetalleEspecailista = function (idEspecialista) {
+const enviarDetalleEspecialista = function (idEspecialista) {
     sessionStorage.setItem("especialistaDetalle", idEspecialista)
     window.location.replace("../templates/detalle.html")
 }
