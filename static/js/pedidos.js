@@ -33,7 +33,7 @@ const mostrarPedidos = function (listadoPedidosUsuario) {
 
 const cargarPedidos = function () {
 
-    fetch("http://127.0.0.1:5000/solicitarPedidos/" + localStorage.getItem("usuarioLogueado"))
+    fetch("https://fraanbat.pythonanywhere.com/solicitarPedidos/" + localStorage.getItem("usuarioLogueado"))
         .then(response => response.json())
         .then(data => {
         if(data.length === 0){
@@ -48,7 +48,7 @@ const cargarPedidos = function () {
 
 const pedidoRealizado = function (idPedido) {
 
-    let url = "http://127.0.0.1:5000/pedidoRealizado/" + idPedido
+    let url = "https://fraanbat.pythonanywhere.com/pedidoRealizado/" + idPedido
     let options = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' }

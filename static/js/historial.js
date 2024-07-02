@@ -32,7 +32,7 @@ const enviarDetalleHistorial = function (idPedido) {
 }
 
 const obtenerHistorial = function(){
-    fetch("http://127.0.0.1:5000/solicitarHistorial/" + localStorage.getItem("usuarioLogueado"))
+    fetch("https://fraanbat.pythonanywhere.com/solicitarHistorial/" + localStorage.getItem("usuarioLogueado"))
     .then(response => response.json())
     .then(data => {
         if(data.length == 0){
