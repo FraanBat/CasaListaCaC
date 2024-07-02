@@ -8,6 +8,6 @@ document.getElementById("FAQ").addEventListener('click', function(){
 })
 
 document.getElementById("QuienesSomos").addEventListener('click', function(){
-    const equipo = "Desarrolladores:\n- Eduardo Ojeda\n- Franco Andres Riggio\n- Silvia Gomez"
+    const equipo = "Desarrolladores:\n- Eduardo Ojeda\n- Mauro Gabriel Pazos\n- Franco Andres Riggio\n- Silvia Gomez"
     alert(equipo)
 })
