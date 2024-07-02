@@ -1,6 +1,6 @@
 const mostrarDetalleHistorial = function () {
 
-    fetch("http://127.0.0.1:5000/solicitarEspecialistaHistorial/" + sessionStorage.getItem("historialEspecialistaDetalle"))
+    fetch("https://fraanbat.pythonanywhere.com/solicitarEspecialistaHistorial/" + sessionStorage.getItem("historialEspecialistaDetalle"))
     .then(response => response.json())
     .then(detalleHistorial => {
         const seccionHistorialEspecialista = document.getElementById("detalleHistorialEspecialista")
@@ -95,7 +95,7 @@ const valorCalificacion = function(radio){
 }
 
 const eliminarHistorial = function(){
-    const url = "http://127.0.0.1:5000/borrarPedidoHistorial/" + sessionStorage.getItem("historialEspecialistaDetalle")
+    const url = "https://fraanbat.pythonanywhere.com/borrarPedidoHistorial/" + sessionStorage.getItem("historialEspecialistaDetalle")
     const options = {
         method: 'DELETE'
     }
@@ -125,7 +125,7 @@ const enviarCalificacion = function (idProfesional) {
                 profesional_id: idProfesional
             }
 
-            let url = "http://127.0.0.1:5000/nuevaValoracion"
+            let url = "https://fraanbat.pythonanywhere.com/nuevaValoracion"
 
             let options = {
                 body: JSON.stringify(datosCalificacion),

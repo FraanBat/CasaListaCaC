@@ -58,7 +58,7 @@ function validarDatos(){
 }
 
 const cargarPerfilUsuario = function(idUsuario, imagenNuevaUsuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, generoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario, usuarioEspecialidad, descripcionEspecialidad){
-    let url = "http://127.0.0.1:5000/consultaUsuario/" + idUsuario
+    let url = "https://fraanbat.pythonanywhere.com/consultaUsuario/" + idUsuario
     return fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -113,7 +113,7 @@ const actualizarDatosUsuario = function(perfilUsuario){
         descripcion: perfilUsuario.descripcion
     }
 
-    let url= "http://127.0.0.1:5000/actualizarPerfil/" + perfilUsuario.id
+    let url= "https://fraanbat.pythonanywhere.com/actualizarPerfil/" + perfilUsuario.id
     let options = {
         body: JSON.stringify(datosUsuario),
         method: 'PUT',
@@ -169,7 +169,7 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
             }
             else
             {
-                let url = "http://127.0.0.1:5000/correoExistente?mail=" + mailUsuario.value
+                let url = "https://fraanbat.pythonanywhere.com/correoExistente?mail=" + mailUsuario.value
                 return fetch(url)
                 .then(response => response.json())
                 .then(data => 

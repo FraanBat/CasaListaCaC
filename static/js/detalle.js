@@ -2,7 +2,7 @@ const mostrarDetalleEspecialista = function () {
 
     let detalleEspecialista = JSON.parse(sessionStorage.getItem("FiltradoEspecialistaBuscado")).find(especialista => especialista.id === parseInt(sessionStorage.getItem("especialistaDetalle")))
 
-    fetch("http://127.0.0.1:5000/solicitarEspecialistaComentarios/" + sessionStorage.getItem("especialistaDetalle"))
+    fetch("https://fraanbat.pythonanywhere.com/solicitarEspecialistaComentarios/" + sessionStorage.getItem("especialistaDetalle"))
         .then(response => response.json())
         .then(comentarios => {
             const seccionEspecialista = document.getElementById("detalleEspecialista")
@@ -71,7 +71,7 @@ const mostrarDetalleEspecialista = function () {
 
 const confirmarPedido = idEspecialista => {
 
-    let url = "http://127.0.0.1:5000/altaPedido"
+    let url = "https://fraanbat.pythonanywhere.com/altaPedido"
 
     let datosPedido = {
         clienteId: parseInt(localStorage.getItem("usuarioLogueado")),
