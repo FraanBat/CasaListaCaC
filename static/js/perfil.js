@@ -113,6 +113,8 @@ const actualizarDatosUsuario = function(perfilUsuario){
         descripcion: perfilUsuario.descripcion
     }
 
+    console.log(datosUsuario)
+
     let url= "https://fraanbat.pythonanywhere.com/actualizarPerfil/" + perfilUsuario.id
     let options = {
         body: JSON.stringify(datosUsuario),
@@ -147,37 +149,14 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
     if (validarDatos()) {
         campos.textContent = ""
         if(validarEspecialidad(especialidad, usuarioEspecialidad.value, descripcionEspecialidad.value)){
-
-            if(perfilUsuario.mail === mailUsuario.value){
-                perfilUsuario.nombre = nombreUsuario.value
-                perfilUsuario.apellido = apellidoUsuario.value
-                perfilUsuario.zona = zonaUsuario.value
-                perfilUsuario.genero = generoUsuario.value
-                perfilUsuario.telefono = parseInt(telefonoUsuario.value)
-                perfilUsuario.contrasena = contrasenaUsuario.value
-                perfilUsuario.imagen = imagenNuevaUsuario.value
-                if(especialidad) {
-                    perfilUsuario.profesion = usuarioEspecialidad.value
-                    perfilUsuario.descripcion = descripcionEspecialidad.value
-                }
-                else {
-                    perfilUsuario.profesion = null
-                    perfilUsuario.descripcion = null
-                }
-            
-                actualizarDatosUsuario(perfilUsuario)
-            }
-            else
-            {
-                let url = "https://fraanbat.pythonanywhere.com/correoExistente?mail=" + mailUsuario.value
-                return fetch(url)
+            let url = "https://fraanbat.pythonanywhere.com/correoExistente?mail=" + mailUsuario.value
+                fetch(url)
                 .then(response => response.json())
                 .then(data => 
                 {
                     if(data.existe && perfilUsuario.mail !== mailUsuario.value){
                         campos.textContent = "❌ El mail ingresado pertenece a otro usuario "
                         campos.style.color = "red"
-                        return false
                     }
                     else
                     {
@@ -189,19 +168,22 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
                         perfilUsuario.telefono = telefonoUsuario.value
                         perfilUsuario.contrasena = contrasenaUsuario.value
                         perfilUsuario.imagen = imagenNuevaUsuario.value
-                        if(especialidad) {perfilUsuario.profesion = usuarioEspecialidad.value}
-                        else {perfilUsuario.profesion = null}
+                        if(especialidad) {
+                            perfilUsuario.profesion = usuarioEspecialidad.value
+                            perfilUsuario.descripcion = descripcionEspecialidad.value
+                        }
+                        else {
+                            perfilUsuario.profesion = null
+                            perfilUsuario.descripcion = null
+                        }
                     
                         actualizarDatosUsuario(perfilUsuario)
                     }
                 })
-            }
-    
         }
         else{
             campos.textContent = "❌ No ha ingresado ninguna especialidad o una descripción sobre el trabajo que hace"
             campos.style.color = "red"
-            return false
         }
     }
 })
