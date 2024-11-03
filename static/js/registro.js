@@ -56,7 +56,7 @@ document.getElementById("altaUsuario").addEventListener('submit', function (even
 
     event.preventDefault()
     if (validarDatos()) {
-        let url = "https://fraanbat.pythonanywhere.com/correoExistente?mail=" + document.getElementById("mail").value
+        let url = "https://francoriggio.pythonanywhere.com/correoExistente?mail=" + document.getElementById("mail").value
     
         fetch(url)
         .then(response => response.json())
@@ -76,7 +76,7 @@ document.getElementById("altaUsuario").addEventListener('submit', function (even
                     contrasena: document.getElementById("contrasena").value
                 }
                 
-                let url = "https://fraanbat.pythonanywhere.com/altaUsuario"
+                let url = "https://francoriggio.pythonanywhere.com/altaUsuario"
     
                 let options = {
                     body: JSON.stringify(usuarioNuevo),

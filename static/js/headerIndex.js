@@ -53,7 +53,7 @@ if (localStorage.getItem("usuarioLogueado") === null) {
 }
 else {
 
-    let url = "https://fraanbat.pythonanywhere.com/consultaUsuario/" + localStorage.getItem("usuarioLogueado")
+    let url = "https://francoriggio.pythonanywhere.com/consultaUsuario/" + localStorage.getItem("usuarioLogueado")
     
     fetch(url)
     .then(response => response.json())
