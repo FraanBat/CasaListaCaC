@@ -58,7 +58,7 @@ function validarDatos(){
 }
 
 const cargarPerfilUsuario = function(idUsuario, imagenNuevaUsuario, mailUsuario, nombreUsuario, apellidoUsuario, fotoUsuario, telefonoUsuario, generoUsuario, zonaUsuario, contrasenaUsuario, repetirContrasenaUsuario, usuarioEspecialidad, descripcionEspecialidad){
-    let url = "https://fraanbat.pythonanywhere.com/consultaUsuario/" + idUsuario
+    let url = "https://francoriggio.pythonanywhere.com/consultaUsuario/" + idUsuario
     return fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -115,7 +115,7 @@ const actualizarDatosUsuario = function(perfilUsuario){
 
     console.log(datosUsuario)
 
-    let url= "https://fraanbat.pythonanywhere.com/actualizarPerfil/" + perfilUsuario.id
+    let url= "https://francoriggio.pythonanywhere.com/actualizarPerfil/" + perfilUsuario.id
     let options = {
         body: JSON.stringify(datosUsuario),
         method: 'PUT',
@@ -149,7 +149,7 @@ document.getElementById("actualizarDatos").addEventListener('click', function(ev
     if (validarDatos()) {
         campos.textContent = ""
         if(validarEspecialidad(especialidad, usuarioEspecialidad.value, descripcionEspecialidad.value)){
-            let url = "https://fraanbat.pythonanywhere.com/correoExistente?mail=" + mailUsuario.value
+            let url = "https://francoriggio.pythonanywhere.com/correoExistente?mail=" + mailUsuario.value
                 fetch(url)
                 .then(response => response.json())
                 .then(data => 

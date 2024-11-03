@@ -5,7 +5,7 @@ document.getElementById("loginUsuario").addEventListener('submit', function (eve
     let usuario = document.getElementById("mail").value
     let password = document.getElementById("contrasena").value
 
-    let url = "https://fraanbat.pythonanywhere.com/loginUsuario"
+    let url = "https://francoriggio.pythonanywhere.com/loginUsuario"
 
     let data = {
         mail: usuario,
